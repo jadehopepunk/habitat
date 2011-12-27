@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Forester::Application.load_tasks
+SimpleFormBootstrap::Application.load_tasks

@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Forester::Application.config.secret_token = '698abc7b797d0f7e7916acd706e77cda024f4fdc58c8fe212d03f4a76b2c68bd1ebb76561b18cd9f46a1a256b1c008d482cfede2d6413faf914d2eff1c38fbcd'
+SimpleFormBootstrap::Application.config.secret_token = '662ff406d99d71eeec6774183e82e5af4f3c96181ef4f53cb86d942d3a59c418957960f40143fe15b8e328df58c486ead4459911a798521a7b58004052d908ab'
