@@ -17,6 +17,7 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'devise'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -32,5 +33,5 @@ gem 'haml'
 
 group :test do
   # Pretty printed test output
-  gem 'turn', '0.8.2', :require => false
+  gem 'rspec-rails'
 end
