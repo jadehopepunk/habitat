@@ -5,6 +5,16 @@ SimpleForm.setup do |config|
   # add your own to the stack. The options given to the wrappers method
   # are used to wrap the whole input (if any exists).
 
+  config.wrappers :class => 'clearfix', :error_class => :error do |b|
+    b.use :placeholder
+    b.use :label
+    b.use :tag => 'div', :class => 'input' do |ba|
+      ba.use :input
+      ba.use :error, :tag => :span, :class => :'help-inline'
+      ba.use :hint,  :tag => :span, :class => :'help-block'
+    end
+  end
+
   config.wrappers :inline, :class => 'clearfix', :error_class => :error do |b|
     b.use :placeholder
     b.use :label
