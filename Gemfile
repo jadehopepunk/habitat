@@ -19,6 +19,7 @@ gem 'jquery-rails'
 
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'haml'
 
 group :production do
   gem 'pg'

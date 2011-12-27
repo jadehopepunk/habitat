@@ -1,0 +1,21 @@
+- content_for :breadcrumb do
+  %li.active Home
+%h1 Listing articles
+.well
+  = link_to 'New Article', new_article_path, :class => 'btn'
+%table.zebra-striped
+  %thead
+    %tr
+      %th #
+      %th Name
+      %th Content
+      %th &nbsp;
+  %tbody
+    - @articles.each do |article|
+      %tr
+        %td= article.id
+        %td= link_to article.name, article
+        %td= article.content
+        %td
+          = link_to 'Edit', edit_article_path(article)
+          = link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete

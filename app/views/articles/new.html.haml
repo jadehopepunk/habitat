@@ -1,0 +1,9 @@
+- content_for :breadcrumb do
+  %li
+    = link_to "Home", root_path
+    %span.divider /
+  %li.active New article
+%h1
+  New article
+  %small Inline Form
+= render 'form'

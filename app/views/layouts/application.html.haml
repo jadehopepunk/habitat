@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %title SimpleFormBootstrap
+    = stylesheet_link_tag    "application"
+    = csrf_meta_tags
+  %body
+    %header.master
+      .topbar
+        .topbar-inner
+          .container
+            %a.brand{:href => "#"} SimpleForm Bootstrap
+            %ul.nav
+              %li= link_to "Home", root_path
+              %li.dropdown{"data-dropdown" => "dropdown"}
+                %a.dropdown-toggle{:href => "#"} Articles
+                %ul.dropdown-menu
+                  %li= link_to "List", articles_path
+                  %li= link_to "New Article", new_article_path
+    .container
+      %ul.breadcrumb
+        = yield :breadcrumb
+      - if notice
+        .alert-message.success.fade.in{"data-alert" => "alert"}
+          %a.close{:href => "#"} ×
+          %p= notice
+      - if alert
+        .alert-message.success.fade.in{"data-alert" => "alert"}
+          %a.close{:href => "#"} ×
+          %p= alert
+      = yield
+    = javascript_include_tag "application"

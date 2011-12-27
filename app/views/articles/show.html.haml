@@ -1,0 +1,23 @@
+- content_for :breadcrumb do
+  %li
+    = link_to "Home", root_path
+    %span.divider /
+  %li.active= @article.name
+%article
+  %header
+    %h1
+      = @article.name
+      %small= link_to "edit", edit_article_path(@article)
+  .content
+    = @article.content
+  %section#article-comments
+    %h4 Comments
+    %ol#comments
+      - @article.comments.each do |comment|
+        %li
+          %article.comment
+            .comment-name
+              %strong= comment.name
+            .comment-body
+              %p= comment.body
+    = render 'articles/comments/form'
