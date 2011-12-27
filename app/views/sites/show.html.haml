@@ -4,13 +4,19 @@
     %span.divider /
   %li.active= @site.name
 %article
-  %header
-    %h1
-      = @site.name
-      %small= link_to "edit", edit_site_path(@site)
   .content
     .row
       .span6
         = gmaps4rails(@json)
       .span8
-        some content goes here
+        %header
+          %h1
+            = @site.name
+            %small= link_to "edit", edit_site_path(@site)
+        %dl
+          %dt Address
+          %dd
+            %address
+              = @site.address
+          %dt Climate zone
+          %dd= @site.climate_zone

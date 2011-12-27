@@ -1,7 +1,11 @@
 .map_container {
   width: auto;
 
-  .gmaps4rails_map {
+  #map {
     width: auto;
   }  
+}
+
+.span6 > .map_container > #map {
+  height: 230px;
 }
