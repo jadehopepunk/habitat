@@ -1,0 +1,10 @@
+= simple_form_for @site, :wrapper => :inline do |f|
+  - if f.error_notification
+    .alert-message.warning.fade.in{"data-alert" => "alert"}
+      %a.close{:href => "#"} ×
+      %p= f.error_notification
+  = field_set_tag "Site" do
+    = f.input :name, :input_html => { :class => "span12" }, :hint => "add your site title here"
+  .actions
+    = f.button :submit, :class => 'primary'
+    = button_tag 'Cancel', :type => :reset, :class => "btn"

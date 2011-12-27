@@ -1,0 +1,8 @@
+- content_for :breadcrumb do
+  %li
+    = link_to "Sites", root_path
+    %span.divider /
+  %li.active Edit site
+%h1
+  Editing site
+= render 'form'
