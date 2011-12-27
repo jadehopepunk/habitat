@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: f712d07b23d25ecbb21c858981dc73343bb3e19c
+  specs:
+    devise (2.0.0.rc)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.1)
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: a27e2231c9d29a1ac0fe9a57f52e92c48e1aa0f6
   specs:
@@ -63,6 +72,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     multi_json (1.0.3)
+    orm_adapter (0.0.5)
     pg (0.11.0)
     polyglot (0.3.2)
     rack (1.3.2)
@@ -110,12 +120,15 @@ GEM
     uglifier (1.0.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    warden (1.1.0)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (~> 3.1.0)
+  devise!
   jquery-rails
   json
   pg
