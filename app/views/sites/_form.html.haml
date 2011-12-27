@@ -7,6 +7,8 @@
     = f.input :name, :input_html => { :class => "span8" }, :hint => "add your site title here"
     = f.input :address, :input_html => { :class => "span8" }
     = f.input :climate_zone, :collection => Site::CLIMATE_ZONES
+    = f.input :size
+    = f.input :size_units, :collection => Site::SIZE_UNITS
   .actions
     = f.button :submit, :class => 'primary'
     = button_tag 'Cancel', :type => :reset, :class => "btn"

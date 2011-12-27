@@ -49,6 +49,8 @@ GEM
       multi_json (~> 1.0)
     arel (2.2.1)
     bcrypt-ruby (3.0.0)
+    bootstrap-sass (1.4.3)
+      sass-rails (~> 3.1)
     builder (3.0.0)
     coffee-rails (3.1.0)
       coffee-script (>= 2.2.0)
@@ -136,6 +138,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 1.4.3)
   coffee-rails (~> 3.1.0)
   devise!
   gmaps4rails

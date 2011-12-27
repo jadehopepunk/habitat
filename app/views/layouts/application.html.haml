@@ -5,24 +5,19 @@
     = stylesheet_link_tag "application"
     = csrf_meta_tags
   %body
-    %header.master
-      .topbar
-        .topbar-inner
-          .container
-            %a.brand{:href => "/"} Creating a Forest Garden
-            %ul.nav
-              %li= link_to "Home", root_path
-              %li.dropdown{"data-dropdown" => "dropdown"}
-                %a.dropdown-toggle{:href => "#"} Sites
-                %ul.dropdown-menu
-                  %li= link_to "List", sites_path
-                  %li= link_to "New Site", new_site_path
-              %li.dropdown{"data-dropdown" => "dropdown"}
-                %a.dropdown-toggle{:href => "#"} Articles
-                %ul.dropdown-menu
-                  %li= link_to "List", articles_path
-                  %li= link_to "New Article", new_article_path
+    .topbar
+      .topbar-inner
+        .container
+          %a.brand{:href => "/"} Creating a Forest Garden
+          %ul.nav
+            %li= link_to "Home", root_path
+            %li.dropdown{"data-dropdown" => "dropdown"}
+              %a.dropdown-toggle{:href => "#"} Sites
+              %ul.dropdown-menu
+                %li= link_to "List", sites_path
+                %li= link_to "New Site", new_site_path
     .container
+      %p breadcrumb below here
       %ul.breadcrumb
         = yield :breadcrumb
       - if notice

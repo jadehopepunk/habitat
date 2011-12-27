@@ -6,5 +6,5 @@ SimpleFormBootstrap::Application.routes.draw do
     resources :comments, :only => :create, :controller => 'articles/comments'
   end
 
-  root :to => 'articles#index'
+  root :to => 'sites#index'
 end

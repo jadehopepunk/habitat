@@ -6,8 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-alerts-1.3.0
-//= require bootstrap-dropdown-1.3.0
+//= require bootstrap-alerts
+//= require bootstrap-dropdown
 //= require gmaps4rails/googlemaps.js
 //= require_tree .
 //

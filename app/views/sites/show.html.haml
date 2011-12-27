@@ -7,16 +7,25 @@
   .content
     .row
       .span6
+        %h3 Site Location
         = gmaps4rails(@json)
       .span8
         %header
           %h1
             = @site.name
             %small= link_to "edit", edit_site_path(@site)
-        %dl
-          %dt Address
-          %dd
-            %address
-              = @site.address
-          %dt Climate zone
-          %dd= @site.climate_zone
+        %table
+          %thead
+            %tbody
+              - unless @site.address.blank?
+                %tr
+                  %td Address
+                  %td= @site.address
+              - unless @site.climate_zone.blank?
+                %tr
+                  %td Climate zone
+                  %td= @site.climate_zone
+              - unless @site.size_with_unit.blank?
+                %tr
+                  %td Size
+                  %td= @site.size_with_unit
