@@ -3,17 +3,4 @@
 %h1 Listing sites
 .well
   = link_to 'New Site', new_site_path, :class => 'btn'
-%table.zebra-striped
-  %thead
-    %tr
-      %th #
-      %th Name
-      %th &nbsp;
-  %tbody
-    - @sites.each do |site|
-      %tr
-        %td= site.id
-        %td= link_to site.name, site
-        %td
-          = link_to 'Edit', edit_site_path(site)
-          = link_to 'Destroy', site, :confirm => 'Are you sure?', :method => :delete
+= render :partial => 'table'
