@@ -17,7 +17,10 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
-gem 'devise'
+gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'formtastic-bootstrap'
+gem 'bootstrap-sass', '~> 1.4.3'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
