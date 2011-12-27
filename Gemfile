@@ -17,7 +17,7 @@ gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem 'haml'
 gem 'inherited_resources'
 gem 'sqlite3', :group => [:test, :development]
-gem 'bootstrap-sass', '~> 1.4.3'
+gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem 'gmaps4rails'
 

@@ -5,7 +5,7 @@
     = stylesheet_link_tag "application"
     = csrf_meta_tags
   %body
-    .topbar
+    .topbar{'data-scrollspy' => 'scrollspy'}
       .topbar-inner
         .container
           %a.brand{:href => "/"} Creating a Forest Garden
@@ -16,8 +16,7 @@
               %ul.dropdown-menu
                 %li= link_to "List", sites_path
                 %li= link_to "New Site", new_site_path
-    .container
-      %p breadcrumb below here
+    .container.below_topbar
       %ul.breadcrumb
         = yield :breadcrumb
       - if notice
