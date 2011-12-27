@@ -1,10 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
 gem 'json'
 
 # Gems used only for assets and not required
@@ -16,17 +12,18 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem 'haml'
 gem 'inherited_resources'
+gem 'sqlite3', :group => [:test, :development]
+
+gem 'gmaps4rails'
 
 group :production do
   gem 'pg'
 end
 
-gem 'sqlite3', :group => [:test, :development]
 
 # Use unicorn as the web server
 # gem 'unicorn'

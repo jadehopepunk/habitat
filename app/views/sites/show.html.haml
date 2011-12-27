@@ -9,4 +9,5 @@
       = @site.name
       %small= link_to "edit", edit_site_path(@site)
   .content
+    = gmaps4rails(@json)
     some content goes here

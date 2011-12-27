@@ -4,7 +4,8 @@
       %a.close{:href => "#"} ×
       %p= f.error_notification
   = field_set_tag "Site" do
-    = f.input :name, :input_html => { :class => "span12" }, :hint => "add your site title here"
+    = f.input :name, :input_html => { :class => "span8" }, :hint => "add your site title here"
+    = f.input :address, :input_html => { :class => "span8" }
   .actions
     = f.button :submit, :class => 'primary'
     = button_tag 'Cancel', :type => :reset, :class => "btn"
