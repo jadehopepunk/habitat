@@ -14,7 +14,7 @@
           = n.item 'Implement', :link => '/', :disabled_if => proc { true }
           = n.item 'Maintain', :link => '/', :disabled_if => proc { true }
       - elsif params[:controller] != 'sites'
-        = render_crumbs(:format => :html_list, :ul_class => 'breadcrumb', :active_li_class => 'active', :separator => content_tag(:span, ' / ', :class => 'divider')).html_safe
+        = render_breadcrumbs
 
       = render :partial => 'layouts/notice'
       = yield

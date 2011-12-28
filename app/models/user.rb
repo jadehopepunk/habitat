@@ -11,5 +11,8 @@ class User < ActiveRecord::Base
   
   has_one :site, :dependent => :destroy
   
+  attr_accessible :name
+  
   validates_inclusion_of :role, :in => ROLES, :allow_blank => true
+  validates_presence_of :name
 end

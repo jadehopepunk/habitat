@@ -1,3 +1,5 @@
+require "bundler/capistrano"
+
 set :application, "forester"
 set :scm, :git
 set :repository, "git@github.com:craigambrose/forester.git"
@@ -30,3 +32,4 @@ def link_from_shared_to_current(path, dest_path = path)
   dst_path = "#{release_path}/#{dest_path}"
   run "for f in `ls #{src_path}/` ; do ln -nsf #{src_path}/$f #{dst_path}/$f ; done"
 end
+
