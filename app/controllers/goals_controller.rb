@@ -1,9 +1,14 @@
-class GoalsController < InheritedResources::Base
-  load_and_authorize_resource
-  belongs_to :site
+class GoalsController < ApplicationController
+  before_filter :load_site
   
   def index
-    @site = Site.find(params[:site_id])
   end
+  
+  private
+  
+    def load_site
+      @site = Site.find(params[:site_id])
+      authorize! :read, @site
+    end
 
 end

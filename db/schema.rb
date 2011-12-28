@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228195924) do
+ActiveRecord::Schema.define(:version => 20111228213350) do
 
   create_table "goals", :force => true do |t|
     t.integer  "site_id"
@@ -60,5 +60,18 @@ ActiveRecord::Schema.define(:version => 20111228195924) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "yield_goals", :force => true do |t|
+    t.integer  "use_id"
+    t.integer  "site_id"
+    t.float    "amount"
+    t.string   "amount_unit"
+    t.float    "period"
+    t.string   "period_unit"
+    t.float    "lead_time_in_years"
+    t.text     "details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
