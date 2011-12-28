@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111227221849) do
+ActiveRecord::Schema.define(:version => 20111228004508) do
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(:version => 20111227221849) do
     t.string   "climate_zone"
     t.float    "size"
     t.string   "size_units"
+    t.text     "soil_type"
+    t.text     "solar_aspect"
+    t.text     "weather_conditions"
+    t.text     "other_considerations"
   end
 
   create_table "users", :force => true do |t|

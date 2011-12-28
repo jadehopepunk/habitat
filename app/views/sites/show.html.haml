@@ -14,13 +14,16 @@
             %tbody
               - unless @site.address.blank?
                 %tr
-                  %td Address
+                  %td
+                    %strong Address
                   %td= @site.address
-              - unless @site.climate_zone.blank?
                 %tr
-                  %td Climate zone
-                  %td= @site.climate_zone
-              - unless @site.size_with_unit.blank?
-                %tr
-                  %td Size
-                  %td= @site.size_with_unit
+                  %td
+                    %strong Lat / Lon
+                  %td= "#{@site.lat} / #{@site.lng}"
+              = attribute_row(@site, :climate_zone)
+              = attribute_row(@site, :size_with_unit, :label => 'Size')
+              = attribute_row(@site, :soil_type)
+              = attribute_row(@site, :solar_aspect)
+              = attribute_row(@site, :weather_conditions)
+              = attribute_row(@site, :other_considerations)
