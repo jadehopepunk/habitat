@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  ROLES = %w(user admin)
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,4 +10,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
   has_one :site, :dependent => :destroy
+  
+  validates_inclusion_of :role, :in => ROLES, :allow_blank => true
 end

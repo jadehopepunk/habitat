@@ -1,0 +1,10 @@
+= simple_form_for [:admin, @user], :wrapper => :inline, :html => {:multipart => true} do |f|
+  - if f.error_notification
+    .alert-message.warning.fade.in{"data-alert" => "alert"}
+      %a.close{:href => "#"} ×
+      %p= f.error_notification
+  = f.input :email
+  = f.input :role, :collection => User::ROLES
+  .actions
+    = f.button :submit, :class => 'primary'
+    = link_to 'Cancel', admin_users_path, :class => "btn"
