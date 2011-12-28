@@ -11,27 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228070811) do
-
-  create_table "articles", :force => true do |t|
-    t.string   "name"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "content_type"
-    t.string   "disabled_text"
-    t.boolean  "published"
-  end
-
-  create_table "comments", :force => true do |t|
-    t.string   "name",       :null => false
-    t.text     "body",       :null => false
-    t.integer  "article_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["article_id"], :name => "index_comments_on_article_id"
+ActiveRecord::Schema.define(:version => 20111228071356) do
 
   create_table "goals", :force => true do |t|
     t.integer  "site_id"
