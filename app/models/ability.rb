@@ -4,7 +4,10 @@ class Ability
   def initialize(user)
     if user
       can :manage, User, :id => user.id
+
+      can :create, Site
       can :manage, Site, :user_id => user.id
+
       can :manage, Goal, {:site => {:user_id => user.id}}
 
       if user.role == 'admin'

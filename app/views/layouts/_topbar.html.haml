@@ -9,7 +9,7 @@
           - else
             %li= link_to "New Site", new_site_path
 
-          - if can?(:manage, Site) || can?(:manage, User)
+          - if current_user.role == 'admin'
             %li.dropdown{"data-dropdown" => "dropdown"}
               %a.dropdown-toggle{:href => "#"} Admin
               %ul.dropdown-menu
