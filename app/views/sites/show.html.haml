@@ -1,14 +1,11 @@
 %article
   .content
+    %header
+      %h1
+        = @site.name
+        %small= link_to "edit", edit_site_path(@site)
     .row
-      .span6
-        %h3 Site Location
-        = gmaps4rails(@json)
-      .span8
-        %header
-          %h1
-            = @site.name
-            %small= link_to "edit", edit_site_path(@site)
+      .span10
         %table
           %thead
             %tbody
@@ -27,8 +24,11 @@
               = attribute_row(@site, :solar_aspect)
               = attribute_row(@site, :weather_conditions)
               = attribute_row(@site, :other_considerations)
+      .span6
+        = gmaps4rails(@json)
+        %br
         - if @site.photo_uid
           %ul.media-grid
             %li
               = link_to @site.photo.url do
-                = image_tag @site.photo.thumb('500x300#').url
+                = image_tag @site.photo.thumb('330x230#').url

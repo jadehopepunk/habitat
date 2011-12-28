@@ -5,13 +5,11 @@
   %body
     = render :partial => 'layouts/topbar'
     .container.below_topbar
-      / = render_crumbs(:format => :html_list, :ul_class => 'breadcrumb', :active_li_class => 'active', :separator => content_tag(:span, ' / ', :class => 'divider')).html_safe
-      
       %ul.tabs
         %li.active
-          = link_to 'Site', '#'
+          = link_to 'Site', site_path(@site)
         %li 
-          = link_to 'Goals', '#'
+          = link_to 'Goals', site_goals_path(@site)
         %li.not_implemented
           = link_to 'Elements', '#', :rel => 'twipsy', :'data-original-title' => "This section is not implemented yet", :'data-placement' => 'below'
         %li.not_implemented
@@ -20,6 +18,8 @@
           = link_to 'Implement', '#', :rel => 'twipsy', :'data-original-title' => "This section is not implemented yet", :'data-placement' => 'below'
         %li.not_implemented
           = link_to 'Maintain', '#', :rel => 'twipsy', :'data-original-title' => "This section is not implemented yet", :'data-placement' => 'below'
+
+      / = render_crumbs(:format => :html_list, :ul_class => 'breadcrumb', :active_li_class => 'active', :separator => content_tag(:span, ' / ', :class => 'divider')).html_safe
 
       = render :partial => 'layouts/notice'
       = yield
