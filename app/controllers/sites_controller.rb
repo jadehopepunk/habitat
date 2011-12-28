@@ -1,5 +1,5 @@
-class SitesController < ApplicationController
-  inherit_resources
+class SitesController < InheritedResources::Base
+  load_and_authorize_resource
   
   add_crumb("Sites") { |instance| instance.send :sites_path }
   add_crumb(lambda {|instance| instance.resource_display_name}, :only => [:show, :edit, :update])

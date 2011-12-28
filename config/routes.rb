@@ -9,5 +9,5 @@ SimpleFormBootstrap::Application.routes.draw do
     resources :goals
   end
   
-  root :to => 'sites#index'
+  root :to => 'home#index'
 end

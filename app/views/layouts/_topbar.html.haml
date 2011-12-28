@@ -3,12 +3,20 @@
     .container
       %a.brand{:href => "/"} Creating a Forest Garden
       %ul.nav
-        %li.dropdown{"data-dropdown" => "dropdown"}
-          %a.dropdown-toggle{:href => "#"} Sites
-          %ul.dropdown-menu
-            %li= link_to "List", sites_path
+        - if user_signed_in?
+          - if current_user.site
+            %li= link_to "Site", site_path(current_user.site)
+          - else
             %li= link_to "New Site", new_site_path
-        %li= link_to "Users", admin_users_path
+
+          - if can?(:manage, Site) || can?(:manage, User)
+            %li.dropdown{"data-dropdown" => "dropdown"}
+              %a.dropdown-toggle{:href => "#"} Admin
+              %ul.dropdown-menu
+                - if can?(:manage, Site)
+                  %li= link_to "Sites", sites_path
+                - if can?(:manage, User)
+                  %li= link_to "Users", admin_users_path
       .pull-right
         %ul.nav
           - if current_user

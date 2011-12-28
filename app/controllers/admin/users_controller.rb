@@ -1,5 +1,5 @@
-class Admin::UsersController < ApplicationController
-  inherit_resources
+class Admin::UsersController < InheritedResources::Base
+  load_and_authorize_resource
   actions :all, :except => :show
 
   add_crumb("Users") { |instance| instance.send :admin_users_path }

@@ -1,8 +1,6 @@
-class GoalsController < ApplicationController
-  inherit_resources
+class GoalsController < InheritedResources::Base
+  load_and_authorize_resource
   belongs_to :site
-
-  layout 'site'
   
   def index
     @site = Site.find(params[:site_id])
