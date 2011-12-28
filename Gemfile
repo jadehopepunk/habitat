@@ -17,13 +17,13 @@ gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem "cancan"
 gem 'haml'
 gem 'inherited_resources'
-gem 'sqlite3', :group => [:test, :development]
 gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'gmaps4rails'
 gem 'crummy'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly'
 gem 'navigasmic'
+gem 'mysql'
 
 group :production do
   gem 'pg'
