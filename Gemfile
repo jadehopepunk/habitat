@@ -18,8 +18,8 @@ gem 'haml'
 gem 'inherited_resources'
 gem 'sqlite3', :group => [:test, :development]
 gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
-
 gem 'gmaps4rails'
+gem 'crummy'
 
 group :production do
   gem 'pg'

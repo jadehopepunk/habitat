@@ -17,8 +17,7 @@
                 %li= link_to "List", sites_path
                 %li= link_to "New Site", new_site_path
     .container.below_topbar
-      %ul.breadcrumb
-        = yield :breadcrumb
+      = render_crumbs(:format => :html_list, :ul_class => 'breadcrumb', :active_li_class => 'active', :separator => content_tag(:span, ' / ', :class => 'divider')).html_safe
       - if notice
         .alert-message.success.fade.in{"data-alert" => "alert"}
           %a.close{:href => "#"} ×

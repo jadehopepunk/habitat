@@ -17,6 +17,10 @@ class Site < ActiveRecord::Base
     end
   end
 
+  def display_name
+    name
+  end
+  
   protected
 
     def prevent_geocoding?
