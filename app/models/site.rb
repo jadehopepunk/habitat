@@ -6,6 +6,8 @@ class Site < ActiveRecord::Base
                     :address => "address", :normalized_address => "address",
                     :msg => "Sorry, not even Google could figure out where that is"
 
+  image_accessor :photo
+
   validates_presence_of :name
   validates_inclusion_of :climate_zone, :in => CLIMATE_ZONES, :allow_blank => true
   validates_inclusion_of :size_units, :in => SIZE_UNITS, :allow_blank => true

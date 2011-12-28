@@ -1,4 +1,4 @@
-= simple_form_for @site, :wrapper => :inline do |f|
+= simple_form_for @site, :wrapper => :inline, :html => {:multipart => true} do |f|
   - if f.error_notification
     .alert-message.warning.fade.in{"data-alert" => "alert"}
       %a.close{:href => "#"} ×
@@ -6,6 +6,11 @@
   = field_set_tag "Site" do
     = f.input :name, :input_html => { :class => "span8" }, :hint => "add your site title here"
     = f.input :address, :input_html => { :class => "span8" }
+    = f.input :photo do
+      .existing_image
+        = image_tag @site.photo.thumb('100x100').url if @site.photo_uid
+      = f.file_field :photo
+      = f.hidden_field :retained_photo
     = f.input :climate_zone, :collection => Site::CLIMATE_ZONES
     = f.input :size
     = f.input :size_units, :collection => Site::SIZE_UNITS

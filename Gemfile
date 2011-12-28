@@ -20,6 +20,8 @@ gem 'sqlite3', :group => [:test, :development]
 gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'gmaps4rails'
 gem 'crummy'
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly'
 
 group :production do
   gem 'pg'

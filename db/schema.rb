@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228004508) do
+ActiveRecord::Schema.define(:version => 20111228011403) do
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20111228004508) do
     t.text     "solar_aspect"
     t.text     "weather_conditions"
     t.text     "other_considerations"
+    t.string   "photo_uid"
   end
 
   create_table "users", :force => true do |t|

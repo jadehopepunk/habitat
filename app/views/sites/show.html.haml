@@ -27,3 +27,8 @@
               = attribute_row(@site, :solar_aspect)
               = attribute_row(@site, :weather_conditions)
               = attribute_row(@site, :other_considerations)
+        - if @site.photo_uid
+          %ul.media-grid
+            %li
+              = link_to @site.photo.url do
+                = image_tag @site.photo.thumb('500x300#').url
