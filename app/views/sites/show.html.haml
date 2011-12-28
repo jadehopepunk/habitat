@@ -26,10 +26,9 @@
               = attribute_row(@site, :weather_conditions, :line_breaks => true)
               = attribute_row(@site, :other_considerations, :line_breaks => true)
       .span6
-        = gmaps4rails(@json)
-        %br
         - if @site.photo_uid
           %ul.media-grid
             %li
               = link_to @site.photo.url do
                 = image_tag @site.photo.thumb('330x230#').url
+        = site_map(@site)
