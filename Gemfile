@@ -29,13 +29,7 @@ group :production do
   gem 'pg'
 end
 
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
+group :development do
+  gem 'capistrano'
+end
 
