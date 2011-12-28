@@ -8,6 +8,7 @@ class Site < ActiveRecord::Base
 
   image_accessor :photo
 
+  has_many :yield_goals, :dependent => :destroy
   has_many :goals, :dependent => :destroy
   belongs_to :user
 

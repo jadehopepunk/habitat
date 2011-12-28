@@ -1,4 +1,4 @@
-= simple_form_for [@site, @goal], :wrapper => :inline, :html => {:multipart => true} do |f|
+= simple_form_for [@site, @yield_goal], :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
   = f.input :details, :input_html => {:rows => 2, :class => 'xxlarge'}
   .actions

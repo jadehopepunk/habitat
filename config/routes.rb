@@ -7,6 +7,7 @@ SimpleFormBootstrap::Application.routes.draw do
 
   resources :sites do
     resources :goals
+    resources :yield_goals
   end
   
   root :to => 'home#index'
