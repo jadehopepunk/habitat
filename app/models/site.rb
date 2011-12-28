@@ -27,6 +27,12 @@ class Site < ActiveRecord::Base
     name
   end
   
+  def hemisphere
+    if lat && lng
+      lat >= 0 ? 'northern' : 'southern'
+    end
+  end
+  
   protected
 
     def prevent_geocoding?

@@ -18,12 +18,13 @@
                   %td
                     %strong Lat / Lon
                   %td= "#{@site.lat} / #{@site.lng}"
+              = attribute_row(@site, :hemisphere)
               = attribute_row(@site, :climate_zone)
               = attribute_row(@site, :size_with_unit, :label => 'Size')
-              = attribute_row(@site, :soil_type)
-              = attribute_row(@site, :solar_aspect)
-              = attribute_row(@site, :weather_conditions)
-              = attribute_row(@site, :other_considerations)
+              = attribute_row(@site, :soil_type, :line_breaks => true)
+              = attribute_row(@site, :solar_aspect, :line_breaks => true)
+              = attribute_row(@site, :weather_conditions, :line_breaks => true)
+              = attribute_row(@site, :other_considerations, :line_breaks => true)
       .span6
         = gmaps4rails(@json)
         %br
