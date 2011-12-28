@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    = render :partial => 'layouts/head'
+  %body
+    = render :partial => 'layouts/topbar'
+    .container.below_topbar
+      / = render_crumbs(:format => :html_list, :ul_class => 'breadcrumb', :active_li_class => 'active', :separator => content_tag(:span, ' / ', :class => 'divider')).html_safe
+      
+      %ul.tabs
+        %li.active
+          = link_to 'Site', '#'
+        %li 
+          = link_to 'Goals', '#'
+        %li.not_implemented
+          = link_to 'Elements', '#', :rel => 'twipsy', :'data-original-title' => "This section is not implemented yet", :'data-placement' => 'below'
+        %li.not_implemented
+          = link_to 'Design', '#', :rel => 'twipsy', :'data-original-title' => "This section is not implemented yet", :'data-placement' => 'below'
+        %li.not_implemented
+          = link_to 'Implement', '#', :rel => 'twipsy', :'data-original-title' => "This section is not implemented yet", :'data-placement' => 'below'
+        %li.not_implemented
+          = link_to 'Maintain', '#', :rel => 'twipsy', :'data-original-title' => "This section is not implemented yet", :'data-placement' => 'below'
+
+      = render :partial => 'layouts/notice'
+      = yield
+    = render :partial => 'layouts/footer'
