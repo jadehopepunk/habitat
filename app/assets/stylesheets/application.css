@@ -6,6 +6,6 @@
  *= require gmaps4rails
  *= require mapping
  *= require twitter/bootstrap
- *= require articles
+ *= require record_presentation
  *= require_tree .
 */
