@@ -3,12 +3,14 @@
     %tr
       %th #
       %th Name
+      %th User
       %th &nbsp;
   %tbody
     - @sites.each do |site|
       %tr
         %td= site.id
         %td= link_to site.name, site
+        %td= site.user.email if site.user
         %td
           = link_to 'Edit', edit_site_path(site)
           = link_to 'Destroy', site, :confirm => 'Are you sure?', :method => :delete

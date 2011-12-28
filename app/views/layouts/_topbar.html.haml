@@ -3,9 +3,16 @@
     .container
       %a.brand{:href => "/"} Creating a Forest Garden
       %ul.nav
-        %li= link_to "Home", root_path
         %li.dropdown{"data-dropdown" => "dropdown"}
           %a.dropdown-toggle{:href => "#"} Sites
           %ul.dropdown-menu
             %li= link_to "List", sites_path
             %li= link_to "New Site", new_site_path
+        %li= link_to "Users", admin_users_path
+      .pull-right
+        %ul.nav
+          - if current_user
+            %li= link_to "Log-out", '/users/sign_out', :method => :delete
+          - else
+            %li= link_to "Log-in", '/users/sign_in'
+            %li= link_to "Sign-up", '/users/sign_up'

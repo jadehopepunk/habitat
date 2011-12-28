@@ -1,8 +1,6 @@
 class SitesController < ApplicationController
   inherit_resources
   
-  layout 'site'
-  
   add_crumb("Sites") { |instance| instance.send :sites_path }
   add_crumb(lambda {|instance| instance.resource_display_name}, :only => [:show, :edit, :update])
   add_crumb('New Site', :only => [:new, :create])

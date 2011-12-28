@@ -8,8 +8,10 @@ class Site < ActiveRecord::Base
 
   image_accessor :photo
 
-  has_many :goals
+  has_many :goals, :dependent => :destroy
+  belongs_to :user
 
+  validates_presence_of :user
   validates_presence_of :name
   validates_inclusion_of :climate_zone, :in => CLIMATE_ZONES, :allow_blank => true
   validates_inclusion_of :size_units, :in => SIZE_UNITS, :allow_blank => true

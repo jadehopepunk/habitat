@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228071356) do
+ActiveRecord::Schema.define(:version => 20111228074129) do
 
   create_table "goals", :force => true do |t|
     t.integer  "site_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20111228071356) do
     t.text     "weather_conditions"
     t.text     "other_considerations"
     t.string   "photo_uid"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

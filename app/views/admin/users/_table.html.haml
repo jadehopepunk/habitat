@@ -1,0 +1,14 @@
+%table.zebra-striped.bordered-table
+  %thead
+    %tr
+      %th #
+      %th Email
+      %th &nbsp;
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.id
+        %td= user.email
+        %td
+          = link_to 'Edit', edit_admin_user_path(user)
+          = link_to 'Destroy', [:admin, user], :confirm => 'Are you sure?', :method => :delete
