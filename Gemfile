@@ -22,6 +22,7 @@ gem 'gmaps4rails'
 gem 'crummy'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly'
+gem 'navigasmic'
 
 group :production do
   gem 'pg'
