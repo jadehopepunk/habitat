@@ -17,11 +17,12 @@
     %br
     = render :partial => 'labour_input_goals/table', :locals => {:labour_input_goals => @site.labour_input_goals}
 
-    %h2
-      Budget
-      %small Finances broken down by project stage
-    %br
-    = render :partial => 'budget_table'
+    .unimplemented
+      %h2
+        Budget
+        %small Finances broken down by project stage
+      %br
+      = render :partial => 'budget_table'
     
   .span6
     %h2 Be Realistic
