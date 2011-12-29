@@ -1,4 +1,5 @@
-- if notice
-  .alert-message.success.fade.in{"data-alert" => "alert"}
+- flash.each do |type, message|
+  %div.alert-message.fade.in{ "data-alert" => "alert", :class => bootstrap_flash_message_type(type) }
     %a.close{:href => "#"} ×
-    %p= notice
+    %p
+      = message    
