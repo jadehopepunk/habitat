@@ -11,11 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229013436) do
+ActiveRecord::Schema.define(:version => 20111229214906) do
 
   create_table "goals", :force => true do |t|
     t.integer  "site_id"
     t.text     "details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "labour_input_goals", :force => true do |t|
+    t.integer  "job_id"
+    t.float    "amount"
+    t.string   "amount_unit"
+    t.string   "period"
+    t.string   "stage",       :default => "mature"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

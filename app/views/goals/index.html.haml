@@ -1,7 +1,7 @@
 %h1 Your Goals
 .well
   = link_to 'New Yield', new_site_yield_goal_path(@site), :class => 'btn'
-  = link_to 'New Input', '#', :class => 'btn'
+  = link_to 'New Labour Input', new_site_labour_input_goal_path(@site), :class => 'btn'
   = link_to 'Edit Budget', '#', :class => 'btn'
 .row
   .span10
@@ -12,8 +12,8 @@
     = render :partial => 'yield_goals/table', :locals => {:yield_goals => @site.yield_goals}
     
     %h2
-      Desired Inputs
-      %small How much do you want to have to put in?
+      Labour Inputs
+      %small How much work do you want to have to put in?
     %br
     = render :partial => 'inputs_table'
 

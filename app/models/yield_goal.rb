@@ -4,7 +4,7 @@ class YieldGoal < ActiveRecord::Base
   COMMON_VOLUME_UNITS = %w(m^3 L gal)
   COMMON_WEIGHT_UNITS = %w(kg lb)
   SPECIAL_USE_UNITS = %w(varieties)
-  COMMON_TIME_UNITS = %w(week month year decade century)
+  COMMON_TIME_UNITS = %w(day week month year decade century)
   
   belongs_to :site
   belongs_to :use
