@@ -15,7 +15,7 @@ class LabourInputGoal < ActiveRecord::Base
   end
   
   def job_name=(value)
-    job = (value.blank? ? nil : Job.find_or_initialize_by_name(value))
+    self.job = (value.blank? ? nil : Job.find_or_initialize_by_name(value))
   end
 
   def amount_period_string

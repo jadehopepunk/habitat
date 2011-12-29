@@ -6,11 +6,11 @@
       - if can?(:manage, Use)
         %th &nbsp;
   %tbody
-    - @uses.each do |uses|
+    - @uses.each do |use|
       %tr
-        %td= uses.id
-        %td= uses.name
+        %td= use.id
+        %td= use.name
         - if can?(:manage, Use)
           %td
-            = link_to 'Edit', edit_use_path(uses)
-            = link_to 'Destroy', uses, :confirm => 'Are you sure?', :method => :delete
+            = link_to 'Edit', edit_use_path(use)
+            = link_to 'Destroy', use, :confirm => 'Are you sure?', :method => :delete

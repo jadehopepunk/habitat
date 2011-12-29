@@ -1,0 +1,16 @@
+%table.zebra-striped.bordered-table
+  %thead
+    %tr
+      %th #
+      %th Name
+      - if can?(:manage, Job)
+        %th &nbsp;
+  %tbody
+    - @jobs.each do |job|
+      %tr
+        %td= job.id
+        %td= job.name
+        - if can?(:manage, Job)
+          %td
+            = link_to 'Edit', edit_job_path(job)
+            = link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete

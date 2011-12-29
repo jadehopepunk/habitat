@@ -1,7 +1,7 @@
-= simple_form_for @use, :wrapper => :inline do |f|
+= simple_form_for @job, :wrapper => :inline do |f|
   = form_errors(f)
   .inputs
   = f.input :name, :input_html => { :class => "span8" }
   .actions
     = f.button :submit, :class => 'primary'
-    = link_to 'Cancel', uses_path, :class => "btn"
+    = link_to 'Cancel', jobs_path, :class => "btn"

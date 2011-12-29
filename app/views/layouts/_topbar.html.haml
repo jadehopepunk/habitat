@@ -19,6 +19,8 @@
                   %li= link_to "Users", admin_users_path
                 - if can?(:manage, Use)
                   %li= link_to "Uses", uses_path
+                - if can?(:manage, Job)
+                  %li= link_to "Jobs", jobs_path
       .pull-right
         %ul.nav
           - if current_user
