@@ -1,3 +1,4 @@
+
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   # Wrappers are used by the form builder to generate a complete input.
@@ -128,3 +129,5 @@ SimpleForm.setup do |config|
   # Default class for buttons
   config.button_class = 'btn'
 end
+
+require 'inputs/amount_with_unit_input'

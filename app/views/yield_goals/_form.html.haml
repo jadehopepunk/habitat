@@ -1,6 +1,9 @@
 = simple_form_for [@site, @yield_goal], :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
-  = f.input :details, :input_html => {:rows => 2, :class => 'xxlarge'}
+  .inputs
+    = f.input :use_id, :hint => 'This will get replaced with some sort of "select or create" box for uses (only showing yieldable products)'
+    = f.input :amount, :as => :amount_with_unit
+    = f.input :details, :input_html => {:rows => 2, :class => 'xxlarge'}
   .actions
     = f.button :submit, :class => 'primary'
     = link_to 'Cancel', site_goals_path(@site), :class => "btn"
