@@ -1,4 +1,4 @@
-# encoding: utf-8
+require 'unit'
 
 class AmountWithUnitInput < SimpleForm::Inputs::Base
   
@@ -22,16 +22,10 @@ class AmountWithUnitInput < SimpleForm::Inputs::Base
   
     def format_units(units)
       units.map do |value|
-        [format_unit(value), value]
+        [Unit.format_unit(value), value]
       end
     end
-    
-    def format_unit(value)
-      value = value.gsub('^2', '²')
-      value = value.gsub('^3', '³')
-      value
-    end
-  
+      
     def inclusion_validators(attribute_name)
       object.class.validators.select {|v| v.attributes.include?(attribute_name) && v.is_a?(ActiveModel::Validations::InclusionValidator)}
     end

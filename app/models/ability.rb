@@ -3,20 +3,20 @@ class Ability
 
   def initialize(user)
     if user
-      can :manage, User, :id => user.id
-
-      can :create, Site
-      can :manage, Site, :user_id => user.id
-
-      can :manage, Goal, {:site => {:user_id => user.id}}
-      can :manage, YieldGoal, {:site => {:user_id => user.id}}
-
       if user.role == 'admin'
         can :manage, :all
-      end
+      else
+        can :manage, User, :id => user.id
+        
+        can [:read, :create], Use
+
+        can :create, Site
+        can :manage, Site, :user_id => user.id
+
+        can :manage, Goal, {:site => {:user_id => user.id}}
+        can :manage, YieldGoal, {:site => {:user_id => user.id}}
+      end      
     end
-    
-    
     
     # Define abilities for the passed in user here. For example:
     #

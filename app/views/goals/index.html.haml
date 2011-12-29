@@ -9,7 +9,7 @@
       Desired Yields
       %small What do you want to be able to harvest?
     %br
-    = render :partial => 'yields_table'
+    = render :partial => 'yield_goals/table', :locals => {:yield_goals => @site.yield_goals}
     
     %h2
       Desired Inputs

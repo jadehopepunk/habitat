@@ -1,7 +1,7 @@
 = simple_form_for [@site, @yield_goal], :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
   .inputs
-    = f.input :use_id, :hint => 'This will get replaced with some sort of "select or create" box for uses (only showing yieldable products)'
+    = f.input :use_name, :label => 'Product'
     = f.input :amount, :as => :amount_with_unit
     = f.input :period, :as => :amount_with_unit, :hint => "how often do you expect the yield amount?"
     = f.input :lead_time_in_years, :as => :string_with_add_on, :suffix => "years", :label => "Lead time"

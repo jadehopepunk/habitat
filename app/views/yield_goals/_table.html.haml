@@ -5,6 +5,28 @@
       %th Amount
       %th Lead Time
       %th Details
+      %th &nbsp;
+  %tbody
+    - yield_goals.each do |yield_goal|
+      %tr
+        %td= yield_goal.use_name
+        %td= yield_goal.amount_period_string
+        %td= yield_goal.lead_time_string
+        %td.details= yield_goal.details
+        %td
+          = link_to 'Edit', edit_site_yield_goal_path(@site, yield_goal)
+          = link_to 'Destroy', [@site, yield_goal], :confirm => 'Are you sure?', :method => :delete
+
+%h2 
+  Example table only
+  %small will be removed when the above is working
+%table.zebra-striped.bordered-table.desired_yields
+  %thead
+    %tr
+      %th Product
+      %th Amount
+      %th Lead Time
+      %th Details
   %tbody
     %tr
       %td Firewood
