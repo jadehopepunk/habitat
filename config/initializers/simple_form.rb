@@ -129,5 +129,3 @@ SimpleForm.setup do |config|
   # Default class for buttons
   config.button_class = 'btn'
 end
-
-require 'inputs/amount_with_unit_input'
