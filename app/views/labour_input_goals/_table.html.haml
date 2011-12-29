@@ -5,6 +5,21 @@
       %th When Mature
       %th During Implementation
   %tbody
+    - labour_input_goals.each do |labour_input_goal|
+      %tr
+        %td= labour_input_goal.job_name
+        %td
+        %td
+
+%h2
+  Labour Inputs Example Table
+%table.zebra-striped.bordered-table
+  %thead
+    %tr
+      %th Input
+      %th When Mature
+      %th During Implementation
+  %tbody
     %tr
       %td Harvesting
       %td 4 hours per week
