@@ -1,7 +1,7 @@
 class CreateLabourInputGoals < ActiveRecord::Migration
   def change
     create_table :labour_input_goals do |t|
-      t.integer :job_id
+      t.integer :job_id, :site_id
       t.float :amount
       t.string :amount_unit
       t.string :period

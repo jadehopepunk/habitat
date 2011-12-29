@@ -7,6 +7,7 @@ class LabourInputGoal < ActiveRecord::Base
   validates_numericality_of :amount, :allow_blank => true, :greater_than => 0
   validates_inclusion_of :amount_unit, :in => %w(hour day)
   validates_inclusion_of :period, :in => COMMON_TIME_UNITS
+  validates_inclusion_of :stage, :in => %w(mature implementation)
   
   def job_name
     job.name if job
