@@ -24,6 +24,7 @@ gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly'
 gem 'navigasmic'
 gem 'mysql'
+gem 'rails3-jquery-autocomplete'
 
 group :production do
   gem 'pg'

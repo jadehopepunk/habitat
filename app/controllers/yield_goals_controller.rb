@@ -1,4 +1,6 @@
 class YieldGoalsController < InheritedResources::Base
+  autocomplete :use, :name
+  
   load_and_authorize_resource
   belongs_to :site
   

@@ -7,8 +7,10 @@ SimpleFormBootstrap::Application.routes.draw do
   resources :uses
   resources :sites do
     resources :goals
-    resources :yield_goals
+    resources :yield_goals do
+      get :autocomplete_use_name, :on => :collection
+    end
   end
-  
+
   root :to => 'home#index'
 end

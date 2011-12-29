@@ -140,6 +140,8 @@ GEM
       activesupport (= 3.1.0)
       bundler (~> 1.0)
       railties (= 3.1.0)
+    rails3-jquery-autocomplete (1.0.5)
+      rails (~> 3.0)
     railties (3.1.0)
       actionpack (= 3.1.0)
       activesupport (= 3.1.0)
@@ -193,6 +195,7 @@ DEPENDENCIES
   pg
   rack-cache
   rails (= 3.1.0)
+  rails3-jquery-autocomplete
   sass-rails (~> 3.1.0)
   simple_form!
   twitter-bootstrap-rails!
