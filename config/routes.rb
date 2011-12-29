@@ -4,7 +4,7 @@ SimpleFormBootstrap::Application.routes.draw do
   namespace :admin do
     resources :users
   end
-
+  resources :uses
   resources :sites do
     resources :goals
     resources :yield_goals
