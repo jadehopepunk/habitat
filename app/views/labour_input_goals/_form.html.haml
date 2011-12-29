@@ -1,7 +1,7 @@
 = simple_form_for [@site, @labour_input_goal], :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
   .inputs
-    =# f.input :use_name, :label => 'Product', :as => :autocomplete, :url => autocomplete_use_name_site_yield_goals_path
+    = f.input :job_name, :label => 'Job', :as => :autocomplete, :url => autocomplete_job_name_site_labour_input_goals_path
     =# f.input :amount, :as => :amount_with_unit
     =# f.input :period, :as => :inferred_select, :hint => "how often do you expect the yield amount?", :input_html => {:class => 'small'}
     =# f.input :lead_time_in_years, :as => :string_with_add_on, :suffix => "years", :label => "Lead time", :input_html => {:class => 'mini'}
