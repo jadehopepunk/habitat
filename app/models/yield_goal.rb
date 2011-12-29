@@ -1,3 +1,5 @@
+require 'unit'
+
 class YieldGoal < ActiveRecord::Base
   COMMON_VOLUME_UNITS = %w(m^3 L gal)
   COMMON_WEIGHT_UNITS = %w(kg lb)

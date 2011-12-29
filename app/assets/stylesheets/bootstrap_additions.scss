@@ -56,3 +56,7 @@ ul.tabs li.not_implemented > a, ul.tabs li.disabled > span {
     }  
   }  
 }
+
+.input-prepend .add-on, .input-append .add-on {
+  z-index: 1;
+}
