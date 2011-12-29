@@ -9,6 +9,6 @@
  *= require bootstrap
  *= require jquery-ui-bootstrap
  *= require bootstrap_additions
- *= require record_presentation
+ *= require record_presentation 
  *= require_tree .
 */

@@ -1,2 +1,16 @@
-%h1 Home Page
-%p Info about the site goes here
+.row
+  .span9
+    %h1.page-header We're still under construction
+    %p
+      %strong
+        You can help by trying out <em>Habitat</em> and telling us what you think. 
+    %p
+      New features are being added each week. You can't currently go all the way through
+      the design of your forest garden, but the bits that already exist still help you
+      get along the path.
+    %p
+      Some parts of <em>Habitat</em> will eventually be for paying users, to keep
+      this site running, but anyone who actively tests the site now will get free
+      lifetime membership.
+  .span7
+    = render :partial => 'devise/registrations/new'

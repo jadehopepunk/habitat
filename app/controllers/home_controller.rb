@@ -6,6 +6,9 @@ class HomeController < ApplicationController
       else
         redirect_to new_site_path
       end
+    else
+      @user = User.new
+      render :layout => 'home'
     end
   end
 end

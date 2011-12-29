@@ -1,5 +1,9 @@
 require "bundler/capistrano"
 
+$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
+require "rvm/capistrano"                  # Load RVM's capistrano plugin.
+set :rvm_ruby_string, 'ruby-1.9.2-p290'        # Or whatever env you want it to run in.
+
 set :application, "forester"
 set :scm, :git
 set :repository, "git@github.com:craigambrose/forester.git"
@@ -9,6 +13,7 @@ set :rails_env, "production"
 set :deploy_to, "/home/craig/sites/#{application}"
 set :user, 'craig'
 set :use_sudo, false
+
 
 set :domain, "lucid.craigambrose.com"
 role :web, domain
