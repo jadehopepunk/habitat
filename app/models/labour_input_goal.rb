@@ -2,6 +2,7 @@ class LabourInputGoal < ActiveRecord::Base
   COMMON_TIME_UNITS = %w(day week month year decade century)
 
   belongs_to :job
+  belongs_to :site
   
   validates_presence_of :job, :job_name
   validates_numericality_of :amount, :allow_blank => true, :greater_than => 0

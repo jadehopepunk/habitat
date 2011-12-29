@@ -13,8 +13,7 @@ class Ability
         can :create, Site
         can :manage, Site, :user_id => user.id
 
-        can :manage, Goal, {:site => {:user_id => user.id}}
-        can :manage, YieldGoal, {:site => {:user_id => user.id}}
+        can :manage, [YieldGoal, Goal, LabourInputGoal], {:site => {:user_id => user.id}}
       end      
     end
     
