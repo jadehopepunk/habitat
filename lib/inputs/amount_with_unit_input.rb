@@ -1,6 +1,5 @@
 # encoding: utf-8
 
-# app/inputs/currency_input.rb
 class AmountWithUnitInput < SimpleForm::Inputs::Base
   
   def input
@@ -9,6 +8,8 @@ class AmountWithUnitInput < SimpleForm::Inputs::Base
     inclusion_validator = inclusion_validators(unit_attribute_name).first
     if inclusion_validator
       options = format_units(inclusion_validator.options[:in])
+    else
+      raise ArgumentError.new("Specifiy validates_inclusion_of on #{unit_attribute_name.inspect} before using the AmountWithUnitInput.")
     end
     
     amount_field = @builder.input_field(attribute_name, :class => :mini)

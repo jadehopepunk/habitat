@@ -3,6 +3,8 @@
   .inputs
     = f.input :use_id, :hint => 'This will get replaced with some sort of "select or create" box for uses (only showing yieldable products)'
     = f.input :amount, :as => :amount_with_unit
+    = f.input :period, :as => :amount_with_unit, :hint => "how often do you expect the yield amount?"
+    = f.input :lead_time_in_years, :as => :string_with_add_on, :suffix => "years", :label => "Lead time"
     = f.input :details, :input_html => {:rows => 2, :class => 'xxlarge'}
   .actions
     = f.button :submit, :class => 'primary'

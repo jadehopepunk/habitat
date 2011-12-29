@@ -40,6 +40,8 @@ ul.tabs li.not_implemented > a, ul.tabs li.disabled > span {
 }
 
 .input-append-select {
+  display: block;
+  overflow: hidden;
   
   .add-on {
     padding: 1px 2px 1px 2px;
