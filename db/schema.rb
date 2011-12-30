@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230004453) do
-
-  create_table "goals", :force => true do |t|
-    t.integer  "site_id"
-    t.text     "details"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20111230014528) do
 
   create_table "jobs", :force => true do |t|
     t.string   "name"

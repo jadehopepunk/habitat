@@ -10,7 +10,6 @@ class Site < ActiveRecord::Base
 
   has_many :yield_goals, :dependent => :destroy
   has_many :labour_input_goals, :dependent => :destroy
-  has_many :goals, :dependent => :destroy
   belongs_to :user
 
   validates_presence_of :user
