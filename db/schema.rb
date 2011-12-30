@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229215303) do
+ActiveRecord::Schema.define(:version => 20111230003211) do
 
   create_table "goals", :force => true do |t|
     t.integer  "site_id"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20111229215303) do
     t.integer  "site_id"
     t.float    "amount"
     t.string   "amount_unit"
-    t.string   "period"
+    t.string   "amount_period"
     t.float    "lead_time_in_years"
     t.text     "details"
     t.datetime "created_at"

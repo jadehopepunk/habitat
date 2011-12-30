@@ -2,8 +2,8 @@
   = form_errors(f)
   .inputs
     = f.input :use_name, :label => 'Product', :as => :autocomplete, :url => autocomplete_use_name_site_yield_goals_path
-    = f.input :amount, :as => :amount_with_unit
-    = f.input :period, :as => :inferred_select, :hint => "how often do you expect the yield amount?", :input_html => {:class => 'small'}
+    = f.input :amount, :as => :amount_per_period
+    = f.input :amount_period, :as => :inferred_select, :hint => "how often do you expect the yield amount?", :input_html => {:class => 'small'}
     = f.input :lead_time_in_years, :as => :string_with_add_on, :suffix => "years", :label => "Lead time", :input_html => {:class => 'mini'}
     = f.input :details, :input_html => {:rows => 2, :class => 'xxlarge'}
   .actions

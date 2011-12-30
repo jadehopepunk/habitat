@@ -21,6 +21,6 @@ class AmountWithUnitInput < SimpleForm::Inputs::Base
         :class => :mini,
         :label_processor => lambda {|value| Unit.format_unit(value)}
       }
-      @builder.input_field(unit_attribute_name, defaults.merge(options[:input_html] || {}))
+      @builder.input_field(unit_attribute_name, (options[:input_html] || {}).merge(defaults))
     end
 end
