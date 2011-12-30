@@ -2,34 +2,11 @@
   %thead
     %tr
       %th Input
-      %th When Mature
       %th During Implementation
+      %th During Maintenance
   %tbody
     - labour_input_goals.each do |labour_input_goal|
       %tr
         %td= labour_input_goal.job_name
-        %td
-        %td
-
-.unimplemented
-  %h2
-    Labour Inputs Example Table
-  %table.zebra-striped.bordered-table
-    %thead
-      %tr
-        %th Input
-        %th When Mature
-        %th During Implementation
-    %tbody
-      %tr
-        %td Harvesting
-        %td 4 hours per week
-        %td
-      %tr
-        %td Mulching
-        %td 1 day per month
-        %td 3 days per month
-      %tr
-        %td Planting
-        %td
-        %td 2 days per month
+        %td= labour_input_goal.implementation_amount_period_string
+        %td= labour_input_goal.maintenance_amount_period_string

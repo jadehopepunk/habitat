@@ -1,12 +1,11 @@
 = simple_form_for [@site, @labour_input_goal], :wrapper => :inline, :html => {:multipart => true} do |f|
-  = @labour_input_goal.errors.to_a.inspect
   = form_errors(f)
   .inputs
     = f.input :job_name, :label => 'Job', :as => :autocomplete, :url => autocomplete_job_name_site_labour_input_goals_path
-    =# f.input :amount, :as => :amount_with_unit
-    =# f.input :period, :as => :inferred_select, :hint => "how often do you expect the yield amount?", :input_html => {:class => 'small'}
-    =# f.input :lead_time_in_years, :as => :string_with_add_on, :suffix => "years", :label => "Lead time", :input_html => {:class => 'mini'}
-    =# f.input :details, :input_html => {:rows => 2, :class => 'xxlarge'}
+    = f.input :implementation_amount, :as => :amount_with_unit, :label => 'Implementation Time'
+    = f.input :implementation_period, :as => :inferred_select, :hint => "how often do you need to spend the above time?", :input_html => {:class => 'small'}
+    = f.input :maintenance_amount, :as => :amount_with_unit, :label => 'Maintenance Time'
+    = f.input :maintenance_period, :as => :inferred_select, :hint => "how often do you need to spend the above time?", :input_html => {:class => 'small'}
   .actions
     = f.button :submit, :class => 'primary'
     = link_to 'Cancel', site_goals_path(@site), :class => "btn"

@@ -29,10 +29,12 @@ ActiveRecord::Schema.define(:version => 20111229215303) do
   create_table "labour_input_goals", :force => true do |t|
     t.integer  "job_id"
     t.integer  "site_id"
-    t.float    "amount"
-    t.string   "amount_unit"
-    t.string   "period"
-    t.string   "stage",       :default => "mature"
+    t.float    "implementation_amount"
+    t.string   "implementation_amount_unit"
+    t.string   "implementation_period"
+    t.float    "maintenance_amount"
+    t.string   "maintenance_amount_unit"
+    t.string   "maintenance_period"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
