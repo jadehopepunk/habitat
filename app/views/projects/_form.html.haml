@@ -1,6 +1,8 @@
 = simple_form_for @project, :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
   = f.input :name, :input_html => { :class => "span8" }, :hint => "add your project title here"
+  = f.input :preferred_currency, :as => :inferred_select
+  = f.input :preferred_measures, :as => :inferred_select
   = f.input :address, :input_html => { :class => "span8" }
   = f.input :photo do
     .existing_image
@@ -17,3 +19,5 @@
   .actions
     = f.button :submit, :class => 'primary'
     = link_to 'Cancel', @project, :class => "btn"
+
+= todo("Set initial currency and measures from Country")

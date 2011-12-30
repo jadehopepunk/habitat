@@ -17,7 +17,8 @@ class InferredSelectInput < SimpleForm::Inputs::Base
       select_options = select_values
     end
     
-    @builder.select(attribute_name, select_options, {:include_blank => true}, options[:input_html])
+    html_options = options[:input_html] || {}
+    @builder.select(attribute_name, select_options, {:include_blank => true}, html_options)
   end
   
   private
