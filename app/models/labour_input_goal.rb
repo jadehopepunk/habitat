@@ -7,14 +7,8 @@ class LabourInputGoal < ActiveRecord::Base
   validates_inclusion_of :implementation_amount_unit, :maintenance_amount_unit, :in => %w(hour day), :allow_blank => true
   validates_inclusion_of :implementation_amount_period, :maintenance_amount_period, :in => Unit::CALENDAR_TIME_UNITS, :allow_blank => true
   
-  def job_name
-    job.name if job
-  end
+  can_assign_by_name :job
   
-  def job_name=(value)
-    self.job = (value.blank? ? nil : Job.find_or_initialize_by_name(value))
-  end
-
   def implementation_amount_period_string
     [implementation_amount_string, implementation_amount_period].reject(&:blank?).join(' per ')
   end

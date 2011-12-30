@@ -1,0 +1,1 @@
+require 'record_mixins/can_assign_by_name'

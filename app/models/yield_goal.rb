@@ -10,14 +10,8 @@ class YieldGoal < ActiveRecord::Base
   validates_numericality_of :amount, :lead_time_in_years, :allow_blank => true, :greater_than => 0
   validates_inclusion_of :amount_unit, :in => Unit::COMMON_VOLUME_UNITS + Unit::COMMON_WEIGHT_UNITS + SPECIAL_USE_UNITS
   validates_inclusion_of :amount_period, :in => Unit::CALENDAR_TIME_UNITS, :allow_blank => true
-  
-  def use_name
-    use.name if use
-  end
-  
-  def use_name=(value)
-    self.use = (value.blank? ? nil : Use.find_or_initialize_by_name(value))
-  end
+
+  can_assign_by_name :use
   
   def amount_period_string
     [amount_string, amount_period].reject(&:blank?).join(' per ')
