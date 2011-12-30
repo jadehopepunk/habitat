@@ -1,18 +1,7 @@
-%table.zebra-striped.bordered-table
-  %thead
-    %tr
-      %th #
-      %th Email
-      %th Name
-      %th Role
-      %th &nbsp;
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= user.id
-        %td= user.email
-        %td= user.name
-        %td= user.role
-        %td
-          = link_to 'Edit', edit_admin_user_path(user)
-          = link_to 'Destroy', [:admin, user], :confirm => 'Are you sure?', :method => :delete
+= table_for(@users) do |t|
+  = t.data do
+    = t.cell :email
+    = t.cell :name
+    = t.cell :role
+    = t.cell('') {|user| link_to('Edit', edit_admin_user_path(user)) }
+    = t.cell('') {|user| link_to('Remove', [:admin, user], :confirm => 'Are you sure?', :method => :delete) }

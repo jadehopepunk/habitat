@@ -71,3 +71,11 @@ span.input-append-select {
 .actions {
   background-color: transparent;
 }
+
+table td.actions {
+  background: none;
+  margin: 0;
+  padding: 10px 10px 9px;
+  width: 1.5em;
+  text-align: center;
+}

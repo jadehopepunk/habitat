@@ -1,16 +1,3 @@
-%table.zebra-striped.bordered-table
-  %thead
-    %tr
-      %th #
-      %th Name
-      - if can?(:manage, Use)
-        %th &nbsp;
-  %tbody
-    - @uses.each do |use|
-      %tr
-        %td= use.id
-        %td= use.name
-        - if can?(:manage, Use)
-          %td
-            = link_to 'Edit', edit_use_path(use)
-            = link_to 'Destroy', use, :confirm => 'Are you sure?', :method => :delete
+= table_for(@uses) do |t|
+  = t.data :actions => [:edit, :destroy] do
+    = t.cell :name

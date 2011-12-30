@@ -1,16 +1,7 @@
-%table.zebra-striped.bordered-table
-  %thead
-    %tr
-      %th #
-      %th Name
-      %th User
-      %th &nbsp;
-  %tbody
-    - @sites.each do |site|
-      %tr
-        %td= site.id
-        %td= link_to site.name, site
-        %td= site.user.email if site.user
-        %td
-          = link_to 'Edit', edit_site_path(site)
-          = link_to 'Destroy', site, :confirm => 'Are you sure?', :method => :delete
+= table_for(@sites) do |t|
+  = t.data do
+    = t.cell :name
+    = t.cell :user, :heading => 'Owner'
+    = t.cell('', :cell_html => {:class => 'actions'}) {|site| link_to('View', site) }
+    = t.cell('', :cell_html => {:class => 'actions'}) {|site| link_to('Edit', edit_site_path(site)) }
+    = t.cell('', :cell_html => {:class => 'actions'}) {|site| link_to('Remove', site, :confirm => 'Are you sure?', :method => :delete) }

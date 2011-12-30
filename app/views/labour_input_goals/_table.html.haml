@@ -3,5 +3,5 @@
     = t.cell :job_name, :heading => 'Job'
     = t.cell :implementation_amount_period_string, :heading => 'During Implementation'
     = t.cell :maintenance_amount_period_string, :heading => 'During Maintenance'
-    = t.cell('') {|goal| link_to('Edit', edit_site_labour_input_goal_path(@site, goal)) }
-    = t.cell('') {|goal| link_to('Remove', [@site, goal], :confirm => 'Are you sure?', :method => :delete) }
+    = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_site_labour_input_goal_path(@site, goal)) }
+    = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@site, goal], :confirm => 'Are you sure?', :method => :delete) }
