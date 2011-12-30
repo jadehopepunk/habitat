@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Gravtastic
+  has_gravatar :rating => 'PG'
+
   ROLES = %w(user admin)
   
   # Include default devise modules. Others available are:

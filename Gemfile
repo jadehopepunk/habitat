@@ -27,6 +27,7 @@ gem 'mysql'
 gem 'rails3-jquery-autocomplete'
 gem "tabletastic"
 gem 'money'
+gem 'gravtastic'
 
 group :production do
   gem 'pg'

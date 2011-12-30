@@ -12,6 +12,14 @@ pre { display: none; }
   white-space: nowrap;
 }
 
-table td.details {
-  font-style: italic;  
+table {
+  td.details {
+    font-style: italic;
+  }
+  td.avatar {
+    padding: 4px 0 0 0;
+    width: 80px;
+    height: 80px;
+    vertical-align: center;
+  }
 }

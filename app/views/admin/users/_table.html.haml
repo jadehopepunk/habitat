@@ -1,5 +1,6 @@
 = table_for(@users) do |t|
   = t.data do
+    = t.cell('', :cell_html => {:class => 'avatar'}) {|user| image_tag(user.gravatar_url, :alt => '')}
     = t.cell :email
     = t.cell :name
     = t.cell :role
