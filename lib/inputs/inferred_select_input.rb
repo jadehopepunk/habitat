@@ -4,10 +4,17 @@ class InferredSelectInput < SimpleForm::Inputs::Base
   
   def input
     inclusion_validator = inclusion_validators(attribute_name).first
-    if inclusion_validator
-      select_options = inclusion_validator.options[:in]
+    raise ArgumentError.new("Specifiy validates_inclusion_of on #{attribute_name.inspect} before using the AmountWithUnitInput.") unless inclusion_validator
+
+    select_values = inclusion_validator.options[:in]
+    label_processor = options[:label_processor]
+    if label_processor
+      select_options = select_values.map do |value|
+        label_value = label_processor.call(value)
+        [label_value, value]
+      end
     else
-      raise ArgumentError.new("Specifiy validates_inclusion_of on #{attribute_name.inspect} before using the AmountWithUnitInput.")
+      select_options = select_values
     end
     
     @builder.select(attribute_name, select_options, {:include_blank => true}, options[:input_html])
