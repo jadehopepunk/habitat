@@ -6,7 +6,7 @@ class AmountWithUnitInput < SimpleForm::Inputs::Base
     unit_attribute_name = "#{attribute_name}_unit".to_sym
 
     unit_add_on = "<label class=\"add-on active\">#{build_unit_field(unit_attribute_name)}</label>"
-    "<div class=\"input-append input-append-select\">#{build_amount_field}#{unit_add_on}</div>"
+    "<span class=\"input-append input-append-select\">#{build_amount_field}#{unit_add_on}</span>"
   end
   
   private

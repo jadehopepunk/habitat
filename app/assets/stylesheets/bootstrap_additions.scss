@@ -35,10 +35,16 @@ ul.tabs li.not_implemented > a, ul.tabs li.disabled > span {
   color: #999
 }
 
-.input-append-select {
+div.input-append-select {
   display: block;
   overflow: hidden;
-  
+}
+
+span.input-append-select {
+  display: inline;
+}
+
+.input-append-select {
   .add-on {
     padding: 1px 2px 1px 2px;
     height: 24px;
@@ -51,6 +57,11 @@ ul.tabs li.not_implemented > a, ul.tabs li.disabled > span {
       padding: 1px 2px;
     }  
   }  
+}
+
+.per {
+  margin: 0 1em;
+  color: #999;
 }
 
 .input-prepend .add-on, .input-append .add-on {
