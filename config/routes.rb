@@ -14,6 +14,9 @@ SimpleFormBootstrap::Application.routes.draw do
     resources :yield_goals do
       get :autocomplete_use_name, :on => :collection
     end
+    resources :budget_goals do
+      get :autocomplete_budget_category_name, :on => :collection
+    end
   end
 
   root :to => 'home#index'

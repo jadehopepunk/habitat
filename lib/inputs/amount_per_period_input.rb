@@ -1,7 +1,7 @@
 class AmountPerPeriodInput < SimpleForm::Inputs::Base
   
   def input
-    "#{build_amount_field} <span class=\"per\">per</span> #{build_period_field}"
+    "<div class=\"multi-part-input\">#{build_amount_field} <span class=\"per\">per</span> #{build_period_field}</div>"
   end
   
   private
