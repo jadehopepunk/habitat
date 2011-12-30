@@ -1,7 +1,7 @@
 = table_for(labour_input_goals) do |t|
   = t.data do
     = t.cell :job_name, :heading => 'Job'
-    = t.cell :implementation_amount_period_string, :heading => 'During Implementation'
-    = t.cell :maintenance_amount_period_string, :heading => 'During Maintenance'
+    = t.cell :implementation_amount_with_period, :heading => 'During Implementation'
+    = t.cell :maintenance_amount_with_period, :heading => 'During Maintenance'
     = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_site_labour_input_goal_path(@site, goal)) }
     = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@site, goal], :confirm => 'Are you sure?', :method => :delete) }

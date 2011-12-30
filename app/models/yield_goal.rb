@@ -12,14 +12,7 @@ class YieldGoal < ActiveRecord::Base
   validates_inclusion_of :amount_period, :in => Unit::CALENDAR_TIME_UNITS, :allow_blank => true
 
   can_assign_by_name :use
-  
-  def amount_period_string
-    [amount_string, amount_period].reject(&:blank?).join(' per ')
-  end
-  
-  def amount_string
-    Unit.format_amount_and_unit(amount, amount_unit)
-  end
+  has_amount_with_period
   
   def lead_time_string
     Unit.format_amount_and_unit(lead_time_in_years, 'year', :pluralize_unit => true)
