@@ -7,7 +7,7 @@ class LabourInputGoal < ActiveRecord::Base
   validates_presence_of :job, :job_name
   validates_numericality_of :implementation_amount, :maintenance_amount, :allow_blank => true, :greater_than => 0
   validates_inclusion_of :implementation_amount_unit, :maintenance_amount_unit, :in => %w(hour day), :allow_blank => true
-  validates_inclusion_of :implementation_period, :maintenance_period, :in => COMMON_TIME_UNITS, :allow_blank => true
+  validates_inclusion_of :implementation_amount_period, :maintenance_amount_period, :in => COMMON_TIME_UNITS, :allow_blank => true
   
   def job_name
     job.name if job
@@ -18,7 +18,7 @@ class LabourInputGoal < ActiveRecord::Base
   end
 
   def implementation_amount_period_string
-    [implementation_amount_string, implementation_period].reject(&:blank?).join(' per ')
+    [implementation_amount_string, implementation_amount_period].reject(&:blank?).join(' per ')
   end
 
   def implementation_amount_string
@@ -26,7 +26,7 @@ class LabourInputGoal < ActiveRecord::Base
   end
 
   def maintenance_amount_period_string
-    [maintenance_amount_string, maintenance_period].reject(&:blank?).join(' per ')
+    [maintenance_amount_string, maintenance_amount_period].reject(&:blank?).join(' per ')
   end
 
   def maintenance_amount_string

@@ -2,12 +2,8 @@
   = form_errors(f)
   .inputs
     = f.input :job_name, :label => 'Job', :as => :autocomplete, :url => autocomplete_job_name_site_labour_input_goals_path
-    = f.input :implementation_amount, :as => :amount_with_unit, :label => 'Implementation Time'
-    = f.input :implementation_period, :as => :inferred_select, :hint => "how often do you need to spend the above time?", :input_html => {:class => 'small'}
-    = f.input :maintenance_amount, :as => :amount_with_unit, :label => 'Maintenance Time'
-    = f.input :maintenance_period, :as => :inferred_select, :hint => "how often do you need to spend the above time?", :input_html => {:class => 'small'}
+    = f.input :implementation_amount, :as => :amount_per_period, :label => 'Implementation Time'
+    = f.input :maintenance_amount, :as => :amount_per_period, :label => 'Maintenance Time'
   .actions
     = f.button :submit, :class => 'primary'
     = link_to 'Cancel', site_goals_path(@site), :class => "btn"
-
-= todo("simplify period fields into the same line")
