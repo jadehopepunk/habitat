@@ -110,6 +110,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    money (4.0.1)
+      i18n (~> 0.4)
+      json
     multi_json (1.0.3)
     mysql (2.8.1)
     navigasmic (0.5.6)
@@ -192,6 +195,7 @@ DEPENDENCIES
   inherited_resources
   jquery-rails
   json
+  money
   mysql
   navigasmic
   pg

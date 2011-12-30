@@ -20,7 +20,7 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
   validates_inclusion_of :climate_zone, :in => CLIMATE_ZONES, :allow_blank => true
   validates_inclusion_of :size_units, :in => SIZE_UNITS, :allow_blank => true
-  validates_inclusion_of :preferred_currency, :in => CURRENCIES, :allow_blank => true
+  validates_inclusion_of :preferred_currency, :in => Money::Currency::TABLE.map {|row| row.last[:iso_code]}, :allow_blank => true
   validates_inclusion_of :preferred_measures, :in => Unit::SYSTEMS_OF_MEASURE, :allow_blank => true
   validates_numericality_of :size, :allow_nil => true
 

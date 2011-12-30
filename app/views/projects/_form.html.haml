@@ -1,7 +1,7 @@
 = simple_form_for @project, :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
   = f.input :name, :input_html => { :class => "span8" }, :hint => "add your project title here"
-  = f.input :preferred_currency, :as => :inferred_select
+  = f.input :preferred_currency, :as => :select, :collection => Money::Currency::TABLE.map {|row| [row.last[:name], row.last[:iso_code]]}.sort, :allow_blank => true
   = f.input :preferred_measures, :as => :inferred_select
   = f.input :address, :input_html => { :class => "span8" }
   = f.input :photo do
