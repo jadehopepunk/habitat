@@ -25,6 +25,7 @@ gem 'dragonfly'
 gem 'navigasmic'
 gem 'mysql'
 gem 'rails3-jquery-autocomplete'
+gem "tabletastic"
 
 group :production do
   gem 'pg'
