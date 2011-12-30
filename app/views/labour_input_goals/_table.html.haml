@@ -4,9 +4,13 @@
       %th Input
       %th During Implementation
       %th During Maintenance
+      %th &nbsp;
   %tbody
     - labour_input_goals.each do |labour_input_goal|
       %tr
         %td= labour_input_goal.job_name
         %td= labour_input_goal.implementation_amount_period_string
         %td= labour_input_goal.maintenance_amount_period_string
+        %td
+          = link_to 'Edit', edit_site_labour_input_goal_path(@site, labour_input_goal)
+          = link_to 'Destroy', [@site, labour_input_goal], :confirm => 'Are you sure?', :method => :delete
