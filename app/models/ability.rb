@@ -10,10 +10,10 @@ class Ability
         
         can [:read, :create], Use
 
-        can :create, Site
-        can :manage, Site, :user_id => user.id
+        can :create, Project
+        can :manage, Project, :user_id => user.id
 
-        can :manage, [YieldGoal, LabourInputGoal], {:site => {:user_id => user.id}}
+        can :manage, [YieldGoal, LabourInputGoal], {:project => {:user_id => user.id}}
       end      
     end
     

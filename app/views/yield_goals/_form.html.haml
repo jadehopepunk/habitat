@@ -1,12 +1,12 @@
-= simple_form_for [@site, @yield_goal], :wrapper => :inline, :html => {:multipart => true} do |f|
+= simple_form_for [@project, @yield_goal], :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
   .inputs
-    = f.input :use_name, :label => 'Product', :as => :autocomplete, :url => autocomplete_use_name_site_yield_goals_path
+    = f.input :use_name, :label => 'Product', :as => :autocomplete, :url => autocomplete_use_name_project_yield_goals_path
     = f.input :amount, :as => :amount_per_period
     = f.input :lead_time_in_years, :as => :string_with_add_on, :suffix => "years", :label => "Lead time", :input_html => {:class => 'mini'}
     = f.input :details, :input_html => {:rows => 2, :class => 'xxlarge'}
   .actions
     = f.button :submit, :class => 'primary'
-    = link_to 'Cancel', site_goals_path(@site), :class => "btn"
+    = link_to 'Cancel', project_goals_path(@project), :class => "btn"
 
 = todo('Support particular month ranges for yield')

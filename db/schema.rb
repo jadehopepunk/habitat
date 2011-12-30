@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230014528) do
+ActiveRecord::Schema.define(:version => 20111230023349) do
 
   create_table "jobs", :force => true do |t|
     t.string   "name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20111230014528) do
 
   create_table "labour_input_goals", :force => true do |t|
     t.integer  "job_id"
-    t.integer  "site_id"
+    t.integer  "project_id"
     t.float    "implementation_amount"
     t.string   "implementation_amount_unit"
     t.string   "implementation_amount_period"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20111230014528) do
     t.datetime "updated_at"
   end
 
-  create_table "sites", :force => true do |t|
+  create_table "projects", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20111230014528) do
 
   create_table "yield_goals", :force => true do |t|
     t.integer  "use_id"
-    t.integer  "site_id"
+    t.integer  "project_id"
     t.float    "amount"
     t.string   "amount_unit"
     t.string   "amount_period"

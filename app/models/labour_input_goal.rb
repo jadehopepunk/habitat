@@ -1,8 +1,8 @@
 class LabourInputGoal < ActiveRecord::Base
   belongs_to :job
-  belongs_to :site
+  belongs_to :project
   
-  validates_presence_of :job, :job_name
+  validates_presence_of :job, :job_name, :project
   validates_numericality_of :implementation_amount, :maintenance_amount, :allow_blank => true, :greater_than => 0
   validates_inclusion_of :implementation_amount_unit, :maintenance_amount_unit, :in => %w(hour day), :allow_blank => true
   validates_inclusion_of :implementation_amount_period, :maintenance_amount_period, :in => Unit::CALENDAR_TIME_UNITS, :allow_blank => true

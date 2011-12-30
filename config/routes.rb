@@ -6,7 +6,7 @@ SimpleFormBootstrap::Application.routes.draw do
   end
   resources :uses
   resources :jobs
-  resources :sites do
+  resources :projects do
     resources :goals
     resources :labour_input_goals do
       get :autocomplete_job_name, :on => :collection

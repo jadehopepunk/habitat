@@ -1,7 +1,0 @@
-= table_for(@sites) do |t|
-  = t.data do
-    = t.cell :name
-    = t.cell :user, :heading => 'Owner'
-    = t.cell('', :cell_html => {:class => 'actions'}) {|site| link_to('View', site) }
-    = t.cell('', :cell_html => {:class => 'actions'}) {|site| link_to('Edit', edit_site_path(site)) }
-    = t.cell('', :cell_html => {:class => 'actions'}) {|site| link_to('Remove', site, :confirm => 'Are you sure?', :method => :delete) }

@@ -1,9 +1,9 @@
-class SitesController < InheritedResources::Base
+class ProjectsController < InheritedResources::Base
   load_and_authorize_resource
   
-  add_crumb("Sites") { |instance| instance.send :sites_path }
+  add_crumb("Projects") { |instance| instance.send :projects_path }
   add_crumb(lambda {|instance| instance.resource_display_name}, :only => [:show, :edit, :update])
-  add_crumb('New Site', :only => [:new, :create])
+  add_crumb('New Project', :only => [:new, :create])
   
   def resource_display_name
     resource.display_name

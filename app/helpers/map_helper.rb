@@ -1,11 +1,11 @@
 module MapHelper
-  def site_map(site)
-    json = site.to_gmaps4rails    
+  def project_map(project)
+    json = project.to_gmaps4rails    
     gmaps(
       'map_options' => {
         'type' => 'SATELLITE',
-        'center_longitude' => site.lng,
-        'center_latitude' => site.lat,
+        'center_longitude' => project.lng,
+        'center_latitude' => project.lat,
         'zoom' => 9,
         'auto_adjust' => false
       },

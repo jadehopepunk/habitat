@@ -1,4 +1,4 @@
-class Site < ActiveRecord::Base
+class Project < ActiveRecord::Base
   CLIMATE_ZONES = %w(tropical sub-tropical temperate cool-temperate arid arctic)
   SIZE_UNITS = ['square metres', 'square feet', 'acres', 'hectares']
   

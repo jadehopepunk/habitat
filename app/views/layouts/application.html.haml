@@ -6,15 +6,15 @@
     = render :partial => 'layouts/topbar'
     .page_body
       .container
-        - if @site && !@site.new_record?        
+        - if @project && !@project.new_record?        
           - semantic_navigation :main, :html => {:class => 'tabs'} do |n|
-            = n.item 'Site', :link => site_path(@site), :highlights_on => [{:controller => 'sites'}]
-            = n.item 'Goals', :link => site_goals_path(@site), :highlights_on => [{:controller => 'goals'}, {:controller => 'yield_goals'}]
-            = n.item 'Elements', :link => '/', :disabled_if => proc { true }
+            = n.item 'Project', :link => project_path(@project), :highlights_on => [{:controller => 'projects'}]
+            = n.item 'Goals', :link => project_goals_path(@project), :highlights_on => [{:controller => 'goals'}, {:controller => 'yield_goals'}]
+            = n.item 'Site Analysis', :link => '/', :disabled_if => proc { true }
             = n.item 'Design', :link => '/', :disabled_if => proc { true }
             = n.item 'Implement', :link => '/', :disabled_if => proc { true }
             = n.item 'Maintain', :link => '/', :disabled_if => proc { true }
-        - elsif params[:controller] != 'sites'
+        - elsif params[:controller] != 'projects'
           = render_breadcrumbs
 
         = render :partial => 'layouts/notice'

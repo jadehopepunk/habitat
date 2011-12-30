@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
   def index
     if user_signed_in?
-      if current_user.site
-        redirect_to current_user.site
+      if current_user.project
+        redirect_to current_user.project
       else
-        redirect_to new_site_path
+        redirect_to new_project_path
       end
     else
       @user = User.new

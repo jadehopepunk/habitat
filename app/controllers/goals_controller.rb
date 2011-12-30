@@ -1,14 +1,14 @@
 class GoalsController < ApplicationController
-  before_filter :load_site
+  before_filter :load_project
   
   def index
   end
   
   private
   
-    def load_site
-      @site = Site.find(params[:site_id])
-      authorize! :read, @site
+    def load_project
+      @project = Project.find(params[:project_id])
+      authorize! :read, @project
     end
 
 end

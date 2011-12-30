@@ -1,7 +1,7 @@
 %h1 Your Goals
 .well
-  = link_to 'New Yield', new_site_yield_goal_path(@site), :class => 'btn'
-  = link_to 'New Labour Input', new_site_labour_input_goal_path(@site), :class => 'btn'
+  = link_to 'New Yield', new_project_yield_goal_path(@project), :class => 'btn'
+  = link_to 'New Labour Input', new_project_labour_input_goal_path(@project), :class => 'btn'
   = link_to 'Edit Budget', '#', :class => 'btn unimplemented'
 .row
   .span10
@@ -9,13 +9,13 @@
       Desired Yields
       %small What do you want to be able to harvest?
     %br
-    = render :partial => 'yield_goals/table', :locals => {:yield_goals => @site.yield_goals}
+    = render :partial => 'yield_goals/table', :locals => {:yield_goals => @project.yield_goals}
     
     %h2
       Labour Inputs
       %small How much work do you want to have to put in?
     %br
-    = render :partial => 'labour_input_goals/table', :locals => {:labour_input_goals => @site.labour_input_goals}
+    = render :partial => 'labour_input_goals/table', :locals => {:labour_input_goals => @project.labour_input_goals}
 
     .unimplemented
       %h2

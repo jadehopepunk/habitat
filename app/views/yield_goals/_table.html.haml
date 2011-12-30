@@ -4,5 +4,5 @@
     = t.cell :amount_with_period, :heading => 'Amount'
     = t.cell :lead_time_string, :heading => 'Lead Time'
     = t.cell :details, :heading => 'Details', :cell_html => {:class => 'details'}
-    = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_site_yield_goal_path(@site, goal)) }
-    = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@site, goal], :confirm => 'Are you sure?', :method => :delete) }
+    = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_yield_goal_path(@project, goal)) }
+    = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@project, goal], :confirm => 'Are you sure?', :method => :delete) }

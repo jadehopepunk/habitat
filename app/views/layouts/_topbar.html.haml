@@ -4,17 +4,17 @@
       %a.brand{:href => "/"} Habitat
       %ul.nav
         - if user_signed_in?
-          - if current_user.site
-            %li= link_to "Site", site_path(current_user.site)
+          - if current_user.project
+            %li= link_to "Project", project_path(current_user.project)
           - else
-            %li= link_to "New Site", new_site_path
+            %li= link_to "New Project", new_project_path
 
           - if current_user.role == 'admin'
             %li.dropdown{"data-dropdown" => "dropdown"}
               %a.dropdown-toggle{:href => "#"} Admin
               %ul.dropdown-menu
-                - if can?(:manage, Site)
-                  %li= link_to "Sites", sites_path
+                - if can?(:manage, Project)
+                  %li= link_to "Projects", projects_path
                 - if can?(:manage, User)
                   %li= link_to "Users", admin_users_path
                 - if can?(:manage, Use)

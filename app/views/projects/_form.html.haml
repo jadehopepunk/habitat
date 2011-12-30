@@ -1,19 +1,19 @@
-= simple_form_for @site, :wrapper => :inline, :html => {:multipart => true} do |f|
+= simple_form_for @project, :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
-  = f.input :name, :input_html => { :class => "span8" }, :hint => "add your site title here"
+  = f.input :name, :input_html => { :class => "span8" }, :hint => "add your project title here"
   = f.input :address, :input_html => { :class => "span8" }
   = f.input :photo do
     .existing_image
-      = image_tag @site.photo.thumb('100x100').url if @site.photo_uid
+      = image_tag @project.photo.thumb('100x100').url if @project.photo_uid
     = f.file_field :photo
     = f.hidden_field :retained_photo
-  = f.input :climate_zone, :collection => Site::CLIMATE_ZONES
+  = f.input :climate_zone, :collection => Project::CLIMATE_ZONES
   = f.input :size
-  = f.input :size_units, :collection => Site::SIZE_UNITS
+  = f.input :size_units, :collection => Project::SIZE_UNITS
   = f.input :soil_type, :input_html => {:rows => 3, :class => 'xxlarge'}
   = f.input :solar_aspect, :input_html => {:rows => 3, :class => 'xxlarge'}
   = f.input :weather_conditions, :input_html => {:rows => 3, :class => 'xxlarge'}
   = f.input :other_considerations, :input_html => {:rows => 7, :class => 'xxlarge'}
   .actions
     = f.button :submit, :class => 'primary'
-    = link_to 'Cancel', @site, :class => "btn"
+    = link_to 'Cancel', @project, :class => "btn"

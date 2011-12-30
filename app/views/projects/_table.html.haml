@@ -1,0 +1,7 @@
+= table_for(@projects) do |t|
+  = t.data do
+    = t.cell :name
+    = t.cell :user, :heading => 'Owner'
+    = t.cell('', :cell_html => {:class => 'actions'}) {|project| link_to('View', project) }
+    = t.cell('', :cell_html => {:class => 'actions'}) {|project| link_to('Edit', edit_project_path(project)) }
+    = t.cell('', :cell_html => {:class => 'actions'}) {|project| link_to('Remove', project, :confirm => 'Are you sure?', :method => :delete) }
