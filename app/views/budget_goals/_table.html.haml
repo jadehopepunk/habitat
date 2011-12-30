@@ -1,0 +1,36 @@
+= table_for(budget_goals) do |t|
+  = t.data do
+    = t.cell :budget_category_name, :heading => 'Stage'
+    = t.cell :amount_cents, :heading => 'Amount'
+    = t.cell :timeframe_amount
+    = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_budget_goal_path(@project, goal)) }
+    = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@project, goal], :confirm => 'Are you sure?', :method => :delete) }
+
+.unimplemented
+  %table.zebra-striped.bordered-table
+    %thead
+      %tr
+        %th Stage
+        %th Amount
+        %th Timeframe
+    %tbody
+      %tr
+        %td Design
+        %td $1000
+        %td 4 months
+      %tr
+        %td Earthworks
+        %td $2000
+        %td 6 months
+      %tr
+        %td Seedlings
+        %td $5000
+        %td 3 years
+      %tr
+        %td Seeds
+        %td $100
+        %td 1 year
+      %tr
+        %td Mulch
+        %td $500
+        %td 3 years
