@@ -1,6 +1,10 @@
 # encoding: utf-8
 
 class Unit
+  COMMON_VOLUME_UNITS = %w(m^3 L gal)
+  COMMON_WEIGHT_UNITS = %w(kg lb)
+  CALENDAR_TIME_UNITS = %w(day week month year decade century)
+
   def self.format_unit(value)
     return nil if value.blank?
     value = value.gsub('^2', '²')

@@ -2,7 +2,7 @@
 .well
   = link_to 'New Yield', new_site_yield_goal_path(@site), :class => 'btn'
   = link_to 'New Labour Input', new_site_labour_input_goal_path(@site), :class => 'btn'
-  = link_to 'Edit Budget', '#', :class => 'btn'
+  = link_to 'Edit Budget', '#', :class => 'btn unimplemented'
 .row
   .span10
     %h2 
@@ -29,3 +29,6 @@
     %p
       Select the uses that you'd like to get out of your forest garden.
     = todo("explanation text for picking goals, including some book references")
+
+= todo("Each table should have a \"new record\" button nearby")
+= todo("Tables should look good with no data, and provide some explanation")
