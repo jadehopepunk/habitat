@@ -31,9 +31,14 @@
 }
 
 .masthead {
-  background-color: #049CD9;
-  background-image: -moz-linear-gradient(#0D4612, #258E2D);
+  background-color: #0D4612;
   background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0D4612), to(#258E2D));
+  background-image: -webkit-linear-gradient(#0D4612, #258E2D);
+  background-image: -moz-linear-gradient(#0D4612, #258E2D);
+  background-image: -o-linear-gradient(top, #0D4612, #258E2D);
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#0D4612), to(#258E2D));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0D4612', endColorstr='#258E2D', GradientType=0); /* IE8 and down */
 }
 
 .quickstart {
