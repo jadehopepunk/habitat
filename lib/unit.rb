@@ -4,6 +4,8 @@ class Unit
   COMMON_VOLUME_UNITS = %w(m^3 L gal)
   COMMON_WEIGHT_UNITS = %w(kg lb)
   CALENDAR_TIME_UNITS = %w(day week month year decade century)
+  LAND_AREA_UNITS = ['m^2', 'feet^2', 'acres', 'hectares']
+
   SYSTEMS_OF_MEASURE = %w(metric US imperial)
   
   def self.format_unit(value)
