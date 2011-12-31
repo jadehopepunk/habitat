@@ -2,7 +2,7 @@
   = form_errors(f)
   .inputs
     = f.input :budget_category_name, :label => 'Stage', :as => :autocomplete, :url => autocomplete_use_name_project_yield_goals_path
-    = f.input :amount_cents
+    = f.input :amount
     = f.input :timeframe_amount, :as => :amount_with_unit, :label => "Timeframe", :hint => "Over what period will the money be spent?"
   .actions
     = f.button :submit, :class => 'primary'

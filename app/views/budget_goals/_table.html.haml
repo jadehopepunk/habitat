@@ -1,7 +1,7 @@
 = table_for(budget_goals) do |t|
   = t.data do
     = t.cell :budget_category_name, :heading => 'Stage'
-    = t.cell :amount_cents, :heading => 'Amount'
+    = t.cell :amount
     = t.cell :timeframe_amount
     = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_budget_goal_path(@project, goal)) }
     = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@project, goal], :confirm => 'Are you sure?', :method => :delete) }

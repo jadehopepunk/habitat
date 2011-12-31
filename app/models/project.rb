@@ -41,6 +41,12 @@ class Project < ActiveRecord::Base
     end
   end
   
+  def currency
+    Money::Currency.new(preferred_currency)
+  rescue Money::Currency::UnknownCurrency
+    Money.default_currency
+  end
+  
   protected
 
     def prevent_geocoding?
