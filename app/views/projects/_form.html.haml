@@ -12,10 +12,6 @@
   = f.input :climate_zone, :collection => Project::CLIMATE_ZONES
   = f.input :size
   = f.input :size_units, :collection => Project::SIZE_UNITS
-  = f.input :soil_type, :input_html => {:rows => 3, :class => 'xxlarge'}
-  = f.input :solar_aspect, :input_html => {:rows => 3, :class => 'xxlarge'}
-  = f.input :weather_conditions, :input_html => {:rows => 3, :class => 'xxlarge'}
-  = f.input :other_considerations, :input_html => {:rows => 7, :class => 'xxlarge'}
   .actions
     = f.button :submit, :class => 'primary'
     = link_to 'Cancel', @project, :class => "btn"

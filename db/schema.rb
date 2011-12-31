@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111230064101) do
+ActiveRecord::Schema.define(:version => 20111231024910) do
 
   create_table "budget_categories", :force => true do |t|
     t.string   "name"
@@ -60,10 +60,6 @@ ActiveRecord::Schema.define(:version => 20111230064101) do
     t.string   "climate_zone"
     t.float    "size"
     t.string   "size_units"
-    t.text     "soil_type"
-    t.text     "solar_aspect"
-    t.text     "weather_conditions"
-    t.text     "other_considerations"
     t.string   "photo_uid"
     t.integer  "user_id"
     t.string   "preferred_currency"

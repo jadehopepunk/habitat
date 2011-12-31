@@ -21,10 +21,6 @@
               = attribute_row(@project, :hemisphere)
               = attribute_row(@project, :climate_zone)
               = attribute_row(@project, :size_with_unit, :label => 'Size')
-              = attribute_row(@project, :soil_type, :line_breaks => true)
-              = attribute_row(@project, :solar_aspect, :line_breaks => true)
-              = attribute_row(@project, :weather_conditions, :line_breaks => true)
-              = attribute_row(@project, :other_considerations, :line_breaks => true)
       .span6
         - if @project.photo_uid
           %ul.media-grid

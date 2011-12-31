@@ -1,0 +1,29 @@
+Project
+
+- Project Details
+
+    - Basic property details
+      - address
+      - size
+      - climate zone
+
+    - Categorise the project
+      - Auto-suggest category name
+      eg: Suburban garden, rural homestead, farm
+
+    - Short (1 paragraph) description of the desired outcome
+
+- Project Settings
+
+    - Sharing: (Pubic / Private)
+
+    - Collaborators
+      - Project owners
+      - Consultants
+
+    - Currency
+      (ideally auto-compute from address country)
+
+    - Measurement system (metric, imperial, US)
+      (ideally auto-compute from address country)
+  
