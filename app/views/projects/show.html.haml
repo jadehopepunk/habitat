@@ -20,7 +20,7 @@
                   %td= "#{@project.lat} / #{@project.lng}"
               = attribute_row(@project, :hemisphere)
               = attribute_row(@project, :climate_zone)
-              = attribute_row(@project, :size_with_unit, :label => 'Size')
+              = attribute_row(@project, :site_area_with_unit, :label => 'Size')
       .span6
         - if @project.photo_uid
           %ul.media-grid

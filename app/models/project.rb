@@ -2,7 +2,7 @@ require 'unit'
 
 class Project < ActiveRecord::Base
   CLIMATE_ZONES = %w(tropical sub-tropical temperate cool-temperate arid arctic)
-  SIZE_UNITS = ['square metres', 'square feet', 'acres', 'hectares']
+  SITE_AREA_UNITS = ['square metres', 'square feet', 'acres', 'hectares']
   
   acts_as_gmappable :lat => 'lat', :lng => 'lng', :check_process => :prevent_geocoding?,
                     :address => "address", :normalized_address => "address",
@@ -20,14 +20,14 @@ class Project < ActiveRecord::Base
   validates_presence_of :user
   validates_presence_of :name
   validates_inclusion_of :climate_zone, :in => CLIMATE_ZONES, :allow_blank => true
-  validates_inclusion_of :size_units, :in => SIZE_UNITS, :allow_blank => true
+  validates_inclusion_of :site_area_unit, :in => SITE_AREA_UNITS, :allow_blank => true
   validates_inclusion_of :preferred_currency, :in => Money::Currency::TABLE.map {|row| row.last[:iso_code]}, :allow_blank => true
   validates_inclusion_of :preferred_measures, :in => Unit::SYSTEMS_OF_MEASURE, :allow_blank => true
-  validates_numericality_of :size, :allow_nil => true
+  validates_numericality_of :site_area, :allow_nil => true
 
-  def size_with_unit
-    unless size.blank?
-      [size, size_units].compact.join(' ')
+  def site_area_with_unit
+    unless site_area.blank?
+      [site_area, site_area_unit].compact.join(' ')
     end
   end
 
