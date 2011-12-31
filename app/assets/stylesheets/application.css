@@ -5,9 +5,9 @@
  *= require_self
  *= require gmaps4rails
  *= require mapping
+ *= require jquery-ui-bootstrap
  *= require twitter/bootstrap
  *= require bootstrap
- *= require jquery-ui-bootstrap
  *= require bootstrap_additions
  *= require record_presentation 
  *= require_tree .
