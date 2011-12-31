@@ -1,17 +1,19 @@
 = simple_form_for @project, :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
-  = f.input :name, :input_html => { :class => "span8" }, :hint => "add your project title here"
-  = f.input :preferred_currency, :as => :select, :collection => Money::Currency::TABLE.map {|row| [row.last[:name], row.last[:iso_code]]}.sort, :allow_blank => true
-  = f.input :preferred_measures, :as => :inferred_select
-  = f.input :address, :input_html => { :class => "span8" }
-  = f.input :photo do
-    .existing_image
-      = image_tag @project.photo.thumb('100x100').url if @project.photo_uid
-    = f.file_field :photo
-    = f.hidden_field :retained_photo
-  = f.input :climate_zone, :collection => Project::CLIMATE_ZONES
-  = f.input :size
-  = f.input :size_units, :collection => Project::SIZE_UNITS
+  = field_set_tag "Project Details" do
+    = f.input :name, :input_html => { :class => "span8" }, :hint => "add your project title here"
+    = f.input :address, :input_html => { :class => "span8" }
+    = f.input :photo do
+      .existing_image
+        = image_tag @project.photo.thumb('100x100').url if @project.photo_uid
+      = f.file_field :photo
+      = f.hidden_field :retained_photo
+    = f.input :climate_zone, :collection => Project::CLIMATE_ZONES
+    = f.input :size
+    = f.input :size_units, :collection => Project::SIZE_UNITS
+  = field_set_tag "Project Settings" do
+    = f.input :preferred_currency, :label => 'Currency', :as => :select, :collection => Money::Currency::TABLE.map {|row| [row.last[:name], row.last[:iso_code]]}.sort, :allow_blank => true
+    = f.input :preferred_measures, :label => 'Measurements', :as => :inferred_select
   .actions
     = f.button :submit, :class => 'primary'
     = link_to 'Cancel', @project, :class => "btn"
