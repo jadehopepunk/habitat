@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120101053415) do
+ActiveRecord::Schema.define(:version => 20120101061232) do
 
   create_table "budget_categories", :force => true do |t|
     t.string   "name"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20120101053415) do
     t.string   "preferred_currency"
     t.string   "preferred_measures"
     t.integer  "project_category_id"
+    t.text     "description"
   end
 
   create_table "users", :force => true do |t|

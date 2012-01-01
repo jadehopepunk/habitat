@@ -12,6 +12,7 @@
         %table
           %thead
             %tbody
+              = attribute_row(@project, :project_category, :label => 'Category')
               - unless @project.address.blank?
                 %tr
                   %td
@@ -21,13 +22,18 @@
                   %td
                     %strong Lat / Lon
                   %td= "#{@project.lat} / #{@project.lng}"
-              = attribute_row(@project, :hemisphere)
-              = attribute_row(@project, :climate_zone)
-              = attribute_row(@project, :site_area_with_unit, :label => 'Size')
+                = attribute_row(@project, :hemisphere)
+                = attribute_row(@project, :site_area_with_unit, :label => 'Size')
+                = attribute_row(@project, :climate_zone)
+                = attribute_row(@project, :description)              
+                - if @project.photo_uid
+                  %tr
+                    %td
+                      %strong Before
+                    %td
+                      %ul.media-grid
+                        %li
+                          = link_to @project.photo.url do
+                            = image_tag @project.photo.thumb('330x230#').url
       .span6
-        - if @project.photo_uid
-          %ul.media-grid
-            %li
-              = link_to @project.photo.url do
-                = image_tag @project.photo.thumb('330x230#').url
         = project_map(@project)

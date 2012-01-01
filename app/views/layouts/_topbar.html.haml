@@ -9,6 +9,8 @@
           - else
             %li= link_to "New Project", main_app.new_project_path
 
+          %li.admin= link_to "Discussion Forums", "/forums"
+
           - if current_user.role == 'admin'
             %li.dropdown{"data-dropdown" => "dropdown"}
               %a.dropdown-toggle{:href => "#"} Admin
@@ -23,8 +25,6 @@
                   %li= link_to "Jobs", main_app.jobs_path
                 - if can?(:manage, ProjectCategory)
                   %li= link_to "Project Categories", main_app.project_categories_path
-
-            %li= link_to "Discussion Forums", "/forums"
 
       .pull-right
         - if current_user

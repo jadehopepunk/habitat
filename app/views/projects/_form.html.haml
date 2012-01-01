@@ -2,11 +2,12 @@
   = form_errors(f)
   = field_set_tag "Project Details" do
     = f.input :name, :input_html => { :class => "span8" }, :hint => "add your project title here"
+    = f.association :project_category, :label => 'Category'
     = f.input :address, :input_html => { :class => "span8" }, :hint => "separate parts with comments"
     = f.input :site_area, :as => :amount_with_unit
     = f.input :climate_zone, :as => :inferred_select
-    = f.association :project_category, :label => 'Category'
-    = f.input :photo, :as => :image
+    = f.input :description, :as => :text, :hint => "A very short description of your desired outcomes", :input_html => { :class => "xxlarge", :rows => 5 }
+    = f.input :photo, :as => :image, :label => '"Before" photo'
   = field_set_tag "Project Settings" do
     = f.input :preferred_currency, :label => 'Currency', :as => :select, :collection => Money::Currency::TABLE.map {|row| [row.last[:name], row.last[:iso_code]]}.sort, :allow_blank => true
     = f.input :preferred_measures, :label => 'Measurements', :as => :inferred_select
