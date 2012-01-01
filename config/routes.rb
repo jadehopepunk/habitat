@@ -6,6 +6,7 @@ SimpleFormBootstrap::Application.routes.draw do
   end
   resources :uses
   resources :jobs
+  resources :project_categories
   resources :projects do
     resources :goals
     resources :labour_input_goals do

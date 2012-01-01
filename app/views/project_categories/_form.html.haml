@@ -1,0 +1,7 @@
+= simple_form_for @project_category, :wrapper => :inline do |f|
+  = form_errors(f)
+  .inputs
+  = f.input :name, :input_html => { :class => "span8" }
+  .actions
+    = f.button :submit, :class => 'primary'
+    = link_to 'Cancel', project_categories_path, :class => "btn"
