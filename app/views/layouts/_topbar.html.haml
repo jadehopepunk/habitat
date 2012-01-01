@@ -21,6 +21,9 @@
                   %li= link_to "Uses", main_app.uses_path
                 - if can?(:manage, Job)
                   %li= link_to "Jobs", main_app.jobs_path
+
+            %li= link_to "Discussion Forums", "/forums"
+
       .pull-right
         - if current_user
           %p
