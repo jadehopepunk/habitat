@@ -5,6 +5,7 @@
     = f.input :address, :input_html => { :class => "span8" }, :hint => "separate parts with comments"
     = f.input :site_area, :as => :amount_with_unit
     = f.input :climate_zone, :as => :inferred_select
+    = f.association :project_category, :label => 'Category'
     = f.input :photo, :as => :image
   = field_set_tag "Project Settings" do
     = f.input :preferred_currency, :label => 'Currency', :as => :select, :collection => Money::Currency::TABLE.map {|row| [row.last[:name], row.last[:iso_code]]}.sort, :allow_blank => true

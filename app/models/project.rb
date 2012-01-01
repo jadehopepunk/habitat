@@ -13,6 +13,7 @@ class Project < ActiveRecord::Base
   has_many :labour_input_goals, :dependent => :destroy
   has_many :budget_goals, :dependent => :destroy
   belongs_to :user
+  belongs_to :project_category
   
   CURRENCIES = %w(USD AUD NZD)
 
