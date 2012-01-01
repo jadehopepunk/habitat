@@ -16,6 +16,22 @@ GIT
       activemodel (~> 3.0)
 
 GIT
+  remote: git://github.com/radar/forem-theme-twist
+  revision: 9d0c482335449ac15563c16937d9a528c5807935
+  specs:
+    forem-theme-twist (0.0.1)
+
+GIT
+  remote: git://github.com/radar/forem.git
+  revision: e7ab88e9d29d60194bf016d7ef612d01a42bbc9a
+  specs:
+    forem (0.1)
+      cancan
+      kaminari
+      rails (~> 3.1.0)
+      simple_form
+
+GIT
   remote: http://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: bc8b8f7630f0803f153c3ec3a614b38cd74038e7
   specs:
@@ -99,6 +115,10 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.5.4)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     less (2.0.8)
       commonjs (~> 0.2.0)
       therubyracer (~> 0.9.9)
@@ -191,6 +211,8 @@ DEPENDENCIES
   crummy
   devise!
   dragonfly
+  forem!
+  forem-theme-twist!
   gmaps4rails
   gravtastic
   haml

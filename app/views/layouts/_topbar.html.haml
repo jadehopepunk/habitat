@@ -5,22 +5,22 @@
       %ul.nav
         - if user_signed_in?
           - if current_user.project
-            %li= link_to "Project", project_path(current_user.project)
+            %li= link_to "Project", main_app.project_path(current_user.project)
           - else
-            %li= link_to "New Project", new_project_path
+            %li= link_to "New Project", main_app.new_project_path
 
           - if current_user.role == 'admin'
             %li.dropdown{"data-dropdown" => "dropdown"}
               %a.dropdown-toggle{:href => "#"} Admin
               %ul.dropdown-menu
                 - if can?(:manage, Project)
-                  %li= link_to "Projects", projects_path
+                  %li= link_to "Projects", main_app.projects_path
                 - if can?(:manage, User)
-                  %li= link_to "Users", admin_users_path
+                  %li= link_to "Users", main_app.admin_users_path
                 - if can?(:manage, Use)
-                  %li= link_to "Uses", uses_path
+                  %li= link_to "Uses", main_app.uses_path
                 - if can?(:manage, Job)
-                  %li= link_to "Jobs", jobs_path
+                  %li= link_to "Jobs", main_app.jobs_path
       .pull-right
         - if current_user
           %p

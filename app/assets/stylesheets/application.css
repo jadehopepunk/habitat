@@ -5,6 +5,7 @@
  *= require_self
  *= require gmaps4rails
  *= require mapping
+ *= require "forem/twist/style"
  *= require jquery-ui-bootstrap
  *= require twitter/bootstrap
  *= require bootstrap
