@@ -12,4 +12,14 @@ module RecordPresentationHelper
       end
     end
   end
+  
+  def table_link_footer(t, name, url, options = {})
+    content_tag(:tfoot) do
+      content_tag(:tr) do
+        content_tag(:td, :colspan => t.table_fields.length, :class => 'table_actions') do
+          link_to(name, url, options)
+        end
+      end
+    end
+  end
 end

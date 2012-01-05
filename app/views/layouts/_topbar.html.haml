@@ -9,8 +9,9 @@
           - else
             %li= link_to "New Project", main_app.new_project_path
 
-          %li.admin= link_to "Discussion Forums", "/forums"
+        %li.admin= link_to "Discussion Forums", "/forums"
 
+        - if user_signed_in?
           - if current_user.role == 'admin'
             %li.dropdown{"data-dropdown" => "dropdown"}
               %a.dropdown-toggle{:href => "#"} Admin

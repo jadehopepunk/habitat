@@ -5,3 +5,4 @@
     = t.cell :maintenance_amount_with_period, :heading => 'During Maintenance'
     = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_labour_input_goal_path(@project, goal)) }
     = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@project, goal], :confirm => 'Are you sure?', :method => :delete) }
+  = table_link_footer t, 'Add Another', new_project_labour_input_goal_path(@project)
