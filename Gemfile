@@ -35,7 +35,17 @@ group :production do
   gem 'pg'
 end
 
-group :development do
+group :test, :development do
   gem 'capistrano'
+  gem 'spork'
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'ruby_gntp'
+  gem 'guard'
+  gem 'guard-spork'
+  gem 'guard-cucumber'
+  gem 'guard-pow'
+  gem 'guard-bundler'
 end
 
