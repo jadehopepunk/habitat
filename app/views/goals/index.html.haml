@@ -1,7 +1,7 @@
 %h1 Your Goals
-- if can? :edit, :Project
+- if can? :edit, Project
   .well
-    = link_to 'New Yield', new_project_yield_goal_path(@project), :class => 'btn'
+    = link_to 'New Yield', new_project_goals_yield_goal_path(@project), :class => 'btn'
     = link_to 'New Labour Input', new_project_labour_input_goal_path(@project), :class => 'btn'
     = link_to 'New Budget Item', new_project_budget_goal_path(@project), :class => 'btn'
 .row
@@ -10,7 +10,7 @@
       Desired Yields
       %small What do you want to be able to harvest?
     %br
-    = render :partial => 'yield_goals/table', :locals => {:yield_goals => @project.yield_goals}
+    = render :partial => 'goals/yield_goals/table', :locals => {:yield_goals => @project.yield_goals}
     
     %h2
       Labour Inputs

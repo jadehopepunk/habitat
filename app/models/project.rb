@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
 
   image_accessor :photo
 
-  has_many :yield_goals, :dependent => :destroy
+  has_many :yield_goals, :dependent => :destroy, :class_name => 'Goals::YieldGoal'
   has_many :labour_input_goals, :dependent => :destroy
   has_many :budget_goals, :dependent => :destroy
   belongs_to :user
