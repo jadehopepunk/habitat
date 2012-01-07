@@ -14,7 +14,9 @@ class Ability
         can :manage, Project, :user_id => user.id
 
         can :manage, [YieldGoal, LabourInputGoal], {:project => {:user_id => user.id}}
-      end      
+      end
+    else
+      can :read, Project, :is_public => true
     end
     
     # Define abilities for the passed in user here. For example:

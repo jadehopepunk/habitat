@@ -5,4 +5,5 @@
     = t.cell :timeframe_amount
     = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_budget_goal_path(@project, goal)) }
     = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@project, goal], :confirm => 'Are you sure?', :method => :delete) }
-  = table_link_footer t, 'Add Another', new_project_budget_goal_path(@project)
+  - if can? :create, BudgetGoal
+    = table_link_footer t, 'Add Another', new_project_budget_goal_path(@project)

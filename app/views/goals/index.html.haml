@@ -1,8 +1,9 @@
 %h1 Your Goals
-.well
-  = link_to 'New Yield', new_project_yield_goal_path(@project), :class => 'btn'
-  = link_to 'New Labour Input', new_project_labour_input_goal_path(@project), :class => 'btn'
-  = link_to 'New Budget Item', new_project_budget_goal_path(@project), :class => 'btn'
+- if can? :edit, :Project
+  .well
+    = link_to 'New Yield', new_project_yield_goal_path(@project), :class => 'btn'
+    = link_to 'New Labour Input', new_project_labour_input_goal_path(@project), :class => 'btn'
+    = link_to 'New Budget Item', new_project_budget_goal_path(@project), :class => 'btn'
 .row
   .span10
     %h2 
@@ -24,10 +25,11 @@
     = render :partial => 'budget_goals/table', :locals => {:budget_goals => @project.budget_goals}
     
   .span6
-    %h2 Be Realistic
-    %p
-      Select the uses that you'd like to get out of your forest garden.
-    = todo("explanation text for picking goals, including some book references")
+    .page_explanation
+      - if can? :edit, Project
+        %h2 Be Realistic
+        %p
+          Select the uses that you'd like to get out of your forest garden.
+        = todo("explanation text for picking goals, including some book references")
 
-= todo("Each table should have a \"new record\" button nearby")
 = todo("Tables should look good with no data, and provide some explanation")

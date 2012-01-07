@@ -3,10 +3,9 @@
     %header
       %h1
         = @project.name
-    .well
-      = link_to "Edit Details", edit_project_path(@project), :class => 'btn'
-      / = link_to "Edit Settings", edit_project_path(@project), :class => 'btn'
-      / = link_to "Edit Collaborators", edit_project_path(@project), :class => 'btn'
+    - if can? :edit, @project
+      .well
+        = link_to "Edit Details", edit_project_path(@project), :class => 'btn'
     .row
       .span10
         %table
@@ -36,4 +35,5 @@
                           = link_to @project.photo.url do
                             = image_tag @project.photo.thumb('330x230#').url
       .span6
-        = project_map(@project)
+        - if @project.lat
+          = project_map(@project)
