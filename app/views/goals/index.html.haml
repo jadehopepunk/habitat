@@ -3,7 +3,7 @@
   .well
     = link_to 'New Yield', new_project_goals_yield_goal_path(@project), :class => 'btn'
     = link_to 'New Labour Input', new_project_goals_labour_input_goal_path(@project), :class => 'btn'
-    = link_to 'New Budget Item', new_project_budget_goal_path(@project), :class => 'btn'
+    = link_to 'New Budget Item', new_project_goals_budget_goal_path(@project), :class => 'btn'
 .row
   .span10
     %h2 
@@ -22,7 +22,7 @@
       Budget
       %small Finances broken down by project stage
     %br
-    = render :partial => 'budget_goals/table', :locals => {:budget_goals => @project.budget_goals}
+    = render :partial => 'goals/budget_goals/table', :locals => {:budget_goals => @project.budget_goals}
     
   .span6
     .page_explanation

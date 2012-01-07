@@ -4,7 +4,7 @@
     = t.cell(:amount) {|goal| goal.amount.format(:no_cents_if_whole => true)}
     = t.cell :timeframe_amount
     - if can? :edit, @project
-      = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_budget_goal_path(@project, goal)) }
+      = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_goals_budget_goal_path(@project, goal)) }
       = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@project, goal], :confirm => 'Are you sure?', :method => :delete) }
-  - if can? :create, BudgetGoal
-    = table_link_footer t, 'Add Another', new_project_budget_goal_path(@project)
+  - if can? :create, Goals::BudgetGoal
+    = table_link_footer t, 'Add Another', new_project_goals_budget_goal_path(@project)

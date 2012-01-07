@@ -1,7 +1,7 @@
 = simple_form_for [@project, @budget_goal], :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
   .inputs
-    = f.input :budget_category_name, :label => 'Stage', :as => :autocomplete, :url => autocomplete_use_name_project_yield_goals_path
+    = f.input :budget_category_name, :label => 'Stage', :as => :autocomplete, :url => autocomplete_budget_category_name_project_goals_budget_goals_path
     = f.input :amount, :as => :money
     = f.input :timeframe_amount, :as => :amount_with_unit, :label => "Timeframe", :hint => "Over what period will the money be spent?", :unit_options => {:label_processor => lambda {|key| key.pluralize}}
   .actions

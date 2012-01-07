@@ -12,7 +12,7 @@ class Project < ActiveRecord::Base
 
   has_many :yield_goals, :dependent => :destroy, :class_name => 'Goals::YieldGoal'
   has_many :labour_input_goals, :dependent => :destroy, :class_name => 'Goals::LabourInputGoal'
-  has_many :budget_goals, :dependent => :destroy
+  has_many :budget_goals, :dependent => :destroy, :class_name => 'Goals::BudgetGoal'
   belongs_to :user
   belongs_to :project_category
   
