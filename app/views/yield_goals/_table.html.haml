@@ -4,7 +4,8 @@
     = t.cell :amount_with_period, :heading => 'Amount'
     = t.cell :lead_time_string, :heading => 'Lead Time'
     = t.cell :details, :heading => 'Details', :cell_html => {:class => 'details'}
-    = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_yield_goal_path(@project, goal)) }
-    = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@project, goal], :confirm => 'Are you sure?', :method => :delete) }
+    - if can? :edit, @project
+      = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_yield_goal_path(@project, goal)) }
+      = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@project, goal], :confirm => 'Are you sure?', :method => :delete) }
   - if can? :create, YieldGoal
     = table_link_footer t, 'Add Another', new_project_yield_goal_path(@project)
