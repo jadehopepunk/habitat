@@ -89,3 +89,7 @@ form label abbr {
   display: inline;
   font-weight: bold;
 }
+
+.input-xlarge, input.xlarge, textarea.xlarge, select.xlarge {
+    width: 450px;
+}
