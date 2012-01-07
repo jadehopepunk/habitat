@@ -8,4 +8,9 @@ When /^I submit valid new project details$/ do
   fill_in "Address", :with => "New York, New York"
   fill_in "Site area", :with => "2"
   select "acres", :form => "#project_site_area_unit"
+  click_button "Create Project"
+end
+
+Then /^I should be on my project page$/ do
+  current_path.should =~ /projects\/\d+/
 end
