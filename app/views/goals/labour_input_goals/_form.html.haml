@@ -1,7 +1,7 @@
 = simple_form_for [@project, @labour_input_goal], :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
   .inputs
-    = f.input :job_name, :label => 'Job', :as => :autocomplete, :url => autocomplete_job_name_project_labour_input_goals_path
+    = f.input :job_name, :label => 'Job', :as => :autocomplete, :url => autocomplete_job_name_project_goals_labour_input_goals_path
     = f.input :implementation_amount, :as => :amount_per_period, :label => 'Implementation Time'
     = f.input :maintenance_amount, :as => :amount_per_period, :label => 'Maintenance Time'
   .actions

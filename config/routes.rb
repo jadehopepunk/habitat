@@ -13,9 +13,9 @@ SimpleFormBootstrap::Application.routes.draw do
       resources :yield_goals do
         get :autocomplete_use_name, :on => :collection
       end
-    end
-    resources :labour_input_goals do
-      get :autocomplete_job_name, :on => :collection
+      resources :labour_input_goals do
+        get :autocomplete_job_name, :on => :collection
+      end
     end
     resources :budget_goals do
       get :autocomplete_budget_category_name, :on => :collection

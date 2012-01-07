@@ -2,7 +2,7 @@
 - if can? :edit, Project
   .well
     = link_to 'New Yield', new_project_goals_yield_goal_path(@project), :class => 'btn'
-    = link_to 'New Labour Input', new_project_labour_input_goal_path(@project), :class => 'btn'
+    = link_to 'New Labour Input', new_project_goals_labour_input_goal_path(@project), :class => 'btn'
     = link_to 'New Budget Item', new_project_budget_goal_path(@project), :class => 'btn'
 .row
   .span10
@@ -16,7 +16,7 @@
       Labour Inputs
       %small How much work do you want to have to put in?
     %br
-    = render :partial => 'labour_input_goals/table', :locals => {:labour_input_goals => @project.labour_input_goals}
+    = render :partial => 'goals/labour_input_goals/table', :locals => {:labour_input_goals => @project.labour_input_goals}
 
     %h2
       Budget

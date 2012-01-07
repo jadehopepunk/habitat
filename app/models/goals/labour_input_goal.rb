@@ -1,4 +1,4 @@
-class LabourInputGoal < ActiveRecord::Base
+class Goals::LabourInputGoal < ActiveRecord::Base
   belongs_to :job
   belongs_to :project
   
