@@ -16,3 +16,4 @@
 config/database.yml
 public/system/dragonfly
 .rvmrc
+rerun.txt

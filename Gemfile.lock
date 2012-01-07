@@ -74,6 +74,7 @@ GEM
       activesupport (= 3.1.0)
     activesupport (3.1.0)
       multi_json (~> 1.0)
+    addressable (2.2.6)
     arel (2.2.1)
     bcrypt-ruby (3.0.0)
     builder (3.0.0)
@@ -158,6 +159,8 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
     less (2.0.8)
       commonjs (~> 0.2.0)
       therubyracer (~> 0.9.9)
@@ -286,6 +289,7 @@ DEPENDENCIES
   inherited_resources
   jquery-rails
   json
+  launchy
   money
   mysql
   navigasmic

@@ -48,5 +48,6 @@ group :test, :development do
   gem 'guard-pow'
   gem 'guard-bundler'
   gem 'rspec'
+  gem 'launchy'
 end
 

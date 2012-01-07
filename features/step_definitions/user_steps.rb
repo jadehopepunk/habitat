@@ -29,6 +29,10 @@ Given /^I am logged in$/ do
   sign_up valid_user
 end
 
+Given /^I have just signed up$/ do
+  sign_up valid_user
+end
+
 Given /^I exist as a user$/ do
   sign_up valid_user
   click_link 'Log-out'

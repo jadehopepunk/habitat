@@ -62,4 +62,8 @@ Spork.each_run do
   # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
   Cucumber::Rails::Database.javascript_strategy = :truncation
 
+  ActiveRecord::Fixtures.reset_cache
+  fixtures_folder = File.join(Rails.root, 'features', 'support', 'fixtures')
+  fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
+  ActiveRecord::Fixtures.create_fixtures(fixtures_folder, fixtures)
 end
