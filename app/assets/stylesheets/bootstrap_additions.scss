@@ -93,3 +93,7 @@ form label abbr {
 .input-xlarge, input.xlarge, textarea.xlarge, select.xlarge {
     width: 450px;
 }
+
+form .clearfix.error .help-block {
+  color: #BFBFBF;
+}

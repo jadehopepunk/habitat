@@ -3,7 +3,7 @@
   = field_set_tag "Project Details" do
     = f.input :name, :input_html => { :class => "span8" }, :hint => "add your project title here"
     = f.association :project_category, :label => 'Category'
-    = f.input :address, :input_html => { :class => "span8" }, :hint => "separate parts with comments"
+    = f.input :address, :input_html => { :class => "span8" }, :hint => "If you don't have an address, list a nearby town"
     = f.input :site_area, :as => :amount_with_unit
     = f.input :climate_zone, :as => :inferred_select
     = f.input :description, :as => :text, :hint => "A very short description of your desired outcomes", :input_html => { :class => "xlarge", :rows => 5 }
@@ -11,6 +11,7 @@
   = field_set_tag "Project Settings" do
     = f.input :preferred_currency, :label => 'Currency', :as => :select, :collection => Money::Currency::TABLE.map {|row| [row.last[:name], row.last[:iso_code]]}.sort, :allow_blank => true
     = f.input :preferred_measures, :label => 'Measurements', :as => :inferred_select
+    = f.input :is_public, :as => :select
   .actions
     = f.button :submit, :class => 'primary'
     = link_to 'Cancel', @project, :class => "btn"

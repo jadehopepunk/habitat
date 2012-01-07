@@ -10,6 +10,7 @@ end
 guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
   watch('config/environment.rb')
+  watch('db/schema.rb')
   watch(%r{^config/environments/.+\.rb$})
   watch(%r{^config/initializers/.+\.rb$})
   watch('Gemfile')
@@ -34,5 +35,6 @@ guard 'pow' do
   watch('config/environment.rb')
   watch(%r{^config/environments/.*\.rb$})
   watch(%r{^config/initializers/.*\.rb$})
+  watch('db/schema.rb')
 end
 

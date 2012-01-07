@@ -3,7 +3,8 @@ require 'unit'
 class Project < ActiveRecord::Base
   CLIMATE_ZONES = %w(tropical sub-tropical temperate cool-temperate arid arctic)
   
-  acts_as_gmappable :lat => 'lat', :lng => 'lng', :check_process => :prevent_geocoding?,
+  acts_as_gmappable :lat => 'lat', :lng => 'lng', 
+                    :check_process => :prevent_geocoding?,
                     :address => "address", :normalized_address => "address",
                     :msg => "Sorry, not even Google could figure out where that is"
 
