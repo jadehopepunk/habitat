@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(:version => 20120108053427) do
   add_index "forem_views", ["updated_at"], :name => "index_forem_views_on_updated_at"
   add_index "forem_views", ["user_id"], :name => "index_forem_views_on_user_id"
 
-  create_table "goals_budget_goals", :force => true do |t|
+  create_table "goals_budget_items", :force => true do |t|
     t.integer  "project_id"
     t.integer  "budget_category_id"
     t.integer  "amount_cents"

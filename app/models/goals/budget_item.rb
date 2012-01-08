@@ -1,4 +1,4 @@
-class Goals::BudgetGoal < ActiveRecord::Base
+class Goals::BudgetItem < ActiveRecord::Base
   belongs_to :project
   belongs_to :budget_category
   

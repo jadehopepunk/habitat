@@ -16,7 +16,7 @@ SimpleFormBootstrap::Application.routes.draw do
       resources :labour_inputs do
         get :autocomplete_job_name, :on => :collection
       end
-      resources :budget_goals do
+      resources :budget_items do
         get :autocomplete_budget_category_name, :on => :collection
       end
     end

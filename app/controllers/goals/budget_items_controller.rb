@@ -1,4 +1,4 @@
-class Goals::BudgetGoalsController < InheritedResources::Base
+class Goals::BudgetItemsController < InheritedResources::Base
   autocomplete :budget_category, :name
   
   load_and_authorize_resource

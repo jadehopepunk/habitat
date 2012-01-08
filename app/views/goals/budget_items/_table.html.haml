@@ -1,10 +1,10 @@
-= table_for(budget_goals) do |t|
+= table_for(budget_items) do |t|
   = t.data do
     = t.cell :budget_category_name, :heading => 'Stage'
     = t.cell(:amount) {|goal| goal.amount.format(:no_cents_if_whole => true)}
     = t.cell :timeframe_amount
     - if can? :edit, @project
-      = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_goals_budget_goal_path(@project, goal)) }
+      = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_goals_budget_item_path(@project, goal)) }
       = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@project, goal], :confirm => 'Are you sure?', :method => :delete) }
-  - if can? :create, Goals::BudgetGoal
-    = table_link_footer t, 'Add Another', new_project_goals_budget_goal_path(@project)
+  - if can? :create, Goals::BudgetItem
+    = table_link_footer t, 'Add Another', new_project_goals_budget_item_path(@project)
