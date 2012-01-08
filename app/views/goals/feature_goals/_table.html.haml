@@ -5,7 +5,7 @@
     =# t.cell :lead_time_string, :heading => 'Lead Time'
     =# t.cell :details, :heading => 'Details', :cell_html => {:class => 'details'}
     -# if can? :edit, @project
-      =# t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_goals_yield_goal_path(@project, goal)) }
+      =# t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_project_goals_yield_path(@project, goal)) }
       =# t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@project, goal], :confirm => 'Are you sure?', :method => :delete) }
-  -# if can? :create, Goals::YieldGoal
-    =# table_link_footer t, 'Add Another', new_project_goals_yield_goal_path(@project)
+  -# if can? :create, Goals::Yield
+    =# table_link_footer t, 'Add Another', new_project_goals_yield_path(@project)

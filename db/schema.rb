@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(:version => 20120108053427) do
     t.datetime "updated_at"
   end
 
-  create_table "goals_yield_goals", :force => true do |t|
+  create_table "goals_yields", :force => true do |t|
     t.integer  "use_id"
     t.integer  "project_id"
     t.float    "amount"

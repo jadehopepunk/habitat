@@ -1,6 +1,6 @@
 require 'unit'
 
-class Goals::YieldGoal < ActiveRecord::Base
+class Goals::Yield < ActiveRecord::Base
   SPECIAL_USE_UNITS = %w(varieties)
   
   belongs_to :project

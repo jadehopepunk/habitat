@@ -10,7 +10,7 @@ SimpleFormBootstrap::Application.routes.draw do
   resources :projects do
     resources :goals
     namespace :goals do
-      resources :yield_goals do
+      resources :yields do
         get :autocomplete_use_name, :on => :collection
       end
       resources :labour_input_goals do

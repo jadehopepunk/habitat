@@ -1,7 +1,7 @@
 %h1 Your Goals
 - if can? :edit, Project
   .well
-    = link_to 'New Yield', new_project_goals_yield_goal_path(@project), :class => 'btn'
+    = link_to 'New Yield', new_project_goals_yield_path(@project), :class => 'btn'
     = link_to 'New Labour Input', new_project_goals_labour_input_goal_path(@project), :class => 'btn'
     = link_to 'New Budget Item', new_project_goals_budget_goal_path(@project), :class => 'btn'
 .row
@@ -10,13 +10,13 @@
       Yields
       %small What do you want to be able to harvest?
     %br
-    = render :partial => 'goals/yield_goals/table', :locals => {:yield_goals => @project.yield_goals}
+    = render :partial => 'goals/yields/table', :locals => {:yields => @project.yields}
 
     %h2 
       Features
       %small Non-quantifiable characteristics of your garden
     %br
-    =# render :partial => 'goals/feature_goals/table', :locals => {:yield_goals => @project.feature_goals}
+    =# render :partial => 'goals/feature_goals/table', :locals => {:yields => @project.feature_goals}
     
     %h2
       Labour Inputs
