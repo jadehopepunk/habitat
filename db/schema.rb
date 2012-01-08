@@ -11,21 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107195946) do
+ActiveRecord::Schema.define(:version => 20120108053427) do
 
   create_table "budget_categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
-  end
-
-  create_table "budget_goals", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "budget_category_id"
-    t.integer  "amount_cents"
-    t.integer  "timeframe_amount"
-    t.string   "timeframe_amount_unit"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "forem_categories", :force => true do |t|
@@ -84,13 +74,25 @@ ActiveRecord::Schema.define(:version => 20120107195946) do
   add_index "forem_views", ["updated_at"], :name => "index_forem_views_on_updated_at"
   add_index "forem_views", ["user_id"], :name => "index_forem_views_on_user_id"
 
-  create_table "jobs", :force => true do |t|
-    t.string   "name"
+  create_table "goals_budget_goals", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "budget_category_id"
+    t.integer  "amount_cents"
+    t.integer  "timeframe_amount"
+    t.string   "timeframe_amount_unit"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "labour_input_goals", :force => true do |t|
+  create_table "goals_feature_goals", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "goals_labour_input_goals", :force => true do |t|
     t.integer  "job_id"
     t.integer  "project_id"
     t.float    "implementation_amount"
@@ -99,6 +101,24 @@ ActiveRecord::Schema.define(:version => 20120107195946) do
     t.float    "maintenance_amount"
     t.string   "maintenance_amount_unit"
     t.string   "maintenance_amount_period"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "goals_yield_goals", :force => true do |t|
+    t.integer  "use_id"
+    t.integer  "project_id"
+    t.float    "amount"
+    t.string   "amount_unit"
+    t.string   "amount_period"
+    t.float    "lead_time_in_years"
+    t.text     "details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -153,18 +173,6 @@ ActiveRecord::Schema.define(:version => 20120107195946) do
 
   create_table "uses", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "yield_goals", :force => true do |t|
-    t.integer  "use_id"
-    t.integer  "project_id"
-    t.float    "amount"
-    t.string   "amount_unit"
-    t.string   "amount_period"
-    t.float    "lead_time_in_years"
-    t.text     "details"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
