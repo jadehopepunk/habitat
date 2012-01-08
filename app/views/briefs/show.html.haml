@@ -2,6 +2,7 @@
 - if can? :edit, @brief
   .well
     = link_to 'New Yield', new_brief_goals_yield_path(@brief), :class => 'btn'
+    = link_to 'New Feature', new_brief_goals_feature_path(@brief), :class => 'btn'
     = link_to 'New Labour Input', new_brief_goals_labour_input_path(@brief), :class => 'btn'
     = link_to 'New Budget Item', new_brief_goals_budget_item_path(@brief), :class => 'btn'
 .row
@@ -11,12 +12,12 @@
       %small What do you want to be able to harvest?
     %br
     = render :partial => 'goals/yields/table', :locals => {:yields => @brief.yields}
-    / 
-    / %h2 
-    /   Features
-    /   %small Non-quantifiable characteristics of your garden
-    / %br
-    / =# render :partial => 'goals/feature_goals/table', :locals => {:yields => @project.feature_goals}
+    
+    %h2 
+      Features
+      %small Non-quantifiable characteristics of your garden
+    %br
+    =# render :partial => 'goals/feature_goals/table', :locals => {:yields => @project.feature_goals}
     
     %h2
       Labour Inputs

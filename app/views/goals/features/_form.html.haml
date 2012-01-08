@@ -1,0 +1,9 @@
+= simple_form_for [@brief, @feature], :wrapper => :inline do |f|
+  = form_errors(f)
+  .inputs
+    =# f.input :budget_category_name, :label => 'Stage', :as => :autocomplete, :url => autocomplete_budget_category_name_brief_goals_budget_items_path
+    = f.input :name
+    = f.input :description, :input_html => {:class => 'xlarge', :rows => 5}
+  .actions
+    = f.button :submit, :class => 'primary'
+    = link_to 'Cancel', @brief, :class => "btn"
