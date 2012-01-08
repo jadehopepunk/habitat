@@ -26,6 +26,8 @@
                   %li= link_to "Jobs", main_app.jobs_path
                 - if can?(:manage, ProjectCategory)
                   %li= link_to "Project Categories", main_app.project_categories_path
+                - if can?(:manage, Feature)
+                  %li= link_to "Features", main_app.features_path
 
       .pull-right
         - if current_user

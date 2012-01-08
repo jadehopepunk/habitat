@@ -5,6 +5,7 @@ SimpleFormBootstrap::Application.routes.draw do
     resources :users
   end
   resources :uses
+  resources :features
   resources :jobs
   resources :project_categories
   resources :projects

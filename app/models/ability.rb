@@ -10,7 +10,7 @@ class Ability
       else
         can :manage, User, :id => user.id
         
-        can [:read, :create], [Use, Job, ProjectCategory]
+        can [:read, :create], [Use, Job, ProjectCategory, Feature]
 
         can :create, Project
         can :manage, Project, :user_id => user.id
