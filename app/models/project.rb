@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
   CURRENCIES = %w(USD AUD NZD)
 
   validates_presence_of :user
-  validates_presence_of :name
+  validates_presence_of :name, :address, :project_category
   validates_inclusion_of :climate_zone, :in => CLIMATE_ZONES, :allow_blank => true
   validates_inclusion_of :site_area_unit, :in => Unit::LAND_AREA_UNITS, :allow_blank => true
   validates_inclusion_of :preferred_currency, :in => Money::Currency::TABLE.map {|row| row.last[:iso_code]}, :allow_blank => true

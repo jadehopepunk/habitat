@@ -42,12 +42,14 @@ group :test, :development do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'ruby_gntp'
+  gem 'rspec-rails', "~> 2.6"
   gem 'guard'
   gem 'guard-spork'
   gem 'guard-cucumber'
   gem 'guard-pow'
   gem 'guard-bundler'
-  gem 'rspec'
+  gem 'guard-rspec'
+  gem 'guard-migrate'
   gem 'launchy'
 end
 

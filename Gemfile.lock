@@ -137,8 +137,12 @@ GEM
     guard-cucumber (0.7.4)
       cucumber (>= 0.10)
       guard (>= 0.8.3)
+    guard-migrate (0.0.2)
+      guard (>= 0.2.2)
     guard-pow (0.2.1)
       guard (>= 0.3.0)
+    guard-rspec (0.6.0)
+      guard (>= 0.10.0)
     guard-spork (0.5.0)
       guard (>= 0.10.0)
       spork (>= 0.8.4)
@@ -227,6 +231,11 @@ GEM
     rspec-expectations (2.6.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.6.0)
+    rspec-rails (2.6.1)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      railties (~> 3.0)
+      rspec (~> 2.6.0)
     ruby_gntp (0.3.4)
     rubyzip (0.9.5)
     sass (3.1.7)
@@ -283,7 +292,9 @@ DEPENDENCIES
   guard
   guard-bundler
   guard-cucumber
+  guard-migrate
   guard-pow
+  guard-rspec
   guard-spork
   haml
   inherited_resources
@@ -297,7 +308,7 @@ DEPENDENCIES
   rack-cache
   rails (= 3.1.0)
   rails3-jquery-autocomplete
-  rspec
+  rspec-rails (~> 2.6)
   ruby_gntp
   sass-rails (~> 3.1.0)
   simple_form!
