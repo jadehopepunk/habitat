@@ -17,7 +17,7 @@
       Features
       %small Non-quantifiable characteristics of your garden
     %br
-    =# render :partial => 'goals/feature_goals/table', :locals => {:yields => @project.feature_goals}
+    = render :partial => 'goals/features/table', :locals => {:features => @brief.features}
     
     %h2
       Labour Inputs

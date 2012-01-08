@@ -15,6 +15,7 @@ SimpleFormBootstrap::Application.routes.draw do
         get :autocomplete_use_name, :on => :collection
       end
       resources :features do
+        get :autocomplete_feature_name, :on => :collection
       end
       resources :labour_inputs do
         get :autocomplete_job_name, :on => :collection

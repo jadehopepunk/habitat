@@ -5,15 +5,33 @@ module Goals::Shared
     base.send(:belongs_to, :brief)
     base.before_filter :load_project
     base.send(:actions, :all, :except => :show)
-  end
+    
+    base.send(:define_method, :index) do
+      flash.keep
+      redirect_to @brief
+    end
   
-  def index
-    flash.keep
-    redirect_to @brief
+    base.send(:define_method, :update) do
+      update! do |success, failure|
+        success.html { redirect_to @brief }
+      end
+    end
+
+    base.send(:define_method, :create) do
+      create! do |success, failure|
+        success.html { redirect_to @brief }
+      end
+    end
+
+    base.send(:define_method, :destroy) do
+      destroy! do |success, failure|
+        success.html { redirect_to @brief }
+      end
+    end
   end
-  
+
   private
-  
+
     def load_project
       @project = @brief.project
     end

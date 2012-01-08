@@ -1,8 +1,7 @@
 = simple_form_for [@brief, @feature], :wrapper => :inline do |f|
   = form_errors(f)
   .inputs
-    =# f.input :budget_category_name, :label => 'Stage', :as => :autocomplete, :url => autocomplete_budget_category_name_brief_goals_budget_items_path
-    = f.input :name
+    = f.input :feature_name, :label => 'Name', :as => :autocomplete, :url => autocomplete_feature_name_brief_goals_features_path
     = f.input :description, :input_html => {:class => 'xlarge', :rows => 5}
   .actions
     = f.button :submit, :class => 'primary'
