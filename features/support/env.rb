@@ -10,16 +10,16 @@ require 'spork'
 Spork.prefork do
   require 'cucumber/rails'
 
-
   # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
   # order to ease the transition to Capybara we set the default here. If you'd
   # prefer to use XPath just remove this line and adjust any selectors in your
   # steps to use the XPath syntax.
   Capybara.default_selector = :css
 
-end
- 
-Spork.each_run do
+  require 'webmock/cucumber'
+  require Rails.root.join('spec/support/fake_geocoding')
+  WebMock.stub_request(:any, /maps\.googleapis\.com/).to_return(:status => 200, :body => FakeGeocoding.new_york, :headers => {})
+
   # By default, any exception happening in your Rails application will bubble up
   # to Cucumber so that your scenario will fail. This is a different from how 
   # your application behaves in the production environment, where an error page will 
@@ -61,7 +61,9 @@ Spork.each_run do
   # The :transaction strategy is faster, but might give you threading problems.
   # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
   Cucumber::Rails::Database.javascript_strategy = :truncation
-
+end
+ 
+Spork.each_run do
   ActiveRecord::Fixtures.reset_cache
   fixtures_folder = File.join(Rails.root, 'features', 'support', 'fixtures')
   fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }

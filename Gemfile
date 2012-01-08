@@ -51,5 +51,8 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'guard-migrate'
   gem 'launchy'
+  gem 'machinist', '>= 2.0.0.beta2'
+  gem 'webmock'
+  gem 'ffaker'
 end
 
