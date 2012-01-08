@@ -9,7 +9,7 @@
         - if @project && !@project.new_record?        
           - semantic_navigation :main, :html => {:class => 'tabs'} do |n|
             = n.item 'Project', :link => project_path(@project), :highlights_on => [{:controller => 'projects'}]
-            = n.item 'Goals', :link => project_goals_path(@project), :highlights_on => [{:controller => 'goals'}, {:controller => 'goals/yield'}, {:controller => 'goals/budget_items'}, {:controller => 'goals/labour_inputs'}]
+            = n.item 'Goals', :link => brief_path(@project.brief), :highlights_on => [{:controller => 'briefs'}, {:controller => 'goals/yields'}, {:controller => 'goals/budget_items'}, {:controller => 'goals/labour_inputs'}]
             = n.item 'Site Analysis', :link => '/', :disabled_if => proc { true }
             = n.item 'Design', :link => '/', :disabled_if => proc { true }
             = n.item 'Implement', :link => '/', :disabled_if => proc { true }

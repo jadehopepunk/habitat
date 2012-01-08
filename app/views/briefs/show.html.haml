@@ -1,0 +1,41 @@
+%h1 Your Goals
+- if can? :edit, @brief
+  .well
+    = link_to 'New Yield', new_brief_goals_yield_path(@brief), :class => 'btn'
+    = link_to 'New Labour Input', new_brief_goals_labour_input_path(@brief), :class => 'btn'
+    = link_to 'New Budget Item', new_brief_goals_budget_item_path(@brief), :class => 'btn'
+.row
+  .span10
+    %h2 
+      Yields
+      %small What do you want to be able to harvest?
+    %br
+    = render :partial => 'goals/yields/table', :locals => {:yields => @brief.yields}
+    / 
+    / %h2 
+    /   Features
+    /   %small Non-quantifiable characteristics of your garden
+    / %br
+    / =# render :partial => 'goals/feature_goals/table', :locals => {:yields => @project.feature_goals}
+    
+    %h2
+      Labour Inputs
+      %small How much work do you want to have to put in?
+    %br
+    = render :partial => 'goals/labour_inputs/table', :locals => {:labour_inputs => @brief.labour_inputs}
+
+    %h2
+      Budget
+      %small Finances broken down by project stage
+    %br
+    = render :partial => 'goals/budget_items/table', :locals => {:budget_items => @brief.budget_items}
+    
+  .span6
+    .page_explanation
+      - if can? :edit, Project
+        %h2 Be Realistic
+        %p
+          Select the uses that you'd like to get out of your forest garden.
+        = todo("explanation text for picking goals, including some book references")
+
+= todo("Tables should look good with no data, and provide some explanation")

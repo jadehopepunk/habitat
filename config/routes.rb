@@ -7,8 +7,8 @@ SimpleFormBootstrap::Application.routes.draw do
   resources :uses
   resources :jobs
   resources :project_categories
-  resources :projects do
-    resources :goals
+  resources :projects
+  resources :briefs do
     namespace :goals do
       resources :yields do
         get :autocomplete_use_name, :on => :collection

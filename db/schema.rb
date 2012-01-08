@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108053427) do
+ActiveRecord::Schema.define(:version => 20120108070147) do
+
+  create_table "briefs", :force => true do |t|
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "budget_categories", :force => true do |t|
     t.string   "name"
@@ -75,26 +81,25 @@ ActiveRecord::Schema.define(:version => 20120108053427) do
   add_index "forem_views", ["user_id"], :name => "index_forem_views_on_user_id"
 
   create_table "goals_budget_items", :force => true do |t|
-    t.integer  "project_id"
     t.integer  "budget_category_id"
     t.integer  "amount_cents"
     t.integer  "timeframe_amount"
     t.string   "timeframe_amount_unit"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "brief_id"
   end
 
   create_table "goals_features", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "brief_id"
   end
 
   create_table "goals_labour_inputs", :force => true do |t|
     t.integer  "job_id"
-    t.integer  "project_id"
     t.float    "implementation_amount"
     t.string   "implementation_amount_unit"
     t.string   "implementation_amount_period"
@@ -103,11 +108,11 @@ ActiveRecord::Schema.define(:version => 20120108053427) do
     t.string   "maintenance_amount_period"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "brief_id"
   end
 
   create_table "goals_yields", :force => true do |t|
     t.integer  "use_id"
-    t.integer  "project_id"
     t.float    "amount"
     t.string   "amount_unit"
     t.string   "amount_period"
@@ -115,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20120108053427) do
     t.text     "details"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "brief_id"
   end
 
   create_table "jobs", :force => true do |t|
