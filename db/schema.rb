@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(:version => 20120108053427) do
     t.datetime "updated_at"
   end
 
-  create_table "goals_labour_input_goals", :force => true do |t|
+  create_table "goals_labour_inputs", :force => true do |t|
     t.integer  "job_id"
     t.integer  "project_id"
     t.float    "implementation_amount"

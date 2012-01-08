@@ -1,4 +1,4 @@
-class Goals::LabourInputGoalsController < InheritedResources::Base
+class Goals::LabourInputsController < InheritedResources::Base
   autocomplete :job, :name
   load_and_authorize_resource
   belongs_to :project

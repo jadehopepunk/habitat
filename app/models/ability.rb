@@ -13,11 +13,11 @@ class Ability
         can :create, Project
         can :manage, Project, :user_id => user.id
 
-        can :manage, [Goals::Yield, Goals::LabourInputGoal, Goals::BudgetGoal], {:project => {:user_id => user.id}}
+        can :manage, [Goals::Yield, Goals::LabourInput, Goals::BudgetGoal], {:project => {:user_id => user.id}}
       end
     else
       can :read, Project, :is_public => true
-      can :read, [Goals::Yield, Goals::LabourInputGoal, Goals::BudgetGoal], {:project => {:is_public => true}}
+      can :read, [Goals::Yield, Goals::LabourInput, Goals::BudgetGoal], {:project => {:is_public => true}}
     end
   end
 end
