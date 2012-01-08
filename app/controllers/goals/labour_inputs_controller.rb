@@ -1,3 +1,4 @@
-class Goals::LabourInputsController < Goals::Base
+class Goals::LabourInputsController < ApplicationController
+  include Goals::Shared
   autocomplete :job, :name
 end

@@ -1,3 +1,4 @@
-class Goals::YieldsController < Goals::Base
+class Goals::YieldsController < ApplicationController
+  include Goals::Shared
   autocomplete :use, :name
 end
