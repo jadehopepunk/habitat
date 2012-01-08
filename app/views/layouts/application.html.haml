@@ -6,17 +6,7 @@
     = render :partial => 'layouts/topbar'
     .page_body
       .container
-        - if @project && !@project.new_record?        
-          - semantic_navigation :main, :html => {:class => 'tabs'} do |n|
-            = n.item 'Project', :link => project_path(@project), :highlights_on => [{:controller => 'projects'}]
-            = n.item 'Goals', :link => brief_path(@project.brief), :highlights_on => [{:controller => 'briefs'}, {:controller => 'goals/yields'}, {:controller => 'goals/features'}, {:controller => 'goals/budget_items'}, {:controller => 'goals/labour_inputs'}]
-            = n.item 'Site Analysis', :link => '/', :disabled_if => proc { true }
-            = n.item 'Design', :link => '/', :disabled_if => proc { true }
-            = n.item 'Implement', :link => '/', :disabled_if => proc { true }
-            = n.item 'Maintain', :link => '/', :disabled_if => proc { true }
-        - elsif params[:controller] != 'projects'
-          = render_breadcrumbs
-
+        = render :partial => 'layouts/project_tabs'
         = render :partial => 'layouts/notice'
         = yield
     = render :partial => 'layouts/footer'
