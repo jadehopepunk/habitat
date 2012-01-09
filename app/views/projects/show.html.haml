@@ -20,7 +20,7 @@
                 %tr
                   %td
                     %strong Lat / Lon
-                  %td= "#{@project.lat} / #{@project.lng}"
+                  %td= "#{@project.latitude} / #{@project.longitude}"
                 = attribute_row(@project, :hemisphere)
                 = attribute_row(@project, :site_area_with_unit, :label => 'Size')
                 = attribute_row(@project, :climate_zone)
@@ -35,5 +35,5 @@
                           = link_to @project.photo.url do
                             = image_tag @project.photo.thumb('330x230#').url
       .span6
-        - if @project.lat
+        - if @project.latitude
           = project_map(@project)

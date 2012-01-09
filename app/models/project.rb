@@ -3,11 +3,6 @@ require 'unit'
 class Project < ActiveRecord::Base
   CLIMATE_ZONES = %w(tropical sub-tropical temperate cool-temperate arid arctic)
   
-  acts_as_gmappable :lat => 'lat', :lng => 'lng', 
-                    :check_process => :prevent_geocoding?,
-                    :address => "address", :normalized_address => "address",
-                    :msg => "Sorry, not even Google could figure out where that is"
-
   image_accessor :photo
 
   has_one :brief
@@ -15,6 +10,9 @@ class Project < ActiveRecord::Base
   belongs_to :project_category
   
   CURRENCIES = %w(USD AUD NZD)
+  
+  geocoded_by :address
+  after_validation :geocode
 
   validates_presence_of :user
   validates_presence_of :name, :address, :project_category
@@ -25,14 +23,17 @@ class Project < ActiveRecord::Base
   validates_numericality_of :site_area, :allow_nil => true
 
   has_amount_with_unit :name => :site_area
+  can_assign_by_name :project_category
+  
+  after_create :create_dependencies
 
   def display_name
     name
   end
   
   def hemisphere
-    if lat && lng
-      lat >= 0 ? 'northern' : 'southern'
+    if latitude && longitude
+      latitude >= 0 ? 'northern' : 'southern'
     end
   end
   
@@ -45,6 +46,10 @@ class Project < ActiveRecord::Base
   protected
 
     def prevent_geocoding?
-      address.blank? || (!lat.blank? && !lng.blank?) 
+      address.blank? || (!latitude.blank? && !longitude.blank?) || ['test', 'cucumber'].include?(Rails.env)
+    end
+    
+    def create_dependencies
+      create_brief!
     end
 end

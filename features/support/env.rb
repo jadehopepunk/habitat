@@ -18,7 +18,6 @@ Spork.prefork do
 
   require 'webmock/cucumber'
   require Rails.root.join('spec/support/fake_geocoding')
-  WebMock.stub_request(:any, /maps\.googleapis\.com/).to_return(:status => 200, :body => FakeGeocoding.new_york, :headers => {})
 
   # By default, any exception happening in your Rails application will bubble up
   # to Cucumber so that your scenario will fail. This is a different from how 
@@ -68,4 +67,6 @@ Spork.each_run do
   fixtures_folder = File.join(Rails.root, 'features', 'support', 'fixtures')
   fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
   ActiveRecord::Fixtures.create_fixtures(fixtures_folder, fixtures)
+
+  WebMock.stub_request(:any, /maps\.googleapis\.com/).to_return(:status => 200, :body => FakeGeocoding.new_york, :headers => {})
 end

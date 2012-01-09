@@ -1,15 +1,14 @@
 module MapHelper
   def project_map(project)
-    json = project.to_gmaps4rails    
     gmaps(
       'map_options' => {
         'type' => 'SATELLITE',
-        'center_longitude' => project.lng,
-        'center_latitude' => project.lat,
+        'center_longitude' => project.longitude,
+        'center_latitude' => project.latitude,
         'zoom' => 9,
         'auto_adjust' => false
       },
-      'markers' => {'data' => json}
+      'markers' => {'data' => {:lng => project.longitude, :lat => project.latitude}.to_json}
     )
   end
 end

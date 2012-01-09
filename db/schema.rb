@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108082206) do
+ActiveRecord::Schema.define(:version => 20120109005847) do
 
   create_table "briefs", :force => true do |t|
     t.integer  "project_id"
@@ -146,9 +146,6 @@ ActiveRecord::Schema.define(:version => 20120108082206) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
-    t.float    "lat"
-    t.float    "lng"
-    t.boolean  "gmaps"
     t.string   "climate_zone"
     t.float    "site_area"
     t.string   "site_area_unit"

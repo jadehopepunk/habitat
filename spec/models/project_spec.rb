@@ -6,13 +6,15 @@ describe Project do
       :user => user || User.make!,
       :name => 'Some Project',
       :address => 'New York, New York',
-      :project_category => ProjectCategory.first
+      :project_category_name => "Suburban Yard"
     }
   end
   
   describe "when creating" do
     it "should create a brief" do
       project = Project.create!(required_attributes)
+      project.reload
+      project.brief.should_not be_nil
     end
   end
 end
