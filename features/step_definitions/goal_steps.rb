@@ -69,3 +69,21 @@ Then /^I should see the labour input table with one record$/ do
     ['Weeding', '5 hours per month', '2 hours per month', 'Edit', 'Remove']
   ])
 end
+
+When /^I create a new valid budget item$/ do
+  within('#budget_items') do
+    click_link 'Add Another'
+  end
+
+  fill_in 'Stage', :with => 'Design'
+  fill_in 'Amount', :with => '1500'
+  fill_in 'Timeframe', :with => '6'
+  select 'months', :from => 'goals_budget_item_timeframe_amount_unit'
+  click_button "Create Budget item"
+end
+
+Then /^I should see the budget items table with one record$/ do
+  page.should have_table('goals/budget_items', :rows => [
+    ['Design', '$1,500', '6 months', 'Edit', 'Remove']
+  ])
+end

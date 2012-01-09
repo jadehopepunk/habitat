@@ -11,4 +11,8 @@ class Goals::BudgetItem < ActiveRecord::Base
   validates_presence_of :brief, :budget_category_name
   validates_numericality_of :timeframe_amount, :allow_blank => true, :greater_than => 0
   validates_inclusion_of :timeframe_amount_unit, :in => Unit::CALENDAR_TIME_UNITS, :allow_blank => true
+
+  def timeframe
+    Unit.format_amount_and_unit(timeframe_amount, timeframe_amount_unit, :pluralize_unit => true)
+  end
 end

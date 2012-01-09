@@ -2,7 +2,7 @@
   = t.data do
     = t.cell :budget_category_name, :heading => 'Stage'
     = t.cell(:amount) {|goal| goal.amount.format(:no_cents_if_whole => true)}
-    = t.cell :timeframe_amount
+    = t.cell :timeframe
     - if can? :edit, @brief
       = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_brief_goals_budget_item_path(@brief, goal)) }
       = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@brief, goal], :confirm => 'Are you sure?', :method => :delete) }
