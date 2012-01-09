@@ -22,7 +22,16 @@ table {
     height: 80px;
     vertical-align: center;
   }
-  tfoot td.table_actions {
-    text-align: right;
-  }
+  tfoot {
+    td.table_actions {
+      text-align: right;
+    }
+    
+    .no-data {
+      text-align: center;
+      background-color: #F5F5F5;
+      color: #333;
+      font-style: italic;
+    }
+  }  
 }

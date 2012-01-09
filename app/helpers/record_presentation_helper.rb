@@ -14,14 +14,32 @@ module RecordPresentationHelper
   end
   
   def table_link_footer(t, name, url, options = {})
+    table_footer_row(t, link_to(name, url, options), :class => 'table_actions')
+  end
+  
+  def table_help_footer(t, help_text)
+    table_footer_row(t, help_text, :class => 'no-data')
+  end
+    
+  def table_link_footer_cell(t, name, url, options = {})
+    table_footer_cell(t, link_to(name, url, options), :class => 'table_actions')
+  end
+  
+  def table_help_footer_cell(t, help_text)
+    table_footer_cell(t, help_text, :class => 'no-data')
+  end
+    
+  def table_footer_row(t, contents, cell_options = {})
     content_tag(:tfoot) do
       content_tag(:tr) do
-        content_tag(:td, :colspan => t.table_fields.length, :class => 'table_actions') do
-          link_to(name, url, options)
-        end
+        table_footer_cell(t, contents, cell_options = {})
       end
     end
-  end
+  end 
+
+  def table_footer_cell(t, contents, cell_options = {})
+    content_tag(:td, contents, {:colspan => t.table_fields.length}.merge(cell_options))
+  end 
 
   def file_link_with_icon(text, file)
     if file

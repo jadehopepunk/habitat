@@ -6,4 +6,9 @@
       = t.cell('', :cell_html => {:class => 'actions'}) {|feature| link_to('Edit', edit_brief_goals_feature_path(@brief, feature)) }
       = t.cell('', :cell_html => {:class => 'actions'}) {|feature| link_to('Remove', [@brief, feature], :confirm => 'Are you sure?', :method => :delete) }
   - if can? :create, Goals::Feature
-    = table_link_footer t, 'Add Another', new_brief_goals_feature_path(@brief)
+    %tfoot
+      - if features.empty?
+        %tr
+          = table_help_footer_cell t, "If all your goals are quantifiable yields in the table above, you don't need to use this table at all. Sometimes, however, we have goals that can't be measured, like \"a quiet place to sit and read\". These matter too, try and list them here."
+      %tr
+        = table_link_footer t, 'Add Another', new_brief_goals_feature_path(@brief)
