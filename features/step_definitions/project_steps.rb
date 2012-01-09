@@ -3,6 +3,7 @@ Then /^I should be on the new project page$/ do
 end
 
 When /^I submit valid new project details$/ do
+  stub_request(:any, /maps\.googleapis\.com/).to_return(:status => 200, :body => FakeGeocoding.new_york, :headers => {})  
   fill_in "Name", :with => "Backyard"
   select "Suburban Yard", :from => "Category"
   fill_in "Address", :with => "New York, New York"

@@ -7,29 +7,33 @@
     = link_to 'New Budget Item', new_brief_goals_budget_item_path(@brief), :class => 'btn'
 .row
   .span10
-    %h2 
-      Yields
-      %small What do you want to be able to harvest?
-    %br
-    = render :partial => 'goals/yields/table', :locals => {:yields => @brief.yields}
+    #yields
+      %h2 
+        Yields
+        %small What do you want to be able to harvest?
+      %br
+      = render :partial => 'goals/yields/table', :locals => {:yields => @brief.yields}
     
-    %h2 
-      Features
-      %small Non-quantifiable characteristics of your garden
-    %br
-    = render :partial => 'goals/features/table', :locals => {:features => @brief.features}
-    
-    %h2
-      Labour Inputs
-      %small How much work do you want to have to put in?
-    %br
-    = render :partial => 'goals/labour_inputs/table', :locals => {:labour_inputs => @brief.labour_inputs}
+    #features
+      %h2 
+        Features
+        %small Non-quantifiable characteristics of your garden
+      %br
+      = render :partial => 'goals/features/table', :locals => {:features => @brief.features}
 
-    %h2
-      Budget
-      %small Finances broken down by project stage
-    %br
-    = render :partial => 'goals/budget_items/table', :locals => {:budget_items => @brief.budget_items}
+    #labour_inputs
+      %h2
+        Labour Inputs
+        %small How much work do you want to have to put in?
+      %br
+      = render :partial => 'goals/labour_inputs/table', :locals => {:labour_inputs => @brief.labour_inputs}
+
+    #budget
+      %h2
+        Budget
+        %small Finances broken down by project stage
+      %br
+      = render :partial => 'goals/budget_items/table', :locals => {:budget_items => @brief.budget_items}
     
   .span6
     .page_explanation
