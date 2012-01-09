@@ -4,9 +4,9 @@ $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory
 require "rvm/capistrano"                  # Load RVM's capistrano plugin.
 set :rvm_ruby_string, 'ruby-1.9.2-p290'        # Or whatever env you want it to run in.
 
-set :application, "forester"
+set :application, "habitat"
 set :scm, :git
-set :repository, "git@github.com:craigambrose/forester.git"
+set :repository, "git@github.com:craigambrose/habitat.git"
 set :scm_username, "craigambrose"
 set :scm_password, "pentex"
 set :rails_env, "production"
