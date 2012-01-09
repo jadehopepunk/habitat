@@ -6,11 +6,6 @@ Feature: Project has yield goals
   Scenario: Create yield goal
     Given I own a new project
       And I am on the goals project step
-    Then  I should see the empty yields table
+    Then  I should see the empty "yields" table
     When  I create a new valid yield
     Then  I should see the yields table with one record
-  
-  
-  
-
-  

@@ -7,9 +7,9 @@ Given /^I am on the goals project step$/ do
   click_link "Goals"
 end
 
-Then /^I should see the empty yields table$/ do
-  page.should have_selector('#yields table tbody')
-  page.should have_no_selector('#yields table tbody tr')
+Then /^I should see the empty "([^"]*)" table$/ do |section_id|
+  page.should have_selector("##{section_id} table tbody")
+  page.should have_no_selector("##{section_id} table tbody tr")
 end
 
 When /^I create a new valid yield$/ do
@@ -29,5 +29,21 @@ end
 Then /^I should see the yields table with one record$/ do
   page.should have_table('goals/yields', :rows => [
     ['Fruit', '5 kg per year', '6 years', 'Stone and pip fruit', 'Edit', 'Remove']
+  ])
+end
+
+When /^I create a new valid feature goal$/ do
+  within('#features') do
+    click_link 'Add Another'
+  end
+  
+  fill_in 'Name', :with => 'Running Water'
+  fill_in 'Description', :with => 'A pond, lake or stream'
+  click_button "Create Feature"
+end
+
+Then /^I should see the features table with one record$/ do
+  page.should have_table('goals/features', :rows => [
+    ['Running Water', 'A pond, lake or stream', 'Edit', 'Remove']
   ])
 end
