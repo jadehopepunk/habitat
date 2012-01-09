@@ -1,0 +1,6 @@
+= table_for(attachments) do |t|
+  = t.data do
+    = t.cell('File') {|attachment| link_to(attachment.name, attachment.file.url) }
+    = t.cell('Type') {|attachment| attachment.file.format }
+  - if can? :manage, Attachment
+    = table_link_footer t, 'Manage Attachments', project_scope_attachments_path(@brief.project, 'goals')

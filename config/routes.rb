@@ -8,7 +8,11 @@ SimpleFormBootstrap::Application.routes.draw do
   resources :features
   resources :jobs
   resources :project_categories
-  resources :projects
+  resources :projects do
+    resources :scopes, :only => [] do
+      resources :attachments
+    end
+  end
   resources :briefs do
     namespace :goals do
       resources :yields do

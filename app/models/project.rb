@@ -8,6 +8,7 @@ class Project < ActiveRecord::Base
   has_one :brief
   belongs_to :user
   belongs_to :project_category
+  has_many :attachments
   
   CURRENCIES = %w(USD AUD NZD)
   

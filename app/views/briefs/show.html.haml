@@ -2,6 +2,7 @@
 - if can? :edit, @brief
   .well
     = link_to 'Edit Overview', {:action => :edit}, :class => 'btn'
+    = link_to 'Attach File', new_project_scope_attachment_path(@brief.project, 'goals'), :class => 'btn'
     = link_to 'New Yield', new_brief_goals_yield_path(@brief), :class => 'btn'
     = link_to 'New Feature', new_brief_goals_feature_path(@brief), :class => 'btn'
     = link_to 'New Labour Input', new_brief_goals_labour_input_path(@brief), :class => 'btn'
@@ -57,5 +58,9 @@
           You could use your design brief to explain what you want designed to a professional permaculture designer,
           but even if you are doing all the design yourself, you'll want to be able to check back here regularly to see
           if your plan is going to achieve the goals you had in mind.
+    - if !@project.attachments.where(:scope => 'goals').empty?
+      %h2 Attachments
+      %br
+      = render :partial => 'attachments/mini_table', :locals => {:attachments => @project.attachments.where(:scope => 'goals')}
 
 = todo("Tables should look good with no data, and provide some explanation")

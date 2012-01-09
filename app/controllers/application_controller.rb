@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-
+  include InheritedResources::DSL
+  
   def forem_user
     current_user
   end
