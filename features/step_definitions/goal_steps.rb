@@ -7,9 +7,10 @@ Given /^I am on the goals project step$/ do
   click_link "Goals"
 end
 
-Then /^I should see the empty "([^"]*)" table$/ do |section_id|
-  page.should have_selector("##{section_id} table tbody")
-  page.should have_no_selector("##{section_id} table tbody tr")
+Then /^I should see the empty "([^"]*)" table$/ do |section_name|
+  section_id = "##{section_name.gsub(' ', '_')}"
+  page.should have_selector("#{section_id} table tbody")
+  page.should have_no_selector("#{section_id} table tbody tr")
 end
 
 When /^I create a new valid yield$/ do
@@ -45,5 +46,26 @@ end
 Then /^I should see the features table with one record$/ do
   page.should have_table('goals/features', :rows => [
     ['Running Water', 'A pond, lake or stream', 'Edit', 'Remove']
+  ])
+end
+
+When /^I create a new valid labour input goal$/ do
+  within('#labour_inputs') do
+    click_link 'Add Another'
+  end
+
+  fill_in 'Job', :with => 'Weeding'
+  fill_in 'Implementation Time', :with => '5'
+  select 'hour', :from => 'goals_labour_input_implementation_amount_unit'
+  select 'month', :from => 'goals_labour_input_implementation_amount_period'
+  fill_in 'Maintenance Time', :with => '2'
+  select 'hour', :from => 'goals_labour_input_maintenance_amount_unit'
+  select 'month', :from => 'goals_labour_input_maintenance_amount_period'
+  click_button "Create Labour input"
+end
+
+Then /^I should see the labour input table with one record$/ do
+  page.should have_table('goals/labour_inputs', :rows => [
+    ['Weeding', '5 hours per month', '2 hours per month', 'Edit', 'Remove']
   ])
 end

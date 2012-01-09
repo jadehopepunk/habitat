@@ -3,7 +3,7 @@ Feature: Project has feature goals
   As a project owner
   I want to be able to manage my feature goals
   
-  Scenario: Create yield goal
+  Scenario: Create feature goal
     Given I own a new project
       And I am on the goals project step
     Then  I should see the empty "features" table
