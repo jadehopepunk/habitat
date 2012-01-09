@@ -14,6 +14,13 @@
         %thead
           %tbody
             = attribute_row(@brief, :description, :label => 'Overview', :line_breaks => true)
+            - if !@project.attachments.where(:scope => 'goals').empty?
+              %tr
+                %td
+                  %strong Attachments
+                %td
+                  = render :partial => 'attachments/mini_table', :locals => {:attachments => @project.attachments.where(:scope => 'goals')}
+            
     
     - if can?(:edit, @brief) || !@brief.yields.empty?
       #yields
@@ -58,9 +65,5 @@
           You could use your design brief to explain what you want designed to a professional permaculture designer,
           but even if you are doing all the design yourself, you'll want to be able to check back here regularly to see
           if your plan is going to achieve the goals you had in mind.
-    - if !@project.attachments.where(:scope => 'goals').empty?
-      %h2 Attachments
-      %br
-      = render :partial => 'attachments/mini_table', :locals => {:attachments => @project.attachments.where(:scope => 'goals')}
 
 = todo("Tables should look good with no data, and provide some explanation")

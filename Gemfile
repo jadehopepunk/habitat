@@ -51,7 +51,6 @@ group :test, :development do
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-rake'
-  gem 'guard-shell'
   gem 'launchy'
   gem 'machinist', '>= 2.0.0.beta2'
   gem 'webmock', :require => false

@@ -1,7 +1,15 @@
-= table_for(attachments) do |t|
-  = t.data do
-    = t.cell('', :cell_html => {:style => 'width: 1px'}) {|attachment| file_icon_link(attachment.file) }
-    = t.cell('File') do |attachment| 
-      - link_to(attachment.name, attachment.file.url) + ' ' + content_tag(:div, truncate(attachment.description, :length => 150), :class => 'details')
+%table.zebra-striped.bordered-table
+  %tbody
+    - attachments.each do |attachment|
+      %tr
+        %td{:style => 'width'}
+          = file_icon_link(attachment.file)
+        %td
+          = link_to(attachment.name, attachment.file.url)
+          .details
+            = truncate(attachment.description, :length => 150)
   - if can? :manage, Attachment
-    = table_link_footer t, 'Manage Attachments', project_scope_attachments_path(@brief.project, 'goals')
+    %tfoot
+      %tr
+        %td.table_actions{:colspan => 2}
+          = link_to 'Manage Attachments', project_scope_attachments_path(@brief.project, 'goals')

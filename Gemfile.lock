@@ -146,8 +146,6 @@ GEM
       rake
     guard-rspec (0.6.0)
       guard (>= 0.10.0)
-    guard-shell (0.2.0)
-      guard (>= 0.2.0)
     guard-spork (0.5.0)
       guard (>= 0.10.0)
       spork (>= 0.8.4)
@@ -306,7 +304,6 @@ DEPENDENCIES
   guard-pow
   guard-rake
   guard-rspec
-  guard-shell
   guard-spork
   haml
   inherited_resources
