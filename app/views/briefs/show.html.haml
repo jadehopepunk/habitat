@@ -48,8 +48,8 @@
         = render :partial => 'goals/budget_items/table', :locals => {:budget_items => @brief.budget_items}
     
   .span6
-    .page_explanation
-      - if can? :edit, Project
+    - if can? :edit, Project
+      .page_explanation
         %h2 What are you Building?
         %p
           It's important to have some goals in mind before you get started on design. These goals, collected together

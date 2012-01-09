@@ -13,7 +13,7 @@ pre { display: none; }
 }
 
 table {
-  td.details {
+  td.details, td div.details {
     font-style: italic;
   }
   td.avatar {

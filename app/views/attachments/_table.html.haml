@@ -1,7 +1,8 @@
 = table_for(collection) do |t|
   = t.data do
+    = t.cell('', :cell_html => {:style => 'width: 1px'}) {|attachment| file_icon_link(attachment.file) }
     = t.cell('File') {|attachment| link_to(attachment.name, attachment.file.url) }
-    =# t.cell('Type') {|attachment| attachment.file.format }
+    = t.cell('Description', :cell_html => {:class => 'details'}) {|attachment| truncate(attachment.description, :length => 200) }
     - if can? :edit, @project
       = t.cell('', :cell_html => {:class => 'actions'}) do |attachment|
         - link_to('Edit', edit_project_scope_attachment_path(@project, @scope, attachment))

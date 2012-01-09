@@ -1,6 +1,7 @@
 = table_for(attachments) do |t|
   = t.data do
-    = t.cell('File') {|attachment| link_to(attachment.name, attachment.file.url) }
-    = t.cell('Type') {|attachment| attachment.file.format }
+    = t.cell('', :cell_html => {:style => 'width: 1px'}) {|attachment| file_icon_link(attachment.file) }
+    = t.cell('File') do |attachment| 
+      - link_to(attachment.name, attachment.file.url) + ' ' + content_tag(:div, truncate(attachment.description, :length => 150), :class => 'details')
   - if can? :manage, Attachment
     = table_link_footer t, 'Manage Attachments', project_scope_attachments_path(@brief.project, 'goals')

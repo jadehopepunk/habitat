@@ -4,11 +4,11 @@ class AttachmentsController < InheritedResources::Base
   load_and_authorize_resource
 
   create! do |success, failure|
-    success.html { redirect_to attachment_container_url }
+    success.html { redirect_to project_scope_attachments_path }
   end  
   
   update! do |success, failure|
-    success.html { redirect_to attachment_container_url }
+    success.html { redirect_to project_scope_attachments_path }
   end  
 
   destroy! do |success, failure|
