@@ -7,9 +7,9 @@ guard 'bundler' do
   # watch(/^.+\.gemspec/)
 end
 
-guard 'migrate' do
-  watch(%r{^db/migrate/(\d+).+\.rb})
-end
+# guard 'migrate' do
+#   watch(%r{^db/migrate/(\d+).+\.rb})
+# end
 
 guard 'pow' do
   watch('.powrc')
