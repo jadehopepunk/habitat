@@ -22,6 +22,7 @@ class Project < ActiveRecord::Base
   validates_inclusion_of :preferred_currency, :in => Money::Currency::TABLE.map {|row| row.last[:iso_code]}, :allow_blank => true
   validates_inclusion_of :preferred_measures, :in => Unit::SYSTEMS_OF_MEASURE, :allow_blank => true
   validates_numericality_of :site_area, :allow_nil => true
+  validates_uniqueness_of :name, :scope => :user_id
 
   has_amount_with_unit :name => :site_area
   can_assign_by_name :project_category
