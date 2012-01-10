@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120110060727) do
+ActiveRecord::Schema.define(:version => 20120110065911) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "project_id"
@@ -158,7 +158,7 @@ ActiveRecord::Schema.define(:version => 20120110060727) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "climate_zone"
-    t.float    "site_area"
+    t.decimal  "site_area",           :precision => 17, :scale => 3
     t.string   "site_area_unit"
     t.string   "photo_uid"
     t.integer  "user_id"
@@ -166,7 +166,7 @@ ActiveRecord::Schema.define(:version => 20120110060727) do
     t.string   "preferred_measures"
     t.integer  "project_category_id"
     t.text     "description"
-    t.boolean  "is_public",           :default => false
+    t.boolean  "is_public",                                          :default => false
   end
 
   create_table "users", :force => true do |t|
