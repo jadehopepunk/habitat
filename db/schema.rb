@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120109085303) do
+ActiveRecord::Schema.define(:version => 20120110060727) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "project_id"
@@ -112,15 +112,14 @@ ActiveRecord::Schema.define(:version => 20120109085303) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "brief_id"
-    t.integer  "feature_id"
   end
 
   create_table "goals_labour_inputs", :force => true do |t|
     t.integer  "job_id"
-    t.float    "implementation_amount"
+    t.decimal  "implementation_amount",        :precision => 8, :scale => 2
     t.string   "implementation_amount_unit"
     t.string   "implementation_amount_period"
-    t.float    "maintenance_amount"
+    t.decimal  "maintenance_amount",           :precision => 8, :scale => 2
     t.string   "maintenance_amount_unit"
     t.string   "maintenance_amount_period"
     t.datetime "created_at"
@@ -130,10 +129,10 @@ ActiveRecord::Schema.define(:version => 20120109085303) do
 
   create_table "goals_yields", :force => true do |t|
     t.integer  "use_id"
-    t.float    "amount"
+    t.decimal  "amount",             :precision => 8, :scale => 2
     t.string   "amount_unit"
     t.string   "amount_period"
-    t.float    "lead_time_in_years"
+    t.decimal  "lead_time_in_years", :precision => 8, :scale => 2
     t.text     "details"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -155,9 +154,9 @@ ActiveRecord::Schema.define(:version => 20120109085303) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "address"
     t.string   "climate_zone"
     t.float    "site_area"
     t.string   "site_area_unit"
