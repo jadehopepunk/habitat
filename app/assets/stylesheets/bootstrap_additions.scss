@@ -31,10 +31,6 @@
   color: black
 }
 
-ul.tabs li.not_implemented > a, ul.tabs li.disabled > span {
-  color: #999
-}
-
 div.input-append-select {
   display: block;
   overflow: hidden;
@@ -96,4 +92,95 @@ form label abbr {
 
 form .clearfix.error .help-block {
   color: #BFBFBF;
+}
+
+ul.tabs li.not_implemented > a, ul.tabs li.disabled > span {
+  color: #999
+}
+
+.step_tabs {
+  border: none;
+
+  > li > a, > li.highlighted > a, > li.highlighted > a:hover, > li > a:hover, > li.disabled > span {
+    display: inline-block;
+    padding: 5px 34px 6px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    line-height: normal;
+    border: 1px solid #ccc;
+    border-bottom-color: #bbb;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-transition: 0.1s linear all;
+    -moz-transition: 0.1s linear all;
+    -ms-transition: 0.1s linear all;
+    -o-transition: 0.1s linear all;
+    transition: 0.1s linear all;        
+    color: #ffffff;
+    background-repeat: repeat-x;
+
+    background-color: #000;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#555), to(#000));
+    background-image: -moz-linear-gradient(top, #555, #000);
+    background-image: -ms-linear-gradient(top, #555, #000);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555), color-stop(100%, #000));
+    background-image: -webkit-linear-gradient(top, #555, #000);
+    background-image: -o-linear-gradient(top, #555, #000);
+    background-image: linear-gradient(top, #555, #000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555', endColorstr='#000', GradientType=0);
+    
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border-color: #0064cd #0064cd #003f81;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-color-right: black;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+  }
+
+  > li > a:hover {
+    background-color: #000;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#555), to(#000));
+    background-image: -moz-linear-gradient(top, #666, #333);
+    background-image: -ms-linear-gradient(top, #555, #000);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555), color-stop(100%, #000));
+    background-image: -webkit-linear-gradient(top, #555, #000);
+    background-image: -o-linear-gradient(top, #555, #000);
+    background-image: linear-gradient(top, #555, #000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555', endColorstr='#000', GradientType=0);
+  }
+
+  > li.highlighted > a, > li.highlighted > a:hover {
+    background-color: #0064cd;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+    background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+    background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+    background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+    background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+    background-image: linear-gradient(top, #049cdb, #0064cd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#049cdb', endColorstr='#0064cd', GradientType=0);
+  }
+
+  li.disabled > span {
+    background-image: none;
+    background-color: #EEE;
+    text-shadow: none;
+  }
+  
+  $project_tab_radius: 8px;
+  
+  > li:first-child > a, > li.disabled:first-child > span {
+    -webkit-border-radius: $project_tab_radius 0 0 $project_tab_radius;
+    -moz-border-radius: $project_tab_radius 0 0 $project_tab_radius;
+    border-radius: $project_tab_radius 0 0 $project_tab_radius;
+  }
+
+  > li:last-child > a, li.disabled:last-child > span {
+    -webkit-border-radius: 0 $project_tab_radius $project_tab_radius 0;
+    -moz-border-radius: 0 $project_tab_radius $project_tab_radius 0;
+    border-radius: 0 $project_tab_radius $project_tab_radius 0;
+  }
+
 }
