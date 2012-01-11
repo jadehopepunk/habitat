@@ -10,4 +10,9 @@ class ProjectCollaborator < ActiveRecord::Base
   PROJECT_ROLES.each do |role|
     scope role.pluralize.underscore.to_sym, where(:project_role => role)
   end
+  
+  def initialize(*params)
+    super
+    self.project_role ||= 'participant'
+  end
 end

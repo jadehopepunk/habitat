@@ -12,10 +12,22 @@
     tbody {
       td {
         width: 1px;
+        
+        .help-inline {
+          color: #B94A48;
+        }
       }
 
       td.action {
         vertical-align: middle;
+      }
+      
+      tr.nested-record-with-errors {
+        td {
+          input, select, textarea {
+            border-color: #B94A48;
+          }
+        }
       }
     }
     

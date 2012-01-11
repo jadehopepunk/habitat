@@ -1,7 +1,9 @@
-%tr.nested-fields
+%tr.nested-fields{:class => (f.object.errors.empty? ? nil : 'nested-record-with-errors')}
   %td
-    = f.text_field :user_id
+    = f.input_field :user
+    = f.error :user
   %td
-    = f.text_field :project_role
+    = f.input_field :project_role, :as => :select, :collection => ProjectCollaborator::PROJECT_ROLES
+    = f.error :project_role    
   %td.action
     = link_to_remove_association "Remove", f
