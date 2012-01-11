@@ -1,0 +1,35 @@
+.nested_form {
+  table.nested_form_contents {
+    margin-left: 150px;
+    width: 1px;
+
+    thead {
+      th {
+        width: 1px;
+      }
+    }
+    
+    tbody {
+      td {
+        width: 1px;
+      }
+
+      td.action {
+        vertical-align: middle;
+      }
+    }
+    
+    > .fields {
+      border-bottom: 1px solid #DDDDDD;
+      
+      > .clearfix {
+        width: 240px;
+        display: inline-table;
+      }
+    }
+  }
+
+  .form-stacked {
+    padding: 0;
+  }
+}

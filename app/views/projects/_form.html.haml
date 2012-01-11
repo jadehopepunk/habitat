@@ -12,6 +12,21 @@
     = f.input :preferred_currency, :label => 'Currency', :as => :select, :collection => Money::Currency::TABLE.map {|row| [row.last[:name], row.last[:iso_code]]}.sort, :allow_blank => true
     = f.input :preferred_measures, :label => 'Measurements', :as => :inferred_select
     = f.input :is_public, :as => :select
+    .nested_form.clearfix
+      %label.nested_form_label Collaborators
+      %table.nested_form_contents.form-stacked.zebra-striped.bordered-table
+        %thead
+          %tr
+            %th User
+            %th Project Role <abbr title="required">*</abbr>
+            %th
+        %tbody#project_collaborators
+          = f.simple_fields_for :project_collaborators, :wrapper => :horizontal do |collab|
+            = render 'project_collaborator_fields', :f => collab
+        %tfoot
+          %tr
+            %td.table_actions{:colspan => 3}
+              = link_to_add_association 'Add a collaborator', f, :project_collaborators, :'data-association-insertion-node' => '#project_collaborators', :'data-association-insertion-method' => 'append'
   .actions
     = f.button :submit, :class => 'primary'
     = link_to 'Cancel', @project, :class => "btn"

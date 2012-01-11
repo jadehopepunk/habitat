@@ -5,11 +5,11 @@
  *= require_self
  *= require gmaps4rails
  *= require mapping
- *= require "forem/twist/style"
  *= require jquery-ui-bootstrap
  *= require twitter/bootstrap
  *= require bootstrap
  *= require bootstrap_additions
+ *= require nested_form_bootstrap
  *= require record_presentation 
  *= require_tree .
 */

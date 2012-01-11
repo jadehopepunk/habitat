@@ -2,6 +2,7 @@ require 'unit'
 
 class Project < ActiveRecord::Base
   CLIMATE_ZONES = %w(tropical sub-tropical temperate cool-temperate arid arctic)
+  CURRENCIES = %w(USD AUD NZD EUR GBP)
   
   image_accessor :photo
 
@@ -10,7 +11,7 @@ class Project < ActiveRecord::Base
   has_many :attachments
   has_many :project_collaborators, :dependent => :destroy
   
-  CURRENCIES = %w(USD AUD NZD)
+  accepts_nested_attributes_for :project_collaborators
   
   geocoded_by :address
   after_validation :geocode
