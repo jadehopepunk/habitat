@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
   has_one :project, :dependent => :destroy
+  has_many :project_collaborators, :dependent => :destroy
+  has_many :projects, :through => :project_collaborators
   
   attr_accessible :name
   
@@ -23,5 +25,10 @@ class User < ActiveRecord::Base
   
   def to_s
     name
+  end
+  
+  def project
+    collaborator = project_collaborators.owners.first
+    collaborator.project if collaborator
   end
 end

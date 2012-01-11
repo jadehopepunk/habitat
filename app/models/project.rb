@@ -6,28 +6,34 @@ class Project < ActiveRecord::Base
   image_accessor :photo
 
   has_one :brief
-  belongs_to :user
   belongs_to :project_category
   has_many :attachments
+  has_many :project_collaborators, :dependent => :destroy
   
   CURRENCIES = %w(USD AUD NZD)
   
   geocoded_by :address
   after_validation :geocode
 
-  validates_presence_of :user
   validates_presence_of :name, :address, :project_category
   validates_inclusion_of :climate_zone, :in => CLIMATE_ZONES, :allow_blank => true
   validates_inclusion_of :site_area_unit, :in => Unit::LAND_AREA_UNITS, :allow_blank => true
   validates_inclusion_of :preferred_currency, :in => Money::Currency::TABLE.map {|row| row.last[:iso_code]}, :allow_blank => true
   validates_inclusion_of :preferred_measures, :in => Unit::SYSTEMS_OF_MEASURE, :allow_blank => true
   validates_numericality_of :site_area, :allow_nil => true
-  validates_uniqueness_of :name, :scope => :user_id
 
   has_amount_with_unit :name => :site_area
   can_assign_by_name :project_category
   
   after_create :create_dependencies
+  
+  def user
+    project_collaborators.owners.first
+  end
+  
+  def user=(value)
+    self.project_collaborators << ProjectCollaborator.new(:project_role => 'owner', :user => value, :project => self)
+  end
 
   def display_name
     name

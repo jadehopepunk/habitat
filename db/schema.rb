@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120110065911) do
+ActiveRecord::Schema.define(:version => 20120111071853) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "project_id"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20120110065911) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "brief_id"
+    t.integer  "feature_id"
   end
 
   create_table "goals_labour_inputs", :force => true do |t|
@@ -150,6 +151,14 @@ ActiveRecord::Schema.define(:version => 20120110065911) do
     t.datetime "created_at"
   end
 
+  create_table "project_collaborators", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.string   "project_role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -161,7 +170,6 @@ ActiveRecord::Schema.define(:version => 20120110065911) do
     t.decimal  "site_area",           :precision => 17, :scale => 3
     t.string   "site_area_unit"
     t.string   "photo_uid"
-    t.integer  "user_id"
     t.string   "preferred_currency"
     t.string   "preferred_measures"
     t.integer  "project_category_id"

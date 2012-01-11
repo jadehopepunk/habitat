@@ -8,15 +8,18 @@ class Ability
       if user.role == 'admin'
         can :manage, :all
       else
+        user_for_project = {:project_collaborators => {:user_id => user.id}}
+        user_for_project_component = {:project => user_for_project}
+        
         can :manage, User, :id => user.id
         
         can [:read, :create], [Use, Job, ProjectCategory, Feature]
 
         can :create, Project
-        can :manage, Project, :user_id => user.id
-        can :manage, [Brief, Attachment], {:project => {:user_id => user.id}}
+        can :manage, Project, user_for_project
+        can :manage, [Brief, Attachment], user_for_project_component
 
-        can :manage, goal_classes, {:brief => {:project => {:user_id => user.id}}}
+        can :manage, goal_classes, {:brief => user_for_project_component}
       end
     else
       can :read, Project, :is_public => true
