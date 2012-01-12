@@ -13,6 +13,11 @@ pre { display: none; }
 }
 
 table {
+  td {
+    .role {
+      color: #999;
+    }
+  }
   td.details, td div.details {
     font-style: italic;
   }
@@ -20,6 +25,12 @@ table {
     padding: 4px 0 0 0;
     width: 80px;
     height: 80px;
+    vertical-align: center;
+  }
+  td.avatar40 {
+    padding: 4px 0 0 0;
+    width: 40px;
+    height: 40px;
     vertical-align: center;
   }
   tfoot {

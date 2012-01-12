@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   
   has_one :project, :dependent => :destroy
   has_many :project_collaborators, :dependent => :destroy
-  has_many :projects, :through => :project_collaborators
+  has_many :projects, :through => :project_collaborators, :uniq => true
   
   attr_accessible :name
   

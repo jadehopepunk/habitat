@@ -1,0 +1,8 @@
+%table
+  %tbody
+    - project_collaborators.each do |project_collaborator|
+      %tr
+        %td{:style => 'width: 1px'}= image_tag(project_collaborator.user.gravatar_url(:size => 40), :alt => '')
+        %td
+          .name= project_collaborator.user.name
+          .role= project_collaborator.project_role

@@ -2,7 +2,7 @@
   %tbody
     - attachments.each do |attachment|
       %tr
-        %td{:style => 'width'}
+        %td{:style => 'width: 1px'}
           = file_icon_link(attachment.file)
         %td
           = link_to(attachment.name, attachment.file.url)
