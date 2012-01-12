@@ -6,3 +6,10 @@ User.blueprint do
   email              { Faker::Internet.email }
   password           { "password" }
 end
+
+Project.blueprint do
+  name                  { 'Some Project' }
+  address               { 'New York, New York' }
+  project_category_name { "Suburban Yard" }
+  user                  { User.make }
+end

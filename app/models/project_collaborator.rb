@@ -4,7 +4,7 @@ class ProjectCollaborator < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
   
-  validates_presence_of :project, :user, :project_role
+  validates_presence_of :user, :project_role
   validates_inclusion_of :project_role, :in => PROJECT_ROLES, :allow_blank => true
 
   PROJECT_ROLES.each do |role|

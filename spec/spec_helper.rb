@@ -34,7 +34,7 @@ Spork.prefork do
     # instead of true.
     config.use_transactional_fixtures = true
     
-    config.before :all do
+    config.before :each do
       stub_request(:any, /maps\.googleapis\.com/).to_return(:status => 200, :body => FakeGeocoding.new_york, :headers => {})
     end
   end

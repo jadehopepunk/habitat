@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
   has_many :attachments
   has_many :project_collaborators, :dependent => :destroy
   
-  accepts_nested_attributes_for :project_collaborators
+  accepts_nested_attributes_for :project_collaborators, :allow_destroy => true
   
   geocoded_by :address
   after_validation :geocode
@@ -23,6 +23,7 @@ class Project < ActiveRecord::Base
   validates_inclusion_of :preferred_measures, :in => Unit::SYSTEMS_OF_MEASURE, :allow_blank => true
   validates_numericality_of :site_area, :allow_nil => true
   validates_associated :project_collaborators
+  validate :must_have_owner
 
   has_amount_with_unit :name => :site_area
   can_assign_by_name :project_category
@@ -61,5 +62,14 @@ class Project < ActiveRecord::Base
     
     def create_dependencies
       create_brief!
+    end
+    
+    def must_have_owner
+      remaining_owners = project_collaborators.reject do |collaborator|
+        collaborator.marked_for_destruction? || collaborator.project_role != 'owner'
+      end
+      if remaining_owners.empty?
+        errors.add(:project_collaborators, "must include at least one owner")
+      end
     end
 end

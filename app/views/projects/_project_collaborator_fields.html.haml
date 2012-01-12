@@ -1,6 +1,6 @@
 %tr.nested-fields{:class => (f.object.errors.empty? ? nil : 'nested-record-with-errors')}
   %td
-    = f.input_field :user
+    = f.input_field :user_id, :as => :select, :collection => User.all
     = f.error :user
   %td
     = f.input_field :project_role, :as => :select, :collection => ProjectCollaborator::PROJECT_ROLES
