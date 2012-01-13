@@ -17,7 +17,7 @@ class ProjectsController < InheritedResources::Base
     
     def build_new_resource
       result = end_of_association_chain.send(method_for_build, *resource_params)
-      result.user = current_user
+      result.user = current_user if result.project_collaborators.empty?
       result
     end
   

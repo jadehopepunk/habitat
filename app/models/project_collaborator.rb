@@ -6,7 +6,6 @@ class ProjectCollaborator < ActiveRecord::Base
   
   validates_presence_of :user, :project_role
   validates_inclusion_of :project_role, :in => PROJECT_ROLES, :allow_blank => true
-  validates_uniqueness_of :user_id, :scope => :project_id
 
   PROJECT_ROLES.each do |role|
     scope role.pluralize.underscore.to_sym, where(:project_role => role)
