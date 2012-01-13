@@ -42,22 +42,32 @@ class Ability
     def user_project_abilities(user)
       owner_abilities(user)
       observer_abilities(user)
+      participant_abilities(user)
     end
     
     def owner_abilities(user)
-      project_role_abilities(user, 'owner', :manage)
+      project_role_abilities(user, 'owner', :manage, :manage)
     end
     
     def observer_abilities(user)
-      project_role_abilities(user, 'observer', :read)
+      project_role_abilities(user, 'observer', :read, :read)
     end
     
-    def project_role_abilities(user, project_role, action)
+    def participant_abilities(user)
+      project_role_abilities(user, 'participant', :read, :manage)
+    end
+    
+    def design_consultant_abilities(user)
+      project_role_abilities(user, 'design_consultant', :read, :read)
+    end
+    
+    def project_role_abilities(user, project_role, project_action, goals_action)
       user_for_project = {:project_collaborators => {:user_id => user.id, :project_role => project_role}}
       user_for_project_component = {:project => user_for_project}
 
-      can action, Project, user_for_project
-      can action, [Brief, Attachment], user_for_project_component
-      can action, GOAL_CLASSES, {:brief => user_for_project_component}
+      can project_action, Project, user_for_project
+      
+      can goals_action, [Brief, Attachment], user_for_project_component
+      can goals_action, GOAL_CLASSES, {:brief => user_for_project_component}
     end
 end
