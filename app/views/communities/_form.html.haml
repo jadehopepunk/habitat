@@ -1,0 +1,6 @@
+= simple_form_for resource, :wrapper => :inline do |f|
+  = form_errors(f)
+  .inputs
+    = f.input :name, :input_html => { :class => "span8" }
+    = f.input :description, :input_html => { :class => "span8" }
+  = form_actions(f)

@@ -1,1 +1,12 @@
-%h1= @community.name
+%article
+  .content
+    %header
+      %h1
+        = @community.name
+    - if can? :edit, @community
+      .well
+        = link_to "Edit Details", edit_community_path(@community), :class => 'btn'
+    .row
+      .span10
+        = simple_format @community.description
+      .span6
