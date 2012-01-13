@@ -1,0 +1,12 @@
+%tr.nested-fields{:class => (f.object.errors.empty? ? nil : 'nested-record-with-errors')}
+  %td
+    = f.input_field :community_name
+    = f.error :community_name
+  %td
+    .access_level
+      = f.input_field(:access, :as => :select, :collection => ProjectCommunity::ACCESS_LEVELS)
+      %span.add-on
+        your project
+    = f.error :access
+  %td.action
+    = link_to_remove_association "Remove", f

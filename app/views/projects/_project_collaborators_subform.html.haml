@@ -1,0 +1,16 @@
+.nested_form.clearfix
+  %label.nested_form_label Collaborators
+  = f.full_error :project_collaborators, :class => 'nested-form-error'
+  %table.nested_form_contents.form-stacked.zebra-striped.bordered-table{:class => (f.object.errors[:project_collaborators].empty? ? nil : 'nested-records-with-errors')}
+    %thead
+      %tr
+        %th User
+        %th Project role <abbr title="required">*</abbr>
+        %th
+    %tbody#project_collaborators
+      = f.simple_fields_for :project_collaborators, :wrapper => :horizontal do |collab|
+        = render 'project_collaborator_fields', :f => collab
+    %tfoot
+      %tr
+        %td.table_actions{:colspan => 3}
+          = link_to_add_association 'Add a collaborator', f, :project_collaborators, :'data-association-insertion-node' => '#project_collaborators', :'data-association-insertion-method' => 'append'

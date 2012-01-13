@@ -1,0 +1,16 @@
+.nested_form.clearfix
+  %label.nested_form_label Communities
+  = f.full_error :project_communities, :class => 'nested-form-error'
+  %table.nested_form_contents.form-stacked.zebra-striped.bordered-table{:class => (f.object.errors[:project_communities].empty? ? nil : 'nested-records-with-errors')}
+    %thead
+      %tr
+        %th Community name
+        %th Your community can <abbr title="required">*</abbr>
+        %th
+    %tbody#project_communities
+      = f.simple_fields_for :project_communities, :wrapper => :horizontal do |collab|
+        = render 'project_community_fields', :f => collab
+    %tfoot
+      %tr
+        %td.table_actions{:colspan => 3}
+          = link_to_add_association 'Add a community', f, :project_communities, :'data-association-insertion-node' => '#project_communities', :'data-association-insertion-method' => 'append'

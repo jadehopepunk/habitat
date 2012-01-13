@@ -10,8 +10,10 @@ class Project < ActiveRecord::Base
   belongs_to :project_category
   has_many :attachments
   has_many :project_collaborators, :dependent => :destroy
+  has_many :project_communities, :dependent => :destroy
   
   accepts_nested_attributes_for :project_collaborators, :allow_destroy => true
+  accepts_nested_attributes_for :project_communities, :allow_destroy => true
   
   geocoded_by :address
   after_validation :geocode
