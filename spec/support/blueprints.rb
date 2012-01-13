@@ -7,6 +7,10 @@ User.blueprint do
   password           { "password" }
 end
 
+User.blueprint(:admin) do
+  role { 'admin' }
+end
+
 Project.blueprint do
   name                  { 'Some Project' }
   address               { 'New York, New York' }
