@@ -4,6 +4,7 @@ SimpleFormBootstrap::Application.routes.draw do
   namespace :admin do
     resources :users
   end
+  resources :communities
   resources :uses
   resources :features
   resources :jobs

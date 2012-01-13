@@ -24,6 +24,8 @@
               %ul.dropdown-menu
                 - if can?(:manage, Project)
                   %li= link_to "Projects", main_app.projects_path
+                - if can?(:manage, Community)
+                  %li= link_to "Communities", main_app.communities_path
                 - if can?(:manage, User)
                   %li= link_to "Users", main_app.admin_users_path
                 - if can?(:manage, Use)
