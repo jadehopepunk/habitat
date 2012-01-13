@@ -2,6 +2,7 @@
   %td
     = f.input_field :user_id, :as => :select, :collection => User.all
     = f.error :user
+    = f.error :user_id
   %td
     = f.input_field :project_role, :as => :select, :collection => ProjectCollaborator::PROJECT_ROLES
     = f.error :project_role    

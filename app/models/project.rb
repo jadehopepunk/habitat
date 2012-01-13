@@ -26,6 +26,7 @@ class Project < ActiveRecord::Base
   validates_numericality_of :site_area, :allow_nil => true
   validates_associated :project_collaborators
   validate :must_have_owner
+  validate :must_have_unique_collaborators
 
   has_amount_with_unit :name => :site_area
   can_assign_by_name :project_category
@@ -74,6 +75,13 @@ class Project < ActiveRecord::Base
       end
       if remaining_owners.empty?
         errors.add(:project_collaborators, "must include at least one owner")
+      end
+    end
+    
+    def must_have_unique_collaborators
+      remaining_users = project_collaborators.reject(&:marked_for_destruction?).map(&:user)
+      if remaining_users.uniq.length < remaining_users.length
+        errors.add(:project_collaborators, "can only include each person once")
       end
     end
 end
