@@ -1,4 +1,4 @@
-= table_for(@projects) do |t|
+= table_for(collection) do |t|
   = t.data do
     = t.cell :name
     = t.cell :user, :heading => 'Owner'

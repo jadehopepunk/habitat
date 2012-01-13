@@ -1,0 +1,6 @@
+%table
+  %tbody
+    - collection.each do |project|
+      %tr
+        %td= link_to project.name, project
+        %td= project.collaborator_names

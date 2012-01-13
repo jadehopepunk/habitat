@@ -7,6 +7,9 @@
       .well
         = link_to "Edit Details", edit_community_path(@community), :class => 'btn'
     .row
-      .span10
-        = simple_format @community.description
-      .span6
+      .span8
+        .projects
+          = render :partial => 'projects/mini_table', :locals => {:collection => @community.projects}
+      .span8
+        .description
+          = simple_format @community.description
