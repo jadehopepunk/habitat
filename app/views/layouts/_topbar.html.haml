@@ -6,7 +6,7 @@
         - if user_signed_in?
           - if current_user.projects.count == 1
             %li= link_to "Project", main_app.project_path(current_user.projects.first)
-          - else
+          - elsif current_user.projects.count > 1
             %li.dropdown{"data-dropdown" => "dropdown"}
               %a.dropdown-toggle{:href => "#"} Projects
               %ul.dropdown-menu

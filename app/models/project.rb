@@ -31,11 +31,13 @@ class Project < ActiveRecord::Base
   after_create :create_dependencies
   
   def user
-    project_collaborators.owners.first
+    first_collaborator = project_collaborators.owners.first
+    first_collaborator.user if first_collaborator
   end
   
   def user=(value)
     self.project_collaborators << ProjectCollaborator.new(:project_role => 'owner', :user => value, :project => self)
+    value
   end
 
   def display_name
