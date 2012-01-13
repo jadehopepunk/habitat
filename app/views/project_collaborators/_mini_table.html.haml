@@ -2,7 +2,7 @@
   %tbody
     - project_collaborators.each do |project_collaborator|
       %tr
-        %td{:style => 'width: 1px'}= image_tag(project_collaborator.user.gravatar_url(:size => 40), :alt => '')
+        %td{:style => 'width: 1px'}= image_tag(project_collaborator.user.gravatar_url(:size => 40, :default => asset_path('avatar_blank_40x40.png')), :alt => '')
         %td
           .name= project_collaborator.user.name
           .role= project_collaborator.project_role
