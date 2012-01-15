@@ -79,19 +79,18 @@ class Ability
     
     def user_project_community_access_abilities_for_community(community, user, community_access, action)
       user_for_project = {:project_communities => {:community_id => community.id, :access => community_access}}
-      user_for_project_component = {:project => user_for_project}
-
-      can action, Project, user_for_project      
-      can action, [Brief, Attachment], user_for_project_component
-      can action, GOAL_CLASSES, {:brief => user_for_project_component}      
+      project_access_abilities(user_for_project, action, action)
     end
     
     def project_role_abilities(user, project_role, project_action, goals_action)
       user_for_project = {:project_collaborators => {:user_id => user.id, :project_role => project_role}}
+      project_access_abilities(user_for_project, project_action, goals_action)
+    end
+    
+    def project_access_abilities(user_for_project, project_action, goals_action)
       user_for_project_component = {:project => user_for_project}
 
-      can project_action, Project, user_for_project
-      
+      can project_action, Project, user_for_project      
       can goals_action, [Brief, Attachment], user_for_project_component
       can goals_action, GOAL_CLASSES, {:brief => user_for_project_component}
     end
