@@ -27,6 +27,7 @@ namespace :deploy do
 end
 
 after "deploy", "deploy:cleanup"
+after "deploy:migrations", "deploy:cleanup"
 
 after "deploy:update_code" do
   link_from_shared_to_current('config')
