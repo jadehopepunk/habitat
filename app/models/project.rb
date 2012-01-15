@@ -60,8 +60,8 @@ class Project < ActiveRecord::Base
     Money.default_currency
   end
   
-  def collaborator_names
-    project_collaborators.map(&:user_name).to_sentence
+  def owner_names
+    project_collaborators.owners.map(&:user_name).to_sentence
   end
   
   protected

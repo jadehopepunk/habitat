@@ -2,5 +2,7 @@
   %tbody
     - collection.each do |project|
       %tr
-        %td= link_to project.name, project
-        %td= project.collaborator_names
+        %td
+          .project_name= project_link project
+          .role= '(' + project_access_level(project) + ')'
+        %td= project.owner_names
