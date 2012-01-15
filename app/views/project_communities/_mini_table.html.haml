@@ -3,7 +3,7 @@
     - project_communities.each do |project_community|
       %tr
         %td{:style => 'width: 1px'}
-          - if project_community.community.photo
+          - if project_community.community.photo_uid
             = image_tag(project_community.community.photo.thumb('40x40#'), :alt => '')
         %td= link_to project_community.community.name, project_community.community
           
