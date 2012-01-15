@@ -36,6 +36,13 @@
                             = image_tag @project.photo.thumb('330x230#').url
       .span6
         - if @project.latitude
-          = project_map(@project)      
+          = project_map(@project)
+          
         %h2 Collaborators
         = render :partial => 'project_collaborators/mini_table', :locals => {:project_collaborators => @project.project_collaborators}
+
+        - unless @project.project_communities.empty?
+          %h2 Communities
+          = render :partial => 'project_communities/mini_table', :locals => {:project_communities => @project.project_communities}
+
+        

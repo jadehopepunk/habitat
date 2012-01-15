@@ -4,7 +4,9 @@ SimpleFormBootstrap::Application.routes.draw do
   namespace :admin do
     resources :users
   end
-  resources :communities
+  resources :communities do
+    get :autocomplete_community_name, :on => :collection
+  end
   resources :uses
   resources :features
   resources :jobs

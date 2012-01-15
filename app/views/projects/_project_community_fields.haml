@@ -1,6 +1,6 @@
 %tr.nested-fields{:class => (f.object.errors.empty? ? nil : 'nested-record-with-errors')}
   %td
-    = f.input_field :community_name
+    = f.input_field :community_name, :as => :autocomplete, :url => autocomplete_community_name_communities_path
     = f.error :community_name
   %td
     .access_level
