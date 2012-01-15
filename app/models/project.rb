@@ -64,6 +64,10 @@ class Project < ActiveRecord::Base
     project_collaborators.owners.map(&:user_name).to_sentence
   end
   
+  def brief_id
+    brief.id
+  end
+  
   protected
 
     def prevent_geocoding?

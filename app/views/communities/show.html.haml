@@ -10,6 +10,22 @@
       .span8
         .projects
           = render :partial => 'projects/mini_table', :locals => {:collection => @community.projects}
+          
+        - unless @uses.empty?
+          .section.uses
+            %h2 
+              Popular Yields
+              %small in this community
+            = @uses.map(&:name).to_sentence
+
+        - unless @features.empty?
+          .section.features
+            %h2 
+              Popular Features
+              %small in this community
+            = @features.map(&:name).to_sentence
+
+        
       .span8
         .description= simple_format @community.description
         = single_image_grid @community.photo

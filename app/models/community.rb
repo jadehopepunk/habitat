@@ -6,4 +6,8 @@ class Community < ActiveRecord::Base
   
   validates_presence_of :name
   validates_uniqueness_of :name
+  
+  def common_models_for_project(klass)
+    klass.common_for_projects(projects)
+  end
 end
