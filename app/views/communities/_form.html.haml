@@ -2,5 +2,6 @@
   = form_errors(f)
   .inputs
     = f.input :name, :input_html => { :class => "span8" }
+    = f.input :photo, :as => :image, :hint => "A photo, logo or other image representing your community"
     = f.input :description, :input_html => { :class => "span8" }
   = form_actions(f)

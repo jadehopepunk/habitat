@@ -2,5 +2,5 @@
   %tbody
     - project_communities.each do |project_community|
       %tr
-        %td= project_community.community.name
+        %td= link_to project_community.community.name, project_community.community
           

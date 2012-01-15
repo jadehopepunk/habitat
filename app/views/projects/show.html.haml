@@ -30,10 +30,7 @@
                     %td
                       %strong Before
                     %td
-                      %ul.media-grid
-                        %li
-                          = link_to @project.photo.url do
-                            = image_tag @project.photo.thumb('330x230#').url
+                      = single_image_grid @project.photo
       .span6
         - if @project.latitude
           = project_map(@project)

@@ -11,5 +11,5 @@
         .projects
           = render :partial => 'projects/mini_table', :locals => {:collection => @community.projects}
       .span8
-        .description
-          = simple_format @community.description
+        .description= simple_format @community.description
+        = single_image_grid @community.photo
