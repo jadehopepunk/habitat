@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   GOAL_CLASSES = [Goals::Yield, Goals::Feature, Goals::LabourInput, Goals::BudgetItem]
+  PROJECT_CATEGORIZATION = [Use, Job, ProjectCategory, Feature, Community]
 
   def initialize(user)    
     if user
@@ -25,6 +26,7 @@ class Ability
       can :read, Project, :is_public => true
       can :read, [Brief, Attachment], {:project => {:is_public => true}}
       can :read, GOAL_CLASSES, {:brief => {:project => {:is_public => true}}}
+      can :read, PROJECT_CATEGORIZATION
     end
     
     def user_abilities(user)
@@ -35,7 +37,7 @@ class Ability
     
     def base_user_abilities(user)
       can :manage, User, :id => user.id
-      can [:read, :create], [Use, Job, ProjectCategory, Feature]
+      can :create, PROJECT_CATEGORIZATION
       can :create, Project
     end
     

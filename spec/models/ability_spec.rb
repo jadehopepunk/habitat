@@ -2,6 +2,20 @@ require 'spec_helper'
 require "cancan/matchers"
 
 describe Ability do
+  describe "guest viewer" do
+    before :each do
+      @ability = Ability.new(nil)
+    end
+    
+    it "should be able to read public project" do
+      @ability.should be_able_to(:read, Project.new(:is_public => true))
+    end
+    
+    it "should be able to view a community" do
+      @ability.should be_able_to(:read, Community.new)
+    end
+  end
+  
   describe "admin" do
     before :each do
       user = User.make!(:admin)

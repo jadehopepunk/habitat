@@ -15,9 +15,9 @@ namespace :sync do
     mysql_params += " -p#{dev_config["password"]}" if dev_config["password"]
     mysql_params += " #{dev_config["database"]}"
     
-    # echo_and_run "ssh #{db_host} \"mysqldump -u #{prod_config["username"]} -p#{prod_config["password"] } -Q --add-drop-table -O add-locks=FALSE -O lock-tables=FALSE #{prod_config["database"]} > ~/habitat_dump.sql\""
-    # echo_and_run "rsync -az --progress craig@#{db_host}:~/habitat_dump.sql ./tmp/production_data.sql"
-    # echo_and_run "rsync -az --progress craig@#{db_host}:~/sites/habitat/shared/system/* ./public/system/"
+    echo_and_run "ssh #{db_host} \"mysqldump -u #{prod_config["username"]} -p#{prod_config["password"] } -Q --add-drop-table -O add-locks=FALSE -O lock-tables=FALSE #{prod_config["database"]} > ~/habitat_dump.sql\""
+    echo_and_run "rsync -az --progress craig@#{db_host}:~/habitat_dump.sql ./tmp/production_data.sql"
+    echo_and_run "rsync -az --progress craig@#{db_host}:~/sites/habitat/shared/system/* ./public/system/"
     echo_and_run "mysql #{mysql_params} < ./tmp/production_data.sql"
   end
 end
