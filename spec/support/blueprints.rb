@@ -17,3 +17,7 @@ Project.blueprint do
   project_category_name { "Suburban Yard" }
   user                  { User.make }
 end
+
+Community.blueprint do
+  name                  { "Community #{sn}" }
+end

@@ -16,7 +16,7 @@ describe Ability do
   describe "project owner" do
     before :each do
       user = User.make!
-      @project = Project.make!(:user => user)
+      @project = Project.make!(:user => user, :is_public => false)
       @ability = Ability.new(user)
     end    
     
@@ -28,7 +28,7 @@ describe Ability do
   describe "project observer" do
     before :each do
       user = User.make!
-      @project = Project.make!
+      @project = Project.make!(:is_public => false)
       @project.project_collaborators.create!(:user => user, :project_role => 'observer', :project => @project)
       @project.reload
       @ability = Ability.new(user)
@@ -40,6 +40,41 @@ describe Ability do
     
     it "should not be able to write to project" do
       @ability.should_not be_able_to(:edit, @project)  
+    end
+  end
+  
+  describe "community member" do
+    before :each do
+      @viewer = User.make!
+      @community = Community.make!
+      @project = Project.make!(:is_public => false, :user => User.make)
+      @other_project = Project.make!(:is_public => false, :user => @viewer)
+      ProjectCommunity.create!(:project => @other_project, :community => @community, :access => 'list')      
+      @ability = Ability.new(@viewer)
+    end
+        
+    describe "for readable project" do
+      before :each do
+        ProjectCommunity.create!(:project => @project, :community => @community, :access => 'read')
+      end
+      
+      it "should be able to read project" do
+        @ability.should be_able_to(:read, @project)  
+      end
+
+      it "should not be able to write to project" do
+        @ability.should_not be_able_to(:edit, @project)  
+      end      
+    end
+
+    describe "for readable project" do
+      before :each do
+        ProjectCommunity.create!(:project => @project, :community => @community, :access => 'edit')
+      end
+      
+      it "should be able to edit project" do
+        @ability.should be_able_to(:edit, @project)  
+      end
     end
   end
 end

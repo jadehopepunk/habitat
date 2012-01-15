@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_one :project, :dependent => :destroy
   has_many :project_collaborators, :dependent => :destroy
   has_many :projects, :through => :project_collaborators, :uniq => true
-  
+
   attr_accessible :name
   
   validates_inclusion_of :role, :in => ROLES, :allow_blank => true
@@ -30,5 +30,9 @@ class User < ActiveRecord::Base
   def project
     collaborator = project_collaborators.owners.first
     collaborator.project if collaborator
+  end
+  
+  def communities
+    projects.map(&:communities).flatten.uniq
   end
 end

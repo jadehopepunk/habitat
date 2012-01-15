@@ -40,9 +40,19 @@ class Ability
     end
     
     def user_project_abilities(user)
+      user_project_collaborator_abilities(user)
+      user_project_community_abilities(user)
+    end
+    
+    def user_project_collaborator_abilities(user)
       owner_abilities(user)
       observer_abilities(user)
       participant_abilities(user)
+    end
+    
+    def user_project_community_abilities(user)
+      user_project_community_access_abilities(user, 'read', :read)
+      user_project_community_access_abilities(user, 'edit', :edit)
     end
     
     def owner_abilities(user)
@@ -59,6 +69,21 @@ class Ability
     
     def design_consultant_abilities(user)
       project_role_abilities(user, 'design_consultant', :read, :read)
+    end
+
+    def user_project_community_access_abilities(user, community_access, action)
+      user.communities.each do |community|
+        user_project_community_access_abilities_for_community(community, user, community_access, action)
+      end
+    end
+    
+    def user_project_community_access_abilities_for_community(community, user, community_access, action)
+      user_for_project = {:project_communities => {:community_id => community.id, :access => community_access}}
+      user_for_project_component = {:project => user_for_project}
+
+      can action, Project, user_for_project      
+      can action, [Brief, Attachment], user_for_project_component
+      can action, GOAL_CLASSES, {:brief => user_for_project_component}      
     end
     
     def project_role_abilities(user, project_role, project_action, goals_action)
