@@ -16,10 +16,13 @@ SimpleFormBootstrap::Application.routes.draw do
     resources :scopes, :only => [] do
       resources :attachments
     end
-    namespace :site_analysis do
+  end
+  namespace :site_analysis do
+    resources :projects do
       resources :areas
     end
   end
+
   resources :briefs do
     namespace :goals do
       resources :yields do

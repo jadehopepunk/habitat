@@ -1,0 +1,22 @@
+= top_available_heading "Listing #{resource_title.pluralize}"
+.well
+  = link_to "New #{resource_title}", {:action => :new}, :class => 'btn'
+.row
+  .span10
+    = render :partial => 'table'
+  .span6
+    %h2 What is an area?
+    %p
+      You can specify areas of your site that you like to be able to consider individually for any reason. This
+      will allow you to specify which area a soil test is done in, a plant is found in, or a part of the design
+      is destined to go. Some reasons to specify areas include:
+    %ul
+      %li
+        Different soil types on your site.
+      %li
+        Different solar aspects, eg: North facing slope, South facing slope, shady gully.
+      %li
+        Different existing vegetation types.
+      %li
+        Different microclimates created by other factors.
+      
