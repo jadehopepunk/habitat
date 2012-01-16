@@ -8,5 +8,6 @@
       .container
         = render :partial => 'layouts/project_tabs'
         = render :partial => 'layouts/notice'
+        = yield :subsection_tabs
         = yield
     = render :partial => 'layouts/footer'

@@ -5,7 +5,7 @@
     - if Rails.env == 'production'
       = n.item 'Site Analysis', :link => '/', :disabled_if => proc { true }
     - else
-      = n.item 'Site Analysis', :link => project_site_analysis_path(@project)
+      = n.item 'Site Analysis', :link => project_site_analysis_path(@project), :highlights_on => [{:controller => 'site_analyses'}, {:controller => 'site_analysis/niches'}]
     = n.item 'Design', :link => '/', :disabled_if => proc { true }
     = n.item 'Implement', :link => '/', :disabled_if => proc { true }
     = n.item 'Maintain', :link => '/', :disabled_if => proc { true }
