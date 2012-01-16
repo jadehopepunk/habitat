@@ -12,6 +12,7 @@ SimpleFormBootstrap::Application.routes.draw do
   resources :jobs
   resources :project_categories
   resources :projects do
+    resource :site_analysis
     resources :scopes, :only => [] do
       resources :attachments
     end
