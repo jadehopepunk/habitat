@@ -17,7 +17,7 @@ SimpleFormBootstrap::Application.routes.draw do
       resources :attachments
     end
     namespace :site_analysis do
-      resources :niches
+      resources :areas
     end
   end
   resources :briefs do

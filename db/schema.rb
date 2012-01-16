@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(:version => 20120116030810) do
 
+  create_table "areas", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "parent_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "attachments", :force => true do |t|
     t.integer  "project_id"
     t.string   "scope"
@@ -150,15 +159,6 @@ ActiveRecord::Schema.define(:version => 20120116030810) do
 
   create_table "jobs", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "niches", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "parent_id"
-    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

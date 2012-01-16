@@ -1,6 +1,6 @@
-class CreateNiches < ActiveRecord::Migration
+class CreateAreas < ActiveRecord::Migration
   def change
-    create_table :niches do |t|
+    create_table :areas do |t|
       t.string :name
       t.text :description
       t.integer :parent_id, :project_id
