@@ -11,5 +11,12 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = exception.message
     redirect_to root_url
-  end  
+  end
+
+  private
+  
+    def increment_heading
+      @top_heading ||= 1
+      @top_heading += 1
+    end  
 end
