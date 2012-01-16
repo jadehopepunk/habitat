@@ -171,13 +171,13 @@ ul.tabs li.not_implemented > a, ul.tabs li.disabled > span {
   
   $project_tab_radius: 8px;
   
-  > li:first-child > a, > li.disabled:first-child > span {
+  > li:first-child > a, > li:first-child > a:hover, > li.disabled:first-child > span {
     -webkit-border-radius: $project_tab_radius 0 0 $project_tab_radius;
     -moz-border-radius: $project_tab_radius 0 0 $project_tab_radius;
     border-radius: $project_tab_radius 0 0 $project_tab_radius;
   }
 
-  > li:last-child > a, li.disabled:last-child > span {
+  > li:last-child > a, > li:last-child > a:hover, li.disabled:last-child > span {
     -webkit-border-radius: 0 $project_tab_radius $project_tab_radius 0;
     -moz-border-radius: 0 $project_tab_radius $project_tab_radius 0;
     border-radius: 0 $project_tab_radius $project_tab_radius 0;
