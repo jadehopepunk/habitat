@@ -6,4 +6,6 @@ class SoilTestResult < ActiveRecord::Base
   
   validates_presence_of :name, :amount, :amount_unit
   validates_inclusion_of :amount_unit, :in => RESULT_UNITS, :allow_blank => true
+
+  has_amount_with_unit
 end

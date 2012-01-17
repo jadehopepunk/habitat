@@ -6,4 +6,5 @@ class SoilTest < ActiveRecord::Base
   accepts_nested_attributes_for :soil_test_results, :allow_destroy => true
 
   validates_presence_of :project, :tested_on
+  
 end
