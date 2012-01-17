@@ -1,0 +1,19 @@
+.nested_form.clearfix
+  %label.nested_form_label Results
+  = f.full_error :soil_test_results, :class => 'nested-form-error'
+  %table.nested_form_contents.form-stacked.zebra-striped.bordered-table{:class => (f.object.errors[:soil_test_results].empty? ? nil : 'nested-records-with-errors')}
+    %thead
+      %tr
+        %th Name <abbr title="required">*</abbr>
+        %th Amount <abbr title="required">*</abbr>
+        %th Units <abbr title="required">*</abbr>
+        %th
+    %tbody#soil_test_results
+      = f.simple_fields_for :soil_test_results, :wrapper => :horizontal do |collab|
+        = render 'soil_test_result_fields', :f => collab
+    %tfoot
+      %tr
+        %td.table_actions{:colspan => 4}
+          .help-inline
+            Please try hard to use a standard scientific notation for your units.
+          = link_to_add_association 'Add a result', f, :soil_test_results, :'data-association-insertion-node' => '#soil_test_results', :'data-association-insertion-method' => 'append'

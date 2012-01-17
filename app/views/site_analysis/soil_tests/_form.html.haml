@@ -5,4 +5,5 @@
     = f.input :reference, :hint => "Something so you know what this test was. <br />Often the lab supplies a reference number for your results.".html_safe
     - if !@project.areas.empty?
       = f.association :area, :collection => @project.areas, :input_html => { :class => "span4" }, :hint => "Specify if this test relates to a specific area of your site."
+    = render :partial => 'soil_test_results_subform', :locals => {:f => f}
   = form_actions(f)

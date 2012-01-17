@@ -1,0 +1,12 @@
+%tr.nested-fields{:class => (f.object.errors.empty? ? nil : 'nested-record-with-errors')}
+  %td
+    = f.input_field :name
+    = f.error :name
+  %td
+    = f.input_field :amount, :class => 'span3'
+    = f.error :amount
+  %td
+    = f.input_field :amount_unit, :class => 'span3'
+    = f.error :amount_unit
+  %td.action
+    = link_to_remove_association "Remove", f

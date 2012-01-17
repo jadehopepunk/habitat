@@ -36,6 +36,13 @@
       td.action {
         vertical-align: middle;
       }
+
+      td.amount_with_unit {
+        .input-append {
+          white-space: nowrap;
+          width: 140px;
+        }
+      }
       
       tr.nested-record-with-errors {
         td {
