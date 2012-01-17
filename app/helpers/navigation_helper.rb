@@ -21,5 +21,11 @@ module NavigationHelper
       else
         type.to_s
     end
-  end  
+  end
+  
+  def controllers_array(*params)
+    params.map do |param|
+      {:controller => param}
+    end
+  end
 end

@@ -1,11 +1,11 @@
 - if @project && !@project.new_record?
   - semantic_navigation :main, :html => {:class => 'tabs step_tabs'} do |n|
-    = n.item 'Project', :link => project_path(@project), :highlights_on => [{:controller => 'projects'}]
-    = n.item 'Goals', :link => brief_path(@project.brief), :highlights_on => [{:controller => 'briefs'}, {:controller => 'goals/yields'}, {:controller => 'goals/features'}, {:controller => 'goals/budget_items'}, {:controller => 'goals/labour_inputs'}]
+    = n.item 'Project', :link => project_path(@project), :highlights_on => controllers_array('projects')
+    = n.item 'Goals', :link => brief_path(@project.brief), :highlights_on => controllers_array('briefs', 'goals/yields', 'goals/features', 'goals/budget_items', 'goals/labour_inputs')
     - if Rails.env == 'production'
       = n.item 'Site Analysis', :link => '/', :disabled_if => proc { true }
     - else
-      = n.item 'Site Analysis', :link => project_site_analysis_path(@project), :highlights_on => [{:controller => 'site_analyses'}, {:controller => 'site_analysis/areas'}]
+      = n.item 'Site Analysis', :link => project_site_analysis_path(@project), :highlights_on => controllers_array('site_analyses', 'site_analysis/areas', 'site_analysis/soil_tests', 'site_analysis/soil_test_results')
     = n.item 'Design', :link => '/', :disabled_if => proc { true }
     = n.item 'Implement', :link => '/', :disabled_if => proc { true }
     = n.item 'Maintain', :link => '/', :disabled_if => proc { true }
