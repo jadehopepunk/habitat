@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
   image_accessor :photo
 
   has_one :brief, :dependent => :destroy
+  has_one :site, :dependent => :destroy
   belongs_to :project_category
   has_many :attachments, :dependent => :destroy
   has_many :project_collaborators, :dependent => :destroy
@@ -78,6 +79,7 @@ class Project < ActiveRecord::Base
     
     def create_dependencies
       create_brief!
+      create_site!
     end
     
     def must_have_owner

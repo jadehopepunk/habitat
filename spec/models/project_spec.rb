@@ -22,6 +22,12 @@ describe Project do
       project.brief.should_not be_nil
     end
     
+    it "should create a site" do
+      project = Project.create!(required_attributes)
+      project.reload
+      project.site.should_not be_nil
+    end
+    
     it "should be valid with a project collaborator" do
       user = User.make!
       project = Project.new(required_attributes_except_user)
