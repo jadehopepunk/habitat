@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117030504) do
+ActiveRecord::Schema.define(:version => 20120117035954) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -228,6 +228,11 @@ ActiveRecord::Schema.define(:version => 20120117030504) do
   end
 
   add_index "projects", ["project_category_id"], :name => "projects_project_category_id_fk"
+
+  create_table "soil_test_result_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+  end
 
   create_table "soil_test_results", :force => true do |t|
     t.integer  "soil_test_id"

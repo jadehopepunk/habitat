@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   GOAL_CLASSES = [Goals::Yield, Goals::Feature, Goals::LabourInput, Goals::BudgetItem]
-  PROJECT_CATEGORIZATION = [Use, Job, ProjectCategory, Feature, Community]
+  PROJECT_CATEGORIZATION = [Use, Job, ProjectCategory, Feature, Community, SoilTestResultType]
 
   def initialize(user)    
     if user
@@ -58,19 +58,19 @@ class Ability
     end
     
     def owner_abilities(user)
-      project_role_abilities(user, 'owner', :manage, :manage)
+      project_role_abilities(user, 'owner', :manage, :manage, :manage)
     end
     
     def observer_abilities(user)
-      project_role_abilities(user, 'observer', :read, :read)
+      project_role_abilities(user, 'observer', :read, :read, :read)
     end
     
     def participant_abilities(user)
-      project_role_abilities(user, 'participant', :read, :manage)
+      project_role_abilities(user, 'participant', :read, :manage, :manage)
     end
     
     def design_consultant_abilities(user)
-      project_role_abilities(user, 'design_consultant', :read, :read)
+      project_role_abilities(user, 'design_consultant', :read, :read, :manage)
     end
 
     def user_project_community_access_abilities(user, community_access, action)
@@ -81,19 +81,21 @@ class Ability
     
     def user_project_community_access_abilities_for_community(community, user, community_access, action)
       user_for_project = {:project_communities => {:community_id => community.id, :access => community_access}}
-      project_access_abilities(user_for_project, action, action)
+      project_access_abilities(user_for_project, action, action, action)
     end
     
-    def project_role_abilities(user, project_role, project_action, goals_action)
+    def project_role_abilities(user, project_role, project_action, goals_action, site_action)
       user_for_project = {:project_collaborators => {:user_id => user.id, :project_role => project_role}}
-      project_access_abilities(user_for_project, project_action, goals_action)
+      project_access_abilities(user_for_project, project_action, goals_action, site_action)
     end
     
-    def project_access_abilities(user_for_project, project_action, goals_action)
+    def project_access_abilities(user_for_project, project_action, goals_action, site_action)
       user_for_project_component = {:project => user_for_project}
 
       can project_action, Project, user_for_project      
       can goals_action, [Brief, Attachment], user_for_project_component
       can goals_action, GOAL_CLASSES, {:brief => user_for_project_component}
+      can site_action, [Area, SoilTest], user_for_project_component
+      can site_action, SoilTestResult, :soil_test => user_for_project_component
     end
 end
