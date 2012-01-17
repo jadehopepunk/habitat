@@ -27,18 +27,30 @@ class Ability
       can :read, [Brief, Attachment], {:project => {:is_public => true}}
       can :read, GOAL_CLASSES, {:brief => {:project => {:is_public => true}}}
       can :read, PROJECT_CATEGORIZATION
-    end
-    
-    def user_abilities(user)
-      guest_abilities
-      base_user_abilities(user)
-      user_project_abilities(user)
+      can :read, [Area, SoilTest], :project => {:is_public => true}
+      can :read, SoilTestResult, :soil_test => {:project => {:is_public => true}}
     end
     
     def base_user_abilities(user)
       can :manage, User, :id => user.id
       can :create, PROJECT_CATEGORIZATION
       can :create, Project
+    end
+
+    def project_access_abilities(user_for_project, project_action, goals_action, site_action)
+      user_for_project_component = {:project => user_for_project}
+
+      can project_action, Project, user_for_project      
+      can goals_action, [Brief, Attachment], user_for_project_component
+      can goals_action, GOAL_CLASSES, {:brief => user_for_project_component}
+      can site_action, [Area, SoilTest], user_for_project_component
+      can site_action, SoilTestResult, :soil_test => user_for_project_component
+    end
+    
+    def user_abilities(user)
+      guest_abilities
+      base_user_abilities(user)
+      user_project_abilities(user)
     end
     
     def user_project_abilities(user)
@@ -87,15 +99,5 @@ class Ability
     def project_role_abilities(user, project_role, project_action, goals_action, site_action)
       user_for_project = {:project_collaborators => {:user_id => user.id, :project_role => project_role}}
       project_access_abilities(user_for_project, project_action, goals_action, site_action)
-    end
-    
-    def project_access_abilities(user_for_project, project_action, goals_action, site_action)
-      user_for_project_component = {:project => user_for_project}
-
-      can project_action, Project, user_for_project      
-      can goals_action, [Brief, Attachment], user_for_project_component
-      can goals_action, GOAL_CLASSES, {:brief => user_for_project_component}
-      can site_action, [Area, SoilTest], user_for_project_component
-      can site_action, SoilTestResult, :soil_test => user_for_project_component
     end
 end

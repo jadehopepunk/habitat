@@ -1,6 +1,7 @@
 = top_available_heading "Listing #{resource_title.pluralize}"
-.well
-  = link_to "New #{resource_title}", {:action => :new}, :class => 'btn'
+= if can? :edit, @project
+  .well
+    = link_to "New #{resource_title}", {:action => :new}, :class => 'btn'
 .row
   .span10
     = render :partial => 'table'

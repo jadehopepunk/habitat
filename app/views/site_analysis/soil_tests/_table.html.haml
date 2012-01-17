@@ -4,7 +4,7 @@
     = t.cell :reference
     - if !@project.areas.empty?
       = t.cell :area
+    = t.cell('', :cell_html => {:class => 'actions'}) {|resource| link_to('View', resource_path(resource)) }
     - if can? :edit, @project
-      = t.cell('', :cell_html => {:class => 'actions'}) {|resource| link_to('View', resource_path(resource)) }
       = t.cell('', :cell_html => {:class => 'actions'}) {|resource| link_to('Edit', edit_resource_path(resource)) }
       = t.cell('', :cell_html => {:class => 'actions'}) {|resource| link_to('Remove', resource_path(resource), :confirm => 'Are you sure?', :method => :delete) }
