@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117015103) do
+ActiveRecord::Schema.define(:version => 20120117030504) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20120117015103) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "areas", ["project_id"], :name => "areas_project_id_fk"
 
   create_table "attachments", :force => true do |t|
     t.integer  "project_id"
@@ -33,12 +35,16 @@ ActiveRecord::Schema.define(:version => 20120117015103) do
     t.text     "description"
   end
 
+  add_index "attachments", ["project_id"], :name => "attachments_project_id_fk"
+
   create_table "briefs", :force => true do |t|
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
   end
+
+  add_index "briefs", ["project_id"], :name => "briefs_project_id_fk"
 
   create_table "budget_categories", :force => true do |t|
     t.string   "name"
@@ -124,6 +130,9 @@ ActiveRecord::Schema.define(:version => 20120117015103) do
     t.integer  "brief_id"
   end
 
+  add_index "goals_budget_items", ["brief_id"], :name => "goals_budget_items_brief_id_fk"
+  add_index "goals_budget_items", ["budget_category_id"], :name => "goals_budget_items_budget_category_id_fk"
+
   create_table "goals_features", :force => true do |t|
     t.text     "description"
     t.datetime "created_at"
@@ -131,6 +140,9 @@ ActiveRecord::Schema.define(:version => 20120117015103) do
     t.integer  "brief_id"
     t.integer  "feature_id"
   end
+
+  add_index "goals_features", ["brief_id"], :name => "goals_features_brief_id_fk"
+  add_index "goals_features", ["feature_id"], :name => "goals_features_feature_id_fk"
 
   create_table "goals_labour_inputs", :force => true do |t|
     t.integer  "job_id"
@@ -145,6 +157,9 @@ ActiveRecord::Schema.define(:version => 20120117015103) do
     t.integer  "brief_id"
   end
 
+  add_index "goals_labour_inputs", ["brief_id"], :name => "goals_labour_inputs_brief_id_fk"
+  add_index "goals_labour_inputs", ["job_id"], :name => "goals_labour_inputs_job_id_fk"
+
   create_table "goals_yields", :force => true do |t|
     t.integer  "use_id"
     t.decimal  "amount",             :precision => 8, :scale => 2
@@ -156,6 +171,9 @@ ActiveRecord::Schema.define(:version => 20120117015103) do
     t.datetime "updated_at"
     t.integer  "brief_id"
   end
+
+  add_index "goals_yields", ["brief_id"], :name => "goals_yields_brief_id_fk"
+  add_index "goals_yields", ["use_id"], :name => "goals_yields_use_id_fk"
 
   create_table "jobs", :force => true do |t|
     t.string   "name"
@@ -176,6 +194,9 @@ ActiveRecord::Schema.define(:version => 20120117015103) do
     t.datetime "updated_at"
   end
 
+  add_index "project_collaborators", ["project_id"], :name => "project_collaborators_project_id_fk"
+  add_index "project_collaborators", ["user_id"], :name => "project_collaborators_user_id_fk"
+
   create_table "project_communities", :force => true do |t|
     t.integer  "project_id"
     t.integer  "community_id"
@@ -184,6 +205,9 @@ ActiveRecord::Schema.define(:version => 20120117015103) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "project_communities", ["community_id"], :name => "project_communities_community_id_fk"
+  add_index "project_communities", ["project_id"], :name => "project_communities_project_id_fk"
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -203,6 +227,19 @@ ActiveRecord::Schema.define(:version => 20120117015103) do
     t.boolean  "is_public",                                          :default => false
   end
 
+  add_index "projects", ["project_category_id"], :name => "projects_project_category_id_fk"
+
+  create_table "soil_test_results", :force => true do |t|
+    t.integer  "soil_test_id"
+    t.string   "name"
+    t.decimal  "amount",       :precision => 15, :scale => 5
+    t.string   "amount_unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "soil_test_results", ["soil_test_id"], :name => "soil_test_results_soil_test_id_fk"
+
   create_table "soil_tests", :force => true do |t|
     t.integer  "project_id"
     t.integer  "area_id"
@@ -211,6 +248,9 @@ ActiveRecord::Schema.define(:version => 20120117015103) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "soil_tests", ["area_id"], :name => "soil_tests_area_id_fk"
+  add_index "soil_tests", ["project_id"], :name => "soil_tests_project_id_fk"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",     :null => false
@@ -238,5 +278,36 @@ ActiveRecord::Schema.define(:version => 20120117015103) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_foreign_key "areas", "projects", :name => "areas_project_id_fk"
+
+  add_foreign_key "attachments", "projects", :name => "attachments_project_id_fk"
+
+  add_foreign_key "briefs", "projects", :name => "briefs_project_id_fk"
+
+  add_foreign_key "goals_budget_items", "briefs", :name => "goals_budget_items_brief_id_fk"
+  add_foreign_key "goals_budget_items", "budget_categories", :name => "goals_budget_items_budget_category_id_fk"
+
+  add_foreign_key "goals_features", "briefs", :name => "goals_features_brief_id_fk"
+  add_foreign_key "goals_features", "features", :name => "goals_features_feature_id_fk"
+
+  add_foreign_key "goals_labour_inputs", "briefs", :name => "goals_labour_inputs_brief_id_fk"
+  add_foreign_key "goals_labour_inputs", "jobs", :name => "goals_labour_inputs_job_id_fk"
+
+  add_foreign_key "goals_yields", "briefs", :name => "goals_yields_brief_id_fk"
+  add_foreign_key "goals_yields", "uses", :name => "goals_yields_use_id_fk"
+
+  add_foreign_key "project_collaborators", "projects", :name => "project_collaborators_project_id_fk"
+  add_foreign_key "project_collaborators", "users", :name => "project_collaborators_user_id_fk"
+
+  add_foreign_key "project_communities", "communities", :name => "project_communities_community_id_fk"
+  add_foreign_key "project_communities", "projects", :name => "project_communities_project_id_fk"
+
+  add_foreign_key "projects", "project_categories", :name => "projects_project_category_id_fk"
+
+  add_foreign_key "soil_test_results", "soil_tests", :name => "soil_test_results_soil_test_id_fk"
+
+  add_foreign_key "soil_tests", "areas", :name => "soil_tests_area_id_fk"
+  add_foreign_key "soil_tests", "projects", :name => "soil_tests_project_id_fk"
 
 end

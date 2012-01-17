@@ -1,0 +1,47 @@
+class AddForeignKeys < ActiveRecord::Migration
+  def up
+    Brief.all.reject(&:project).each(&:destroy)
+    
+    add_foreign_key(:areas, :projects)
+    add_foreign_key(:attachments, :projects)
+    add_foreign_key(:briefs, :projects)
+    add_foreign_key(:goals_budget_items, :budget_categories)
+    add_foreign_key(:goals_budget_items, :briefs)
+    add_foreign_key(:goals_features, :briefs)
+    add_foreign_key(:goals_features, :features)
+    add_foreign_key(:goals_labour_inputs, :jobs)
+    add_foreign_key(:goals_labour_inputs, :briefs)
+    add_foreign_key(:goals_yields, :uses)
+    add_foreign_key(:goals_yields, :briefs)
+    add_foreign_key(:project_collaborators, :projects)
+    add_foreign_key(:project_collaborators, :users)
+    add_foreign_key(:project_communities, :projects)
+    add_foreign_key(:project_communities, :communities)
+    add_foreign_key(:projects, :project_categories)
+    add_foreign_key(:soil_test_results, :soil_tests)
+    add_foreign_key(:soil_tests, :projects)
+    add_foreign_key(:soil_tests, :areas)
+  end
+
+  def down
+    remove_foreign_key(:areas, :projects)
+    remove_foreign_key(:attachments, :projects)
+    remove_foreign_key(:briefs, :projects)
+    remove_foreign_key(:goals_budget_items, :budget_categories)
+    remove_foreign_key(:goals_budget_items, :briefs)
+    remove_foreign_key(:goals_features, :briefs)
+    remove_foreign_key(:goals_features, :features)
+    remove_foreign_key(:goals_labour_inputs, :jobs)
+    remove_foreign_key(:goals_labour_inputs, :briefs)
+    remove_foreign_key(:goals_yields, :uses)
+    remove_foreign_key(:goals_yields, :briefs)
+    remove_foreign_key(:project_collaborators, :projects)
+    remove_foreign_key(:project_collaborators, :users)
+    remove_foreign_key(:project_communities, :projects)
+    remove_foreign_key(:project_communities, :communities)
+    remove_foreign_key(:projects, :project_categories)
+    remove_foreign_key(:soil_test_results, :soil_tests)
+    remove_foreign_key(:soil_tests, :projects)
+    remove_foreign_key(:soil_tests, :areas)
+  end
+end

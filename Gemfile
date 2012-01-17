@@ -24,14 +24,15 @@ gem 'crummy'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly'
 gem 'navigasmic'
-gem 'mysql'
+gem 'mysql2'
 gem 'rails3-jquery-autocomplete'
 gem "tabletastic"
 gem 'money'
 gem 'gravtastic'
 gem 'forem', :git => "git://github.com/radar/forem.git"
 gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist"
-gem "geocoder"
+gem 'geocoder'
+gem 'foreigner'
 
 group :production do
   gem 'pg'

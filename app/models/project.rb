@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   
   image_accessor :photo
 
-  has_one :brief
+  has_one :brief, :dependent => :destroy
   belongs_to :project_category
   has_many :attachments
   has_many :project_collaborators, :dependent => :destroy
