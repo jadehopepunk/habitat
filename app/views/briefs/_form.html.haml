@@ -1,5 +1,5 @@
 = simple_form_for resource, :wrapper => :inline do |f|
   = form_errors(f)
   .inputs
-    = f.input :description, :label => 'Overview', :hint => "Optional additional text describing your project goals", :input_html => {:class => "xlarge", :rows => 10}
+    = f.input :description, :label => 'Overview', :hint => "Optional additional text describing your project goals", :input_html => {:rows => 10}
   = form_actions(f, resource)

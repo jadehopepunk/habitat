@@ -1,0 +1,8 @@
+= simple_form_for [:site_analysis, @project, resource], :wrapper => :inline do |f|
+  = form_errors(f)
+  .inputs
+    = f.input :tested_on, :as => :date
+    = f.input :reference, :hint => "Something so you know what this test was. <br />Often the lab supplies a reference number for your results.".html_safe
+    - if !@project.areas.empty?
+      = f.association :area, :collection => @project.areas, :input_html => { :class => "span4" }, :hint => "Specify if this test relates to a specific area of your site."
+  = form_actions(f)

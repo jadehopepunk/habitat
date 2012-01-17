@@ -1,7 +1,7 @@
 = simple_form_for [@project, @scope, @attachment], :html => {:multipart => true} do |f|
   = form_errors(f)
   .inputs
-    = f.input :name, :input_html => { :class => "span8" }
+    = f.input :name
     = f.hidden_field :retained_file
     = f.input :file, :as => :file
     = f.input :description, :input_html => { :class => "span8", :rows => 3 }

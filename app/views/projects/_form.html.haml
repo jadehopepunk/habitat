@@ -1,12 +1,12 @@
 = simple_form_for @project, :wrapper => :inline, :html => {:multipart => true} do |f|
   = form_errors(f)
   = field_set_tag "Project Details" do
-    = f.input :name, :input_html => { :class => "span8" }, :hint => "add your project title here"
+    = f.input :name, :hint => "add your project title here"
     = f.association :project_category, :label => 'Category'
-    = f.input :address, :input_html => { :class => "span8" }, :hint => "If you don't have an address, list a nearby town"
+    = f.input :address, :hint => "If you don't have an address, list a nearby town"
     = f.input :site_area, :as => :amount_with_unit
     = f.input :climate_zone, :as => :inferred_select
-    = f.input :description, :as => :text, :hint => "A very short description of your desired outcomes", :input_html => { :class => "xlarge", :rows => 5 }
+    = f.input :description, :as => :text, :hint => "A very short description of your desired outcomes", :input_html => {:rows => 5}
     = f.input :photo, :as => :image, :label => '"Before" photo'
   = field_set_tag "Project Settings" do
     = f.input :preferred_currency, :label => 'Currency', :as => :select, :collection => Money::Currency::TABLE.map {|row| [row.last[:name], row.last[:iso_code]]}.sort, :allow_blank => true

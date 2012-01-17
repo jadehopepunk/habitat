@@ -6,6 +6,7 @@
  *= require gmaps4rails
  *= require mapping
  *= require jquery-ui-bootstrap
+ *= require before_bootstrap
  *= require twitter/bootstrap
  *= require bootstrap
  *= require bootstrap_additions

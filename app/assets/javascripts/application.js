@@ -13,3 +13,8 @@
 //= require gmaps4rails/googlemaps.js
 //= require_tree .
 //
+
+$.datepicker.setDefaults({
+  dateFormat: 'yy-mm-dd'
+});
+$("input.date").datepicker();

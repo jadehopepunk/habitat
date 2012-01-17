@@ -1,8 +1,8 @@
 - semantic_navigation :site_analysis, :html => {:class => 'tabs'} do |n|
   = n.item 'Overview', :link => project_site_analysis_path(@project)
   = n.item 'Areas', :link => site_analysis_project_areas_path(@project)
+  = n.item 'Soil', :link => site_analysis_project_soil_tests_path(@project)
   = n.item 'Weather', :link => '/', :disabled_if => proc { true }
-  = n.item 'Soil', :link => '/', :disabled_if => proc { true }
   = n.item 'Vegetation', :link => '/', :disabled_if => proc { true }
   = n.item 'Fauna', :link => '/', :disabled_if => proc { true }
   = n.item 'Bioregion', :link => '/', :disabled_if => proc { true }

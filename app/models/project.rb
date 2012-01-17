@@ -13,6 +13,7 @@ class Project < ActiveRecord::Base
   has_many :project_communities, :dependent => :destroy
   has_many :communities, :through => :project_communities, :uniq => true
   has_many :areas
+  has_many :soil_tests
   
   accepts_nested_attributes_for :project_collaborators, :allow_destroy => true
   accepts_nested_attributes_for :project_communities, :allow_destroy => true
