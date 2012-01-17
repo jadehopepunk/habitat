@@ -1,5 +1,5 @@
 = top_available_heading "Listing #{resource_title.pluralize}"
-= if can? :edit, @project
+- if can? :edit, @project
   .well
     = link_to "New #{resource_title}", {:action => :new}, :class => 'btn'
 .row

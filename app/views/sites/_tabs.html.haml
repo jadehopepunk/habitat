@@ -1,5 +1,5 @@
 - semantic_navigation :site_analysis, :html => {:class => 'tabs'} do |n|
-  = n.item 'Overview', :link => project_site_analysis_path(@project)
+  = n.item 'Overview', :link => site_path(@project.site), :highlights_on => controllers_array('sites')
   = n.item 'Areas', :link => site_analysis_project_areas_path(@project), :highlights_on => controllers_array('site_analysis/areas')
   = n.item 'Soil', :link => site_analysis_project_soil_tests_path(@project), :highlights_on => controllers_array('site_analysis/soil_tests', 'site_analysis/soil_test_results')
   = n.item 'Weather', :link => '/', :disabled_if => proc { true }
