@@ -36,6 +36,8 @@
                   %li= link_to "Project Categories", main_app.project_categories_path
                 - if can?(:manage, Feature)
                   %li= link_to "Features", main_app.features_path
+                - if can?(:manage, SoilTestResultType)
+                  %li= link_to "Soil Test Result Types", main_app.soil_test_result_types_path
 
       .pull-right
         - if current_user
