@@ -1,6 +1,6 @@
 %tr.nested-fields{:class => (f.object.errors.empty? ? nil : 'nested-record-with-errors')}
   %td
-    = f.input_field :name
+    = f.input_field :name, :as => :select, :collection => SoilTestResultType.suggested_names
     = f.error :name
   %td
     = f.input_field :amount, :class => 'span3'
