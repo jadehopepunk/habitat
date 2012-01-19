@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117072259) do
+ActiveRecord::Schema.define(:version => 20120119070540) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -252,7 +252,7 @@ ActiveRecord::Schema.define(:version => 20120117072259) do
   add_index "soil_test_results", ["soil_test_result_type_id"], :name => "soil_test_results_soil_test_result_type_id_fk"
 
   create_table "soil_tests", :force => true do |t|
-    t.integer  "project_id"
+    t.integer  "site_id"
     t.integer  "area_id"
     t.date     "tested_on"
     t.string   "reference"
@@ -261,7 +261,7 @@ ActiveRecord::Schema.define(:version => 20120117072259) do
   end
 
   add_index "soil_tests", ["area_id"], :name => "soil_tests_area_id_fk"
-  add_index "soil_tests", ["project_id"], :name => "soil_tests_project_id_fk"
+  add_index "soil_tests", ["site_id"], :name => "soil_tests_site_id_fk"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",     :null => false
@@ -322,6 +322,6 @@ ActiveRecord::Schema.define(:version => 20120117072259) do
   add_foreign_key "soil_test_results", "soil_tests", :name => "soil_test_results_soil_test_id_fk"
 
   add_foreign_key "soil_tests", "areas", :name => "soil_tests_area_id_fk"
-  add_foreign_key "soil_tests", "projects", :name => "soil_tests_project_id_fk"
+  add_foreign_key "soil_tests", "sites", :name => "soil_tests_site_id_fk"
 
 end

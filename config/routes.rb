@@ -14,18 +14,13 @@ SimpleFormBootstrap::Application.routes.draw do
   resources :soil_test_result_types
 
   resources :projects do
-    resource :site_analysis
     resources :scopes, :only => [] do
       resources :attachments
     end
   end
   resources :sites do
     resources :areas
-  end
-  namespace :site_analysis do
-    resources :projects do
-      resources :soil_tests
-    end
+    resources :soil_tests
   end
 
   resources :briefs do

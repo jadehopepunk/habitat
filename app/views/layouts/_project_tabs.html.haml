@@ -5,7 +5,7 @@
     - if Rails.env == 'production'
       = n.item 'Site Analysis', :link => '/', :disabled_if => proc { true }
     - else
-      = n.item 'Site Analysis', :link => site_path(@project.site), :highlights_on => controllers_array('site_analyses', 'site_analysis/areas', 'site_analysis/soil_tests', 'site_analysis/soil_test_results')
+      = n.item 'Site Analysis', :link => site_path(@project.site), :highlights_on => controllers_array('site', 'areas', 'soil_tests', 'soil_test_results')
     = n.item 'Design', :link => '/', :disabled_if => proc { true }
     = n.item 'Implement', :link => '/', :disabled_if => proc { true }
     = n.item 'Maintain', :link => '/', :disabled_if => proc { true }

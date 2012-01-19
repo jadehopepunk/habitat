@@ -2,7 +2,7 @@
   = t.data do
     = t.cell(:tested_on) {|resource| resource.tested_on.to_s(:long)}
     = t.cell :reference
-    - if !@project.areas.empty?
+    - if !@site.areas.empty?
       = t.cell :area
     = t.cell('', :cell_html => {:class => 'actions'}) {|resource| link_to('View', resource_path(resource)) }
     - if can? :edit, @project
