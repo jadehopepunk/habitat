@@ -23,12 +23,15 @@ class Ability
     end
     
     def guest_abilities
+      public_project = {:project => {:is_public => true}}
+      
       can :read, Project, :is_public => true
-      can :read, [Brief, Attachment], {:project => {:is_public => true}}
-      can :read, GOAL_CLASSES, {:brief => {:project => {:is_public => true}}}
+      can :read, [Brief, Site, Attachment], public_project
+      can :read, GOAL_CLASSES, {:brief => public_project}
       can :read, PROJECT_CATEGORIZATION
-      can :read, [Area, SoilTest], :project => {:is_public => true}
-      can :read, SoilTestResult, :soil_test => {:project => {:is_public => true}}
+      can :read, [Area], {:site => public_project}
+      # can :read, [Area, SoilTest], public_project
+      can :read, SoilTestResult, :soil_test => public_project
     end
     
     def base_user_abilities(user)
@@ -43,7 +46,9 @@ class Ability
       can project_action, Project, user_for_project      
       can goals_action, [Brief, Attachment], user_for_project_component
       can goals_action, GOAL_CLASSES, {:brief => user_for_project_component}
-      can site_action, [Area, SoilTest], user_for_project_component
+      can site_action, [Site], user_for_project_component
+      can site_action, [Area], {:site => user_for_project_component}
+      # can site_action, [Area, SoilTest], user_for_project_component
       can site_action, SoilTestResult, :soil_test => user_for_project_component
     end
     

@@ -20,10 +20,10 @@ SimpleFormBootstrap::Application.routes.draw do
     end
   end
   resources :sites do
+    resources :areas
   end
   namespace :site_analysis do
     resources :projects do
-      resources :areas
       resources :soil_tests
     end
   end

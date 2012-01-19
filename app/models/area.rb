@@ -1,5 +1,5 @@
 class Area < ActiveRecord::Base
-  belongs_to :project
+  belongs_to :site
   has_many :soil_tests
   
   def to_s

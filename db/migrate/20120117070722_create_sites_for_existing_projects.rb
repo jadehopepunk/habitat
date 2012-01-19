@@ -1,7 +1,7 @@
 class CreateSitesForExistingProjects < ActiveRecord::Migration
   def up
     Project.all.each do |project|
-      Site.create!(:project_id => project.id)
+      execute "INSERT INTO sites (id, project_id) VALUES (#{project.id}, #{project.id})"
     end
   end
 
