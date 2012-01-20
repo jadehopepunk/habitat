@@ -11,6 +11,8 @@
 //= require autocomplete-rails
 //= require twitter/bootstrap
 //= require gmaps4rails/googlemaps.js
+//= require combo/jquery.eventdelay.js
+//= require combo/jquery.combo.js
 //= require_tree .
 //
 
@@ -18,3 +20,5 @@ $.datepicker.setDefaults({
   dateFormat: 'yy-mm-dd'
 });
 $("input.date").datepicker();
+
+$("select.combo").combo(triggerSelected:true);

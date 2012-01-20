@@ -12,5 +12,7 @@
  *= require bootstrap_additions
  *= require nested_form_bootstrap
  *= require record_presentation 
+ *= require combo/combo
+ *= require combo/skins/default/default
  *= require_tree .
 */
