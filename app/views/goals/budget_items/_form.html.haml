@@ -1,4 +1,4 @@
-= simple_form_for [@brief, @budget_item], :wrapper => :inline do |f|
+= simple_form_for [@brief, @budget_item] do |f|
   = form_errors(f)
   .inputs
     = f.input :budget_category_name, :label => 'Stage', :as => :autocomplete, :url => autocomplete_budget_category_name_brief_goals_budget_items_path

@@ -1,4 +1,4 @@
-= simple_form_for [@brief, @feature], :wrapper => :inline do |f|
+= simple_form_for [@brief, @feature] do |f|
   = form_errors(f)
   .inputs
     = f.input :feature_name, :label => 'Name', :as => :autocomplete, :url => autocomplete_feature_name_brief_goals_features_path

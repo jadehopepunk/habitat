@@ -1,4 +1,4 @@
-= simple_form_for [@brief, @yield], :wrapper => :inline do |f|
+= simple_form_for [@brief, @yield] do |f|
   = form_errors(f)
   .inputs
     = f.input :use_name, :label => 'Product', :as => :autocomplete, :url => autocomplete_use_name_brief_goals_yields_path

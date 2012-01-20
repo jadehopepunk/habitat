@@ -1,4 +1,4 @@
-= simple_form_for [:admin, @user], :wrapper => :inline do |f|
+= simple_form_for [:admin, @user] do |f|
   = form_errors(f)
   .inputs
     = f.input :email

@@ -1,4 +1,4 @@
-= simple_form_for [@brief, @labour_input], :wrapper => :inline do |f|
+= simple_form_for [@brief, @labour_input] do |f|
   = form_errors(f)
   .inputs
     = f.input :job_name, :label => 'Job', :as => :autocomplete, :url => autocomplete_job_name_brief_goals_labour_inputs_path
