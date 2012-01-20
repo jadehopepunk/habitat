@@ -38,6 +38,8 @@
                   %li= link_to "Features", main_app.features_path
                 - if can?(:manage, SoilTestResultType)
                   %li= link_to "Soil Test Result Types", main_app.soil_test_result_types_path
+                - if can?(:manage, SoilTestResultUnit)
+                  %li= link_to "Soil Test Result Units", main_app.soil_test_result_units_path
 
       .pull-right
         - if current_user

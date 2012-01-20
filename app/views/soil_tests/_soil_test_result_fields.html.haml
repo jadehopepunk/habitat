@@ -6,7 +6,7 @@
     = f.input_field :amount, :class => 'span3'
     = f.error :amount
   %td
-    = f.input_field :amount_unit, :class => 'span3'
+    = f.input_field :amount_unit, :as => :select_or_string, :collection => SoilTestResultUnit.suggested_names
     = f.error :amount_unit
   %td.action
     = link_to_remove_association "Remove", f
