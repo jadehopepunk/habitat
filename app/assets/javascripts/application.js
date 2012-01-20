@@ -22,13 +22,6 @@ $.datepicker.setDefaults({
 });
 $("input.date").datepicker();
 
-// $("select.combo").combo({triggerSelected:true});
-// $("select.combo").live('load', function() {$(this).combo({triggerSelected:true});})
-
-// $.liveReady('select.combo', function () {
-//   // this is all 'a' in document, or all 'a' in the element(s) added
-//   $(this).combo({triggerSelected:true});
-// });
 
 $("select.combo").livequery(function (){
   $(this).combo({triggerSelected:true});

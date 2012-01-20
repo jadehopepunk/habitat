@@ -33,10 +33,10 @@
             skin: "default",
 
             //this suffix will be appended to the selectbox's name and will be text input's name
-            suffix: "__combo",
+            suffix: "_combo",
 
             //the same as the previous, but for hidden input
-            hiddenSuffix: "__comboHidden",
+            hiddenSuffix: "_comboHidden",
 
             //initial / default hidden field value.
             //Also applied when user types something that is not in the options list
@@ -55,7 +55,7 @@
             autoFill: false,
 
             //if true, selected option of the selectbox will be the initial value of the combo
-            triggerSelected: false,
+            triggerSelected: true,
 
             //function for options filtering
             filterFn: null,
@@ -193,7 +193,7 @@
         this.input = $("<input type='text'></input>").
         appendTo(this.wrapper).
         attr("autocomplete", "off").
-        attr("name", this.config.name + this.config.suffix).
+        attr("name", this.config.name.replace(/\]$/, this.config.suffix + ']')).
         val("");
 
         this.inputOffset = this.input.offset();
@@ -201,7 +201,7 @@
         this.hidden = $("<input type='hidden'></input>").
         appendTo(this.wrapper).
         attr("autocomplete", "off").
-        attr("name", this.config.name + this.config.hiddenSuffix).
+        attr("name", this.config.name.replace(/\]$/, this.config.hiddenSuffix + ']')).
         val(this.config.initialHiddenValue);
 
         this.icon = $("<div></div>").
