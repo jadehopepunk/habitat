@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121013205) do
+ActiveRecord::Schema.define(:version => 20120121061508) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20120121013205) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.integer  "target_id"
+    t.string   "target_type"
   end
 
   add_index "attachments", ["project_id"], :name => "attachments_project_id_fk"

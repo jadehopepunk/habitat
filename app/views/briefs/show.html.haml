@@ -2,7 +2,7 @@
 - if can? :edit, @brief
   .well
     = link_to 'Edit Overview', {:action => :edit}, :class => 'btn'
-    = link_to 'Attach File', new_project_scope_attachment_path(@brief.project, 'goals'), :class => 'btn'
+    = attach_file_button(@brief)
     = link_to 'New Yield', new_brief_goals_yield_path(@brief), :class => 'btn'
     = link_to 'New Feature', new_brief_goals_feature_path(@brief), :class => 'btn'
     = link_to 'New Labour Input', new_brief_goals_labour_input_path(@brief), :class => 'btn'

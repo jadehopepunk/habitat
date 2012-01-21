@@ -6,6 +6,7 @@
     - if can? :edit, @project
       .well
         = link_to "Edit Details", edit_project_path(@project), :class => 'btn'
+        / = link_to "Attach File", edit_project_path(@project), :class => 'btn'
     .row
       .span10
         %table

@@ -12,4 +12,4 @@
     %tfoot
       %tr
         %td.table_actions{:colspan => 2}
-          = link_to 'Manage Attachments', project_scope_attachments_path(@brief.project, 'goals')
+          = manage_attachments_link(@target)

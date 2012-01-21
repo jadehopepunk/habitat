@@ -15,9 +15,10 @@ SimpleFormBootstrap::Application.routes.draw do
   resources :soil_test_result_units
 
   resources :projects do
-    resources :scopes, :only => [] do
-      resources :attachments
-    end
+    resources :attachments, :path => '/:target_type/:target_id/attachments'
+    # resources :scopes, :only => [] do
+    #   resources :attachments
+    # end
   end
   resources :sites do
     resources :areas
