@@ -20,6 +20,10 @@ module AttachmentsHelper
       ' ' + content_tag(:small, link_to("Back to #{@target.name}", @target))
     end
   end
+  
+  def attachments_mini_table
+    render :partial => 'attachments/mini_table', :locals => {:attachments => resource.attachments, :target => resource}
+  end
 
   def file_link_with_icon(text, file)
     if file

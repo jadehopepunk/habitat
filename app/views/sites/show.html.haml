@@ -1,5 +1,10 @@
+- if can? :edit, @site
+  .well
+    = attach_file_button(@site)
 .row
   .span10
     %p This section is under development.
     = todo("Some overview of site analysis data here")
   .span6
+    = attachments_mini_table
+  

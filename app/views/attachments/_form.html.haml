@@ -1,5 +1,4 @@
 = simple_form_for [@project, @scope, @attachment], :html => {:multipart => true} do |f|
-  = f.object.errors.to_a.inspect
   = form_errors(f)
   .inputs
     = f.input :name
