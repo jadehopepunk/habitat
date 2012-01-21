@@ -20,4 +20,38 @@ module AttachmentsHelper
       ' ' + content_tag(:small, link_to("Back to #{@target.name}", @target))
     end
   end
+
+  def file_link_with_icon(text, file)
+    if file
+      link_to file.url, :class => 'file_link' do
+        image_tag(file_icon_url(file.format), :class => 'file_icon') +
+        content_tag(:span, text + " (#{file.format.to_s})", :class => "file_link_description")        
+      end
+    end
+  end
+  
+  def file_icon_link(file, options = {})
+    if file
+      link_to file.url, :class => 'file_link' do
+        image_tag(file_icon_url(file, options), :class => 'file_icon', :alt => file.format)
+      end
+    end
+  end
+  
+  def file_icon_url(file, options = {})
+    if file.format
+      image_formats = %w(png jpg gif)
+      format_string = file.format.to_s.downcase
+      
+      vendor_images_path = Rails.root.join("vendor/assets/images")
+      icon_path = "file-type-icons/file_icons/small/#{format_string}.png"
+      
+      if options[:display_image] && image_formats.include?(format_string)
+        return file.thumb('34x34#').url
+      elsif File.exists?(vendor_images_path.join(icon_path))
+        return icon_path
+      end
+    end
+    nil
+  end
 end
