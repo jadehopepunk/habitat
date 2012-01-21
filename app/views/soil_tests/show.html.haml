@@ -4,12 +4,14 @@
     = link_to 'Edit', edit_resource_path(@soil_test), :class => 'btn'
 .row
   .span10
+    = render :partial => 'soil_tests/soil_test_results/table', :locals => {:collection => @soil_test.soil_test_results}
   .span6
     %table
       %thead
         %tbody
           = attribute_row(@soil_test, :tested_on)
           = attribute_row(@soil_test, :reference)
-          = attribute_row(@soil_test, :depth_with_unit, :label => 'Measurement Depth')
           = attribute_row(@soil_test, :area)
-    = render :partial => 'soil_tests/soil_test_results/table', :locals => {:collection => @soil_test.soil_test_results}
+          = attribute_row(@soil_test, :depth_with_unit, :label => 'Measurement Depth')
+          = attribute_row(@soil_test, :number_of_samples)
+          = attribute_row(@soil_test, :notes, :line_breaks => true)

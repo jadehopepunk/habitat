@@ -3,8 +3,10 @@
   .inputs
     = f.input :tested_on, :as => :date
     = f.input :reference, :hint => "Something so you know what this test was. <br />Often the lab supplies a reference number for your results.".html_safe
-    = f.input :depth, :as => :amount_with_unit, :label => "Measurement Depth"
     - if !@site.areas.empty?
       = f.association :area, :collection => @site.areas, :input_html => { :class => "span4" }, :hint => "Specify if this test relates to a specific area of your site."
+    = f.input :depth, :as => :amount_with_unit, :label => "Measurement Depth"
+    = f.input :number_of_samples, :as => :integer
+    = f.input :notes, :input_html => {:rows => 5}
     = render :partial => 'soil_test_results_subform', :locals => {:f => f}
   = form_actions(f)

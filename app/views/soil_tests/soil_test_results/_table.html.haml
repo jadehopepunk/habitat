@@ -1,4 +1,4 @@
 = table_for(collection) do |t|
   = t.data do
     = t.cell :name
-    = t.cell :amount_with_unit, :heading => 'Amount'
+    = t.cell :amount_with_unit, :heading => 'Amount', :cell_html => {:class => 'amount_with_unit'}
