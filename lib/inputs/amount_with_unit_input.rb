@@ -3,19 +3,30 @@ require 'unit'
 class AmountWithUnitInput < SimpleForm::Inputs::Base
   
   def input
-    unit_attribute_name = "#{attribute_name}_unit".to_sym
-
-    unit_add_on = "<label class=\"add-on active\">#{build_unit_field(unit_attribute_name)}</label>"
-    "<div class=\"input-append input-append-select\">#{build_amount_field}#{unit_add_on}</div>"
+    @builder.template.content_tag(:div, :class => 'input-append input-append-select') do
+      build_amount_field + build_unit_add_on
+    end + @builder.error(unit_attribute_name, :error_prefix => 'unit')
+  end
+  
+  def has_errors?
+    super || !object.errors[unit_attribute_name].empty?
   end
   
   private
+  
+    def unit_attribute_name
+      "#{attribute_name}_unit".to_sym
+    end
   
     def build_amount_field
       @builder.input_field(attribute_name, :class => :mini)
     end
     
-    def build_unit_field(unit_attribute_name)
+    def build_unit_add_on
+      @builder.template.content_tag(:label, build_unit_field, :class => 'add-on active')
+    end
+    
+    def build_unit_field
       defaults = {
         :as => :inferred_select, 
         :class => :mini,

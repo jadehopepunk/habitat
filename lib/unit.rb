@@ -5,6 +5,7 @@ class Unit
   COMMON_WEIGHT_UNITS = %w(kg lb)
   CALENDAR_TIME_UNITS = %w(day week month year decade century)
   LAND_AREA_UNITS = ['m^2', 'feet^2', 'acres', 'hectares']
+  COMMON_SMALL_LENGTH_UNITS = %w(cm m inches feet)
 
   SYSTEMS_OF_MEASURE = %w(metric US imperial)
   

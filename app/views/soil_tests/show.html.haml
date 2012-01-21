@@ -10,5 +10,6 @@
         %tbody
           = attribute_row(@soil_test, :tested_on)
           = attribute_row(@soil_test, :reference)
+          = attribute_row(@soil_test, :depth_with_unit, :label => 'Measurement Depth')
           = attribute_row(@soil_test, :area)
     = render :partial => 'soil_tests/soil_test_results/table', :locals => {:collection => @soil_test.soil_test_results}

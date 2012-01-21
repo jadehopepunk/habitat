@@ -98,6 +98,10 @@ form .clearfix.error .help-block {
   color: #BFBFBF;
 }
 
+form .error .help-inline {
+  display: block;
+}
+
 ul.tabs li.not_implemented > a, ul.tabs li.disabled > span {
   color: #999
 }
