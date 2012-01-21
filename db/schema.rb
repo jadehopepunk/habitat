@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121065424) do
+ActiveRecord::Schema.define(:version => 20120121072655) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20120121065424) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "project_id"
-    t.string   "name"
+    t.string   "title"
     t.string   "file_uid"
     t.string   "file_name"
     t.datetime "created_at"

@@ -2,7 +2,4 @@
 - if can? :manage, @site
   .well
     = link_to "New #{resource_title}", {:action => :new}, :class => 'btn'
-.row
-  .span10
-    = render :partial => 'table'
-  .span6
+= render :partial => 'table'
