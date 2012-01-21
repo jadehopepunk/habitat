@@ -7,22 +7,13 @@ SimpleFormBootstrap::Application.routes.draw do
   resources :communities do
     get :autocomplete_community_name, :on => :collection
   end
-  resources :uses
-  resources :features
-  resources :jobs
-  resources :project_categories
-  resources :soil_test_result_types
-  resources :soil_test_result_units
+  resources :uses, :features, :jobs, :project_categories, :soil_test_result_types, :soil_test_result_units
 
   resources :projects do
     resources :attachments, :path => '/:target_type/:target_id/attachments'
-    # resources :scopes, :only => [] do
-    #   resources :attachments
-    # end
   end
   resources :sites do
-    resources :areas
-    resources :soil_tests
+    resources :areas, :soil_tests, :soils
   end
 
   resources :briefs do

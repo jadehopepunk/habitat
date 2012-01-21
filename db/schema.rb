@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121073206) do
+ActiveRecord::Schema.define(:version => 20120121074722) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -276,6 +276,17 @@ ActiveRecord::Schema.define(:version => 20120121073206) do
   add_index "soil_tests", ["area_id"], :name => "soil_tests_area_id_fk"
   add_index "soil_tests", ["site_id"], :name => "soil_tests_site_id_fk"
 
+  create_table "soils", :force => true do |t|
+    t.integer  "site_id"
+    t.string   "name"
+    t.string   "wrb98_code"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "soils", ["site_id"], :name => "soils_site_id_fk"
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",     :null => false
     t.string   "encrypted_password",     :default => "",     :null => false
@@ -337,5 +348,7 @@ ActiveRecord::Schema.define(:version => 20120121073206) do
 
   add_foreign_key "soil_tests", "areas", :name => "soil_tests_area_id_fk"
   add_foreign_key "soil_tests", "sites", :name => "soil_tests_site_id_fk"
+
+  add_foreign_key "soils", "sites", :name => "soils_site_id_fk"
 
 end

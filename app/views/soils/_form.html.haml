@@ -1,0 +1,7 @@
+= simple_form_for [@site, resource] do |f|
+  = form_errors(f)
+  .inputs
+    = f.input :name, :hint => "Any name for this type of soil on your site that makes sense to you"
+    = f.input :wrb98_code, :as => :select, :collection => Soil::WRB98.invert, :label => 'WRB 98 Classification', :hint => "This is for the scientists among you, others feel free to ignore"
+    = f.input :description, :hint => "Any further information you want to note down about this soil", :input_html => {:rows => 5}
+  = form_actions(f)
