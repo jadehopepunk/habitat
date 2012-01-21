@@ -1,8 +1,8 @@
 = table_for(@users) do |t|
   = t.data do
-    = t.cell('', :cell_html => {:class => 'avatar'}) {|user| image_tag(user.gravatar_url(:size => 80, :default => asset_path('avatar_blank_80x80.png')), :alt => '')}
+    = t.cell(:avatar, :heading => '', :cell_html => {:class => 'avatar'}) {|user| image_tag(user.gravatar_url(:size => 80, :default => asset_path('avatar_blank_80x80.png')), :alt => '')}
     = t.cell :email
     = t.cell :name
     = t.cell :role
-    = t.cell('') {|user| link_to('Edit', edit_admin_user_path(user)) }
-    = t.cell('') {|user| link_to('Remove', [:admin, user], :confirm => 'Are you sure?', :method => :delete) }
+    = t.cell(:edit, :heading => '') {|user| link_to('Edit', edit_admin_user_path(user)) }
+    = t.cell(:remove, :heading => '') {|user| link_to('Remove', [:admin, user], :confirm => 'Are you sure?', :method => :delete) }

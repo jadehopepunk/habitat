@@ -5,8 +5,8 @@
     = t.cell :lead_time_string, :heading => 'Lead Time'
     = t.cell :details, :heading => 'Details', :cell_html => {:class => 'details'}
     - if can? :edit, @brief
-      = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_brief_goals_yield_path(@brief, goal)) }
-      = t.cell('', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@brief, goal], :confirm => 'Are you sure?', :method => :delete) }
+      = t.cell(:edit, :heading => '', :cell_html => {:class => 'actions'}) {|goal| link_to('Edit', edit_brief_goals_yield_path(@brief, goal)) }
+      = t.cell(:remove, :heading => '', :cell_html => {:class => 'actions'}) {|goal| link_to('Remove', [@brief, goal], :confirm => 'Are you sure?', :method => :delete) }
   - if can? :create, Goals::Yield
     %tfoot
       - if yields.empty?

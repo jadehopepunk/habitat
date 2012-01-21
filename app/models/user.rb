@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   validates_inclusion_of :role, :in => ROLES, :allow_blank => true
   validates_presence_of :name
   
-  include Forem::DefaultPermissions
+  # include Forem::DefaultPermissions
   
   def to_s
     name
