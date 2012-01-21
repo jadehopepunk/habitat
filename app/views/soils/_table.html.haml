@@ -8,3 +8,7 @@
     - if can? :edit, @site
       = t.cell(:edit, :heading => '', :cell_html => {:class => 'actions'}) {|resource| link_to('Edit', edit_resource_path(resource)) }
       = t.cell(:remove, :heading => '', :cell_html => {:class => 'actions'}) {|resource| link_to('Remove', resource_path(resource), :confirm => 'Are you sure?', :method => :delete) }
+
+= todo("Don't use a table, give each soil a separate heading")
+= todo("Display and manage soil tests within each soil section")
+= todo("When you haven't added any soils yet, page should explain what to do")
