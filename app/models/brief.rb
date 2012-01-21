@@ -6,4 +6,8 @@ class Brief < ActiveRecord::Base
   has_many :labour_inputs, :dependent => :destroy, :class_name => 'Goals::LabourInput'
   has_many :budget_items, :dependent => :destroy, :class_name => 'Goals::BudgetItem'
   has_many :features, :dependent => :destroy, :class_name => 'Goals::Feature'
+  
+  def name
+    "#{project.name} Brief" if project
+  end
 end

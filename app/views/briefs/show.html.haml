@@ -14,12 +14,12 @@
         %thead
           %tbody
             = attribute_row(@brief, :description, :label => 'Overview', :line_breaks => true)
-            - if !@project.attachments.where(:scope => 'goals').empty?
+            - if !@brief.attachments.empty?
               %tr
                 %td
                   %strong Attachments
                 %td
-                  = render :partial => 'attachments/mini_table', :locals => {:attachments => @project.attachments.where(:scope => 'goals')}
+                  = render :partial => 'attachments/mini_table', :locals => {:attachments => @brief.attachments, :target => @brief}
             
     
     - if can?(:edit, @brief) || !@brief.yields.empty?

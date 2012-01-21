@@ -14,4 +14,10 @@ module AttachmentsHelper
     result[:id] = attachment.to_param if attachment
     result
   end
+  
+  def attachments_container_link
+    if @target
+      ' ' + content_tag(:small, link_to("Back to #{@target.name}", @target))
+    end
+  end
 end

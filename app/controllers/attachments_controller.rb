@@ -5,15 +5,15 @@ class AttachmentsController < InheritedResources::Base
   before_filter :target
 
   create! do |success, failure|
-    success.html { redirect_to :action => :index }
+    success.html { redirect_to attachment_return_url }
   end  
   
   update! do |success, failure|
-    success.html { redirect_to :action => :index }
+    success.html { redirect_to attachment_return_url }
   end  
 
   destroy! do |success, failure|
-    success.html { redirect_to :action => :index }
+    success.html { redirect_to attachment_return_url }
   end  
   
   private
@@ -45,25 +45,16 @@ class AttachmentsController < InheritedResources::Base
       result[0][:project] = parent
       result
     end
-
-    # def build_resource
-    #   get_resource_ivar || set_resource_ivar(build_new_resource)
-    # end
-    # 
-    # def build_new_resource
-    #   raise method_for_build.inspect
-    #   end_of_association_chain
-    #   method_for_build
-    #   resource_params
-    #   result = end_of_association_chain.send(method_for_build, *resource_params)
-    #   result
-    # end
     
-    def attachment_container_url
-      case @scope.to_s
-      when 'goals'
-        @project.brief
+    def attachment_return_url
+      if @target
+        @target
+      elsif parent
+        project_attachments_path(parent)
+      else
+        attachments_path
       end
     end
-  
+    helper_method :attachment_return_url
+
 end

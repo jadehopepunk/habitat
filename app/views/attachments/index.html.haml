@@ -1,0 +1,4 @@
+= top_available_heading ("Listing #{resource_title.pluralize}" + attachments_container_link).html_safe
+.well
+  = link_to "New #{resource_title}", {:action => :new}, :class => 'btn'
+= render :partial => 'table'

@@ -60,7 +60,7 @@ module RecordPresentationHelper
   
   def file_icon_url(format)
     vendor_images_path = Rails.root.join("vendor/assets/images")
-    icon_path = "file-type-icons/file_icons/small/#{format.to_s}.png"
+    icon_path = "file-type-icons/file_icons/small/#{format.to_s.downcase}.png"
     if format && File.exists?(vendor_images_path.join(icon_path))
       icon_path
     else
