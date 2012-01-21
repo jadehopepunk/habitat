@@ -8,5 +8,7 @@
     = f.input :depth, :as => :amount_with_unit, :label => "Measurement Depth"
     = f.input :number_of_samples, :as => :integer
     = f.input :notes, :input_html => {:rows => 5}
+    = f.hidden_field :retained_file
+    = f.input :file, :as => :file
     = render :partial => 'soil_test_results_subform', :locals => {:f => f}
   = form_actions(f)

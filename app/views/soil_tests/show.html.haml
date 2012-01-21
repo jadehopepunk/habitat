@@ -15,3 +15,5 @@
           = attribute_row(@soil_test, :depth_with_unit, :label => 'Measurement Depth')
           = attribute_row(@soil_test, :number_of_samples)
           = attribute_row(@soil_test, :notes, :line_breaks => true)
+          = attribute_row(@soil_test, :file) do
+            - file_link_with_icon(@soil_test.file.basename, @soil_test.file)

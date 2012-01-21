@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121072655) do
+ActiveRecord::Schema.define(:version => 20120121073206) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -269,6 +269,8 @@ ActiveRecord::Schema.define(:version => 20120121072655) do
     t.string   "depth_unit"
     t.integer  "number_of_samples"
     t.text     "notes"
+    t.string   "file_uid"
+    t.string   "file_name"
   end
 
   add_index "soil_tests", ["area_id"], :name => "soil_tests_area_id_fk"

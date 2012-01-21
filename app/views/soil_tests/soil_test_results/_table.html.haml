@@ -2,3 +2,6 @@
   = t.data do
     = t.cell :name
     = t.cell :amount_with_unit, :heading => 'Amount', :cell_html => {:class => 'amount_with_unit'}
+    - if collection.empty?
+      %tr
+        = table_help_footer_cell t, "We have no specific data logged from this test"

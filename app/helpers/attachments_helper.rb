@@ -28,7 +28,7 @@ module AttachmentsHelper
   def file_link_with_icon(text, file)
     if file
       link_to file.url, :class => 'file_link' do
-        image_tag(file_icon_url(file.format), :class => 'file_icon') +
+        image_tag(file_icon_url(file), :class => 'file_icon') +
         content_tag(:span, text + " (#{file.format.to_s})", :class => "file_link_description")        
       end
     end
