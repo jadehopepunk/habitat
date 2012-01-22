@@ -1,16 +1,35 @@
-Then /^I should see only (\d+) soil which is called "([^"]*)"$/ do |expected_number, expected_name|
+Then /^I should see only (\d+) soils? which [is|are]* called "([^"]*)"$/ do |expected_number, expected_names|
   page.should have_selector("#soils .soil", :count => expected_number)
-  page.should have_selector("#soils .soil .soil_name", :count => expected_number, :text => expected_name)
+  expected_names.split(',').each do |expected_name|
+    page.should have_selector("#soils .soil .soil_name", :count => 1, :text => expected_name)
+  end
 end
 
-When /^I edit the soil$/ do
+When /^I edit the only soil$/ do
   within('#soils_actions') do
     click_link 'Edit'
   end
 end
 
-When /^I submit valid soil data including the name "([^"]*)"$/ do |name|
+When /^I populate valid soil data including the name "([^"]*)"$/ do |name|
   fill_in 'Name', :with => name
   fill_in 'Description', :with => "Lorem ipsum dolar sit amet"
+end
+
+Then /^I edit the only soil with valid soil data including the name "([^"]*)"$/ do |name|
+  step "I edit the only soil"
+  step "I populate valid soil data including the name \"#{name}\""
   click_button "Update Soil"
+end
+
+Given /^I add another soil with valid soil data including the name "([^"]*)"$/ do |name|
+  step "I go to add another soil"
+  step "I populate valid soil data including the name \"#{name}\""
+  click_button "Create Soil"
+end
+
+When /^I go to add another soil$/ do
+  within('#soils_actions') do
+    click_link 'Add another soil type'
+  end
 end
