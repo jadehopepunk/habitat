@@ -35,6 +35,8 @@ class Project < ActiveRecord::Base
   
   after_create :create_dependencies
   
+  scope :all_public, where(:is_public => true)
+  
   def user
     first_collaborator = project_collaborators.owners.first
     first_collaborator.user if first_collaborator

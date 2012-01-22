@@ -1,30 +1,37 @@
 .row
   .span9
-    %h1.page-header We're still under construction
-    %p
-      %strong
-        You can help by trying out <em>Habitat</em> and telling us what you think. 
-    %p
-      New features are being added each week. You can't currently go all the way through
-      the design of your forest garden, but the bits that already exist still help you
-      get along the path.
-    %p
-      Some parts of <em>Habitat</em> will eventually be for paying users, to keep
-      this project running, but anyone who actively tests the project now will get free
-      lifetime membership.
-    %p
-      Keep an eye out at the bottom of each page for upcoming features which look like this:
-    = todo('this is an new feature idea')
+    .rambling_text
+      %h1.page-header We're still under construction
+      %p
+        %strong
+          You can help by trying out <em>Habitat</em> and telling us what you think. 
+      %p
+        New features are being added each week. You can't currently go all the way through
+        the design of your forest garden, but the bits that already exist still help you
+        get along the path.
+      %p
+        Some parts of <em>Habitat</em> will eventually be for paying users, to keep
+        this project running, but anyone who actively tests the project now will get free
+        lifetime membership.
+      %p
+        Keep an eye out at the bottom of each page for upcoming features which look like this:
+      = todo('this is an new feature idea')
     
-    %br
-    %h2 Looking for a Business Partner
-    %p 
-      To become a really world-changing site, <em>Habitat</em> needs someone with experience
-      in permaculture design, and an interest in being a web entrepreneur. 
-    %p
-      No financial investment necessary, just time. Join me as an equal partner in this for-profit
-      but also very idealistic business.For more information, contact <a href="mailto:craig@craigambrose.com">Craig</a>.
+      %h2 Looking for a Business Partner
+      %p 
+        To become a really world-changing site, <em>Habitat</em> needs someone with experience
+        in permaculture design, and an interest in being a web entrepreneur. 
+      %p
+        No financial investment necessary, just time. Join me as an equal partner in this for-profit
+        but also very idealistic business.For more information, contact <a href="mailto:craig@craigambrose.com">Craig</a>.
+
+      - if !user_signed_in?
+        = render :partial => 'devise/registrations/new'
       
   .span7
-    - if !user_signed_in?
-      = render :partial => 'devise/registrations/new'
+
+    %h2 Browse Public Projects
+    = render :partial => 'projects/mini_table', :locals => {:collection => Project.all_public, :show_access => false}
+
+    %h2 Browse Communities
+    = render :partial => 'communities/mini_table', :locals => {:collection => Community.all}

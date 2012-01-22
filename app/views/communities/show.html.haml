@@ -9,7 +9,7 @@
     .row
       .span8
         .projects
-          = render :partial => 'projects/mini_table', :locals => {:collection => @community.projects}
+          = render :partial => 'projects/mini_table', :locals => {:collection => @community.projects, :show_access => false}
           
         - unless @uses.empty?
           .section.uses

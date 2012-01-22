@@ -1,0 +1,6 @@
+%table
+  %tbody
+    - collection.each do |community|
+      %tr
+        %td
+          .community_name= link_to community.name, community

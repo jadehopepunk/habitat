@@ -4,5 +4,6 @@
       %tr
         %td
           .project_name= project_link project
-          .role= '(' + project_access_level(project) + ')'
+          - if show_access
+            .role= '(' + project_access_level(project) + ')'
         %td= project.owner_names
