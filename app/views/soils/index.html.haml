@@ -12,5 +12,17 @@
   .span10
     = render :partial => 'table'
   .span6
-    = todo("Display and manage soil tests within each soil section")
-    = todo("When you haven't added any soils yet, page should explain what to do")
+    - if can? :edit, @site
+      .page_explanation
+        %h2 Study your existing soil web
+        %p 
+          Your existing soil will play a large role in deciding what you can include in your garden,
+          and what site preparation work you'll need to do before planting.
+        %p
+          Try and record as much information about your soil as you can here, probably including getting
+          some soil tests done and recording the results.
+        %p
+          If your site is large enough to have more than one type of soil, click the
+          = link_to "Add another soil type", {:action => :new}
+          button to include as many soils as you like, each with their own descriptions and
+          soil test results.
