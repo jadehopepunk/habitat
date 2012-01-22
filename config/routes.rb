@@ -38,5 +38,6 @@ SimpleFormBootstrap::Application.routes.draw do
 
   # mount Forem::Engine, :at => "/forums"
 
+  match 'home', :to => 'home#index'
   root :to => 'home#index'
 end

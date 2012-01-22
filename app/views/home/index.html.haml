@@ -15,6 +15,16 @@
     %p
       Keep an eye out at the bottom of each page for upcoming features which look like this:
     = todo('this is an new feature idea')
+    
+    %br
+    %h2 Looking for a Business Partner
+    %p 
+      To become a really world-changing site, <em>Habitat</em> needs someone with experience
+      in permaculture design, and an interest in being a web entrepreneur. 
+    %p
+      No financial investment necessary, just time. Join me as an equal partner in this for-profit
+      but also very idealistic business.For more information, contact <a href="mailto:craig@craigambrose.com">Craig</a>.
       
   .span7
-    = render :partial => 'devise/registrations/new'
+    - if !user_signed_in?
+      = render :partial => 'devise/registrations/new'

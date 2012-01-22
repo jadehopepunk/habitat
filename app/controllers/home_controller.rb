@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    if user_signed_in?
+    if request.path == '/' && user_signed_in?
       flash.keep
       if current_user.project
         redirect_to current_user.project
