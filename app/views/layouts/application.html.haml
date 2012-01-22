@@ -9,5 +9,6 @@
         = render :partial => 'layouts/project_tabs'
         = render :partial => 'layouts/notice'
         = yield :subsection_tabs
-        = yield
+        %div{:class => yield(:content_class)}
+          = yield
     = render :partial => 'layouts/footer'

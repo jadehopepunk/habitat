@@ -1,4 +1,4 @@
-= top_available_heading ("Soil Test on #{@soil_test.tested_on.to_s(:long)} " + content_tag(:small, link_to('Back to all Soil Data', soil_soil_tests_path(@soil)))).html_safe
+= top_available_heading ("Soil Test on #{@soil_test.tested_on.to_s(:long)} " + content_tag(:small, link_to('Back to all Soil Data', site_soils_path(@soil.site)))).html_safe
 - if can? :edit, @soil_test
   .well
     = link_to 'Edit', edit_resource_path(@soil_test), :class => 'btn'

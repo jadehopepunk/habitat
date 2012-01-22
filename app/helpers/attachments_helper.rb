@@ -22,7 +22,9 @@ module AttachmentsHelper
   end
   
   def attachments_mini_table
-    render :partial => 'attachments/mini_table', :locals => {:attachments => resource.attachments, :target => resource}
+    if !resource.attachments.empty?
+      render :partial => 'attachments/mini_table', :locals => {:attachments => resource.attachments, :target => resource}
+    end
   end
 
   def file_link_with_icon(text, file)

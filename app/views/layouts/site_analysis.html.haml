@@ -1,5 +1,6 @@
 - content_for :subsection_tabs do
   %h1 Site Analysis
   = render :partial => 'sites/tabs'
-.below_sub_tabs
-  = render :template => 'layouts/application'
+- content_for :content_class do 
+  tabbed_subsection
+= render :template => 'layouts/application'
