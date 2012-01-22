@@ -35,7 +35,7 @@ class Soil < ActiveRecord::Base
   belongs_to :site
   
   validates :name, :presence => true
-  validates :wrb98_code, :inclusion => {:in => WRB98.keys}
+  validates :wrb98_code, :inclusion => {:in => WRB98.keys}, :allow_blank => true
   
   def wrb98_name
     WRB98[wrb98_code] unless wrb98_code.blank?
