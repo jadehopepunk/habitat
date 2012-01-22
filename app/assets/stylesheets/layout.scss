@@ -47,3 +47,16 @@ body {
 .section {
   margin: 1em 0;
 }
+
+.below_sub_tabs {
+  h2.top_available {
+    margin-bottom: 0;
+  }
+}
+
+div.todo {
+  background-color: #FEE9CC;
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 10px;
+  padding: 3px 6px;
+}

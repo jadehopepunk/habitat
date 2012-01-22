@@ -13,9 +13,25 @@ pre { display: none; }
 }
 
 table {
+  empty-cells:show;
+  
   td {
     .role {
       color: #999;
+    }
+  }
+  td {
+    strong.wide_header {
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+  tbody {
+    td {
+      .no-data {
+        color: #999;
+        font-style: italic;
+      }
     }
   }
   td.details, td div.details {

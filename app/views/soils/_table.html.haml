@@ -1,2 +1,2 @@
 #soils
-  = render :partial => 'soil', :collection => collection, :locals => {:singleton => (collection.length == 1)}
+  = render :partial => 'soil', :collection => @soils, :locals => {:singleton => (collection.length == 1)}

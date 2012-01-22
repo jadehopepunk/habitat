@@ -1,13 +1,16 @@
-= top_available_heading "Soil"
+= top_available_heading pluralize_without_count(@soils.length, "Soil")
 - if can? :manage, @site
   #soils_actions.well
     - if @soils.count == 1
-      = link_to "Edit", edit_resource_path(@soils.first), :class => 'btn'      
-    = link_to "Add another soil type", {:action => :new}, :class => 'btn'
+      = link_to "Edit", edit_resource_path(@soils.first), :class => 'btn'
+      = link_to 'Add soil test', new_soil_soil_test_path(@soils.first), :class => 'btn'
+      .pull-right
+        = link_to "Add another soil type", {:action => :new}, :class => 'btn'
+    - else
+      = link_to "Add another soil type", {:action => :new}, :class => 'btn'
 .row
   .span10
     = render :partial => 'table'
   .span6
-    = todo("Don't use a table, give each soil a separate heading")
     = todo("Display and manage soil tests within each soil section")
     = todo("When you haven't added any soils yet, page should explain what to do")

@@ -1,11 +1,15 @@
-= table_for(collection) do |t|
-  = t.data do
-    = t.cell(:tested_on) {|resource| resource.tested_on.to_s(:long)}
-    = t.cell :reference
-    - if !@site.patches.empty?
-      = t.cell :patch
-    = t.cell(:notes) {|resource| truncate(resource.notes, :length => 150)}
-    = t.cell(:view, :heading => '', :cell_html => {:class => 'actions'}) {|resource| link_to('View', resource_path(resource)) }
-    - if can? :edit, @site
-      = t.cell(:edit, :heading => '', :cell_html => {:class => 'actions'}) {|resource| link_to('Edit', edit_resource_path(resource)) }
-      = t.cell(:remove, :heading => '', :cell_html => {:class => 'actions'}) {|resource| link_to('Remove', resource_path(resource), :confirm => 'Are you sure?', :method => :delete) }
+- if collection.empty?
+  .no-data
+    None performed
+- else
+  = table_for(collection) do |t|
+    = t.data do
+      = t.cell(:tested_on) {|resource| resource.tested_on.to_s(:long)}
+      - if collection_has_value(collection, :reference)
+        = t.cell :reference
+      - if !@site.patches.empty?
+        = t.cell :patch
+      = t.cell(:view, :heading => ' ', :cell_html => {:class => 'actions'}) {|soil_test| link_to('View', soil_soil_test_path(soil_test.soil, soil_test)) }
+      - if can? :edit, @site
+        = t.cell(:edit, :heading => ' ', :cell_html => {:class => 'actions'}) {|soil_test| link_to('Edit', edit_soil_soil_test_path(soil_test.soil, soil_test)) }
+        = t.cell(:remove, :heading => ' ', :cell_html => {:class => 'actions'}) {|soil_test| link_to('Remove', soil_soil_test_path(soil_test.soil, soil_test), :confirm => 'Are you sure?', :method => :delete) }
