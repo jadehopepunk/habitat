@@ -5,7 +5,7 @@ Feature: Project has budget goals
   
   Scenario: Create budget goal
     Given I own a new project
-      And I am on the goals project step
+      And I am on the "Goals" project step
     Then  I should see the empty "budget items" table
     When  I create a new valid budget item
     Then  I should see the budget items table with one record

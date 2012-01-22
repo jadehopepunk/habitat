@@ -1,0 +1,11 @@
+= top_available_heading "Soil"
+- if can? :manage, @site
+  #soils_actions.well
+    = link_to "New #{resource_title}", {:action => :new}, :class => 'btn'
+.row
+  .span10
+    = render :partial => 'table'
+  .span6
+    = todo("Don't use a table, give each soil a separate heading")
+    = todo("Display and manage soil tests within each soil section")
+    = todo("When you haven't added any soils yet, page should explain what to do")

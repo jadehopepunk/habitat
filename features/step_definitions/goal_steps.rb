@@ -3,10 +3,6 @@ Given /^I own a new project$/ do
   step "I submit valid new project details"  
 end
 
-Given /^I am on the goals project step$/ do
-  click_link "Goals"
-end
-
 Then /^I should see the empty "([^"]*)" table$/ do |section_name|
   section_id = "##{section_name.gsub(' ', '_')}"
   page.should have_selector("#{section_id} table tbody")

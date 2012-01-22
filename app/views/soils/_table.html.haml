@@ -1,14 +1,17 @@
-= table_for(collection) do |t|
-  = t.data do
-    = t.cell :name
-    - if @site.has_wrb98_codes?
-      = t.cell :wrb98_name, :heading => 'Classification'
-    = t.cell(:description) {|resource| truncate(resource.description, :length => 150)}
-    / = t.cell(:view, :heading => '', :cell_html => {:class => 'actions'}) {|resource| link_to('View', resource_path(resource)) }
-    - if can? :edit, @site
-      = t.cell(:edit, :heading => '', :cell_html => {:class => 'actions'}) {|resource| link_to('Edit', edit_resource_path(resource)) }
-      = t.cell(:remove, :heading => '', :cell_html => {:class => 'actions'}) {|resource| link_to('Remove', resource_path(resource), :confirm => 'Are you sure?', :method => :delete) }
-
-= todo("Don't use a table, give each soil a separate heading")
-= todo("Display and manage soil tests within each soil section")
-= todo("When you haven't added any soils yet, page should explain what to do")
+#soils
+  - collection.each do |soil|
+    .soil
+      %h3.soil_name
+        = soil.name
+        %small.soil_actions
+          = link_to('Edit', edit_resource_path(soil))
+          |
+          = link_to('Remove', resource_path(soil), :confirm => 'Are you sure?', :method => :delete)
+      - if soil.wrb98_name
+        .wrb98
+          %strong Classification
+          = soil.wrb98_name
+      - unless soil.description.blank?
+        .description
+          %strong Description
+          = simple_format(soil.description)

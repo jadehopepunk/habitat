@@ -15,3 +15,10 @@ end
 Then /^I should be on my project page$/ do
   current_path.should =~ /projects\/\d+/
 end
+
+Given /^I am on the "([^"]*)" project step$/ do |step_name|
+  within('#project_steps') do
+    click_link step_name
+  end
+end
+
