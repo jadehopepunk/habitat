@@ -2,7 +2,6 @@ class Site < ActiveRecord::Base
   belongs_to :project
   has_many :patches, :dependent => :destroy
   has_many :soils, :dependent => :destroy
-  has_many :soil_tests, :dependent => :destroy
   has_many :attachments, :as => :target
 
   after_create :create_dependencies
@@ -15,9 +14,13 @@ class Site < ActiveRecord::Base
     !soils.map(&:wrb98_code).reject(&:blank?).empty?
   end
   
+  def default_soil
+    soils.first
+  end
+  
   private
   
     def create_dependencies
-      soils.create!(:name => 'Site Soil')
+      soils.create!(:name => Soil::DEFAULT_NAME)
     end
 end

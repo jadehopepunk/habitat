@@ -9,7 +9,7 @@ describe Site do
     it "should create a soil" do
       site = Site.create!(required_attributes)
       site.reload
-      soil = site.soils.first
+      soil = site.default_soil
       soil.should_not be_nil
       soil.name.should == 'Site Soil'
     end

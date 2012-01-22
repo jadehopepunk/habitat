@@ -13,7 +13,10 @@ SimpleFormBootstrap::Application.routes.draw do
     resources :attachments, :path => '/:target_type/:target_id/attachments'
   end
   resources :sites do
-    resources :patches, :soil_tests, :soils
+    resources :patches, :soils
+  end
+  resources :soils do
+    resources :soil_tests
   end
 
   resources :briefs do

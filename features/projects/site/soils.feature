@@ -9,7 +9,7 @@ Feature: Project site has soils
   
   Scenario: New project has one soil which you can edit
     Given I am on the "Soil" site analysis step
-    Then I should see only 1 soil which is called "Site Soil"
+    Then I should see the default soil with no name
     And I edit the only soil with valid soil data including the name "Sandy Loam"
     Then I should see only 1 soil which is called "Sandy Loam"
   

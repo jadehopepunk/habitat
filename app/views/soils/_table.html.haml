@@ -1,18 +1,2 @@
 #soils
-  - collection.each do |soil|
-    .soil
-      %h3.soil_name
-        = soil.name
-        - if collection.length > 1
-          %small.soil_actions
-            = link_to('Edit', edit_resource_path(soil))
-            |
-            = link_to('Remove', resource_path(soil), :confirm => 'Are you sure?', :method => :delete)
-      - if soil.wrb98_name
-        .wrb98
-          %strong Classification
-          = soil.wrb98_name
-      - unless soil.description.blank?
-        .description
-          %strong Description
-          = simple_format(soil.description)
+  = render :partial => 'soil', :collection => collection, :locals => {:singleton => (collection.length == 1)}

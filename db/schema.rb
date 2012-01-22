@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120122033130) do
+ActiveRecord::Schema.define(:version => 20120122063920) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "project_id"
@@ -259,7 +259,6 @@ ActiveRecord::Schema.define(:version => 20120122033130) do
   add_index "soil_test_results", ["soil_test_result_unit_id"], :name => "soil_test_results_soil_test_result_unit_id_fk"
 
   create_table "soil_tests", :force => true do |t|
-    t.integer  "site_id"
     t.integer  "patch_id"
     t.date     "tested_on"
     t.string   "reference"
@@ -271,10 +270,11 @@ ActiveRecord::Schema.define(:version => 20120122033130) do
     t.text     "notes"
     t.string   "file_uid"
     t.string   "file_name"
+    t.integer  "soil_id"
   end
 
   add_index "soil_tests", ["patch_id"], :name => "soil_tests_area_id_fk"
-  add_index "soil_tests", ["site_id"], :name => "soil_tests_site_id_fk"
+  add_index "soil_tests", ["soil_id"], :name => "soil_tests_soil_id_fk"
 
   create_table "soils", :force => true do |t|
     t.integer  "site_id"
@@ -313,42 +313,5 @@ ActiveRecord::Schema.define(:version => 20120122033130) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_foreign_key "attachments", "projects", :name => "attachments_project_id_fk"
-
-  add_foreign_key "briefs", "projects", :name => "briefs_project_id_fk"
-
-  add_foreign_key "goals_budget_items", "briefs", :name => "goals_budget_items_brief_id_fk"
-  add_foreign_key "goals_budget_items", "budget_categories", :name => "goals_budget_items_budget_category_id_fk"
-
-  add_foreign_key "goals_features", "briefs", :name => "goals_features_brief_id_fk"
-  add_foreign_key "goals_features", "features", :name => "goals_features_feature_id_fk"
-
-  add_foreign_key "goals_labour_inputs", "briefs", :name => "goals_labour_inputs_brief_id_fk"
-  add_foreign_key "goals_labour_inputs", "jobs", :name => "goals_labour_inputs_job_id_fk"
-
-  add_foreign_key "goals_yields", "briefs", :name => "goals_yields_brief_id_fk"
-  add_foreign_key "goals_yields", "uses", :name => "goals_yields_use_id_fk"
-
-  add_foreign_key "patches", "sites", :name => "areas_site_id_fk"
-
-  add_foreign_key "project_collaborators", "projects", :name => "project_collaborators_project_id_fk"
-  add_foreign_key "project_collaborators", "users", :name => "project_collaborators_user_id_fk"
-
-  add_foreign_key "project_communities", "communities", :name => "project_communities_community_id_fk"
-  add_foreign_key "project_communities", "projects", :name => "project_communities_project_id_fk"
-
-  add_foreign_key "projects", "project_categories", :name => "projects_project_category_id_fk"
-
-  add_foreign_key "sites", "projects", :name => "sites_project_id_fk"
-
-  add_foreign_key "soil_test_results", "soil_test_result_types", :name => "soil_test_results_soil_test_result_type_id_fk"
-  add_foreign_key "soil_test_results", "soil_test_result_units", :name => "soil_test_results_soil_test_result_unit_id_fk"
-  add_foreign_key "soil_test_results", "soil_tests", :name => "soil_test_results_soil_test_id_fk"
-
-  add_foreign_key "soil_tests", "patches", :name => "soil_tests_patch_id_fk"
-  add_foreign_key "soil_tests", "sites", :name => "soil_tests_site_id_fk"
-
-  add_foreign_key "soils", "sites", :name => "soils_site_id_fk"
 
 end

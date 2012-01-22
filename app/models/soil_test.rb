@@ -1,5 +1,7 @@
+require 'unit'
+
 class SoilTest < ActiveRecord::Base
-  belongs_to :site
+  belongs_to :soil
   belongs_to :patch
   has_many :soil_test_results, :dependent => :destroy
   
@@ -7,7 +9,7 @@ class SoilTest < ActiveRecord::Base
 
   file_accessor :file
 
-  validates_presence_of :site, :tested_on
+  validates_presence_of :soil, :tested_on
   validates_inclusion_of :depth_unit, :in => Unit::COMMON_SMALL_LENGTH_UNITS, :allow_blank => true
   validates :number_of_samples, :numericality => true, :allow_blank => true
   

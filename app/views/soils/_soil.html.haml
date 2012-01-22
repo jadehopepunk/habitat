@@ -1,0 +1,15 @@
+.soil.record_details
+  - if !singleton || soil.has_data?
+    %h3.soil_name.record_name
+      = soil.name
+      - unless singleton
+        %small.record_actions
+          = link_to('Edit', edit_resource_path(soil))
+          = link_to('Remove', resource_path(soil), :confirm => 'Are you sure?', :method => :delete)
+    %table
+      %thead
+        %tbody
+          = attribute_row(soil, :wrb98_name, :label => 'Classification')
+          = attribute_row(soil, :description, :line_breaks => true)
+
+  =# render :partial => 'soil_tests/table', :locals => {:collection => soil.soil_tests}

@@ -5,6 +5,11 @@ Then /^I should see only (\d+) soils? which [is|are]* called "([^"]*)"$/ do |exp
   end
 end
 
+Then /^I should see the default soil with no name$/ do
+  page.should have_selector("#soils .soil", :count => 1)
+  page.should_not have_selector("#soils .soil .soil_name")
+end
+
 When /^I edit the only soil$/ do
   within('#soils_actions') do
     click_link 'Edit'

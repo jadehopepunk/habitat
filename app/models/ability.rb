@@ -29,8 +29,9 @@ class Ability
       can :read, [Brief, Site, Attachment], public_project
       can :read, GOAL_CLASSES, {:brief => public_project}
       can :read, PROJECT_CATEGORIZATION
-      can :read, [Soil, Patch, SoilTest], {:site => public_project}
-      can :read, SoilTestResult, :soil_test => {:site => public_project}
+      can :read, [Soil, Patch], :site => public_project
+      can :read, SoilTest, :soil => {:site => public_project}
+      can :read, SoilTestResult, :soil_test => {:soil => {:site => public_project}}
     end
     
     def base_user_abilities(user)
@@ -46,8 +47,9 @@ class Ability
       can goals_action, [Brief, Attachment], user_for_project_component
       can goals_action, GOAL_CLASSES, {:brief => user_for_project_component}
       can site_action, [Site], user_for_project_component
-      can site_action, [Soil, Patch, SoilTest], :site => user_for_project_component
-      can site_action, SoilTestResult, :soil_test => {:site => user_for_project_component}
+      can site_action, [Soil, Patch], :site => user_for_project_component
+      can site_action, SoilTest, :soil => {:site => user_for_project_component}
+      can site_action, SoilTestResult, :soil_test => {:soil => {:site => user_for_project_component}}
     end
     
     def user_abilities(user)

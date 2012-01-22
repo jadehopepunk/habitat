@@ -1,3 +1,3 @@
 class SoilTestsController < InheritedResources::Base
-  include Mixins::SitePart
+  include Mixins::SoilPart
 end

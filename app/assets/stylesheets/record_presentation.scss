@@ -46,3 +46,15 @@ table {
     }
   }  
 }
+
+.record_name .record_actions a {
+  border-right: 2px solid #BFBFBF;
+  padding-right: 0.4em;
+
+  &:last-child {
+    padding-right: 0;
+    border-right: 0;
+  }
+}
+
+
