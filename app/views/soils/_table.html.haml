@@ -3,10 +3,11 @@
     .soil
       %h3.soil_name
         = soil.name
-        %small.soil_actions
-          = link_to('Edit', edit_resource_path(soil))
-          |
-          = link_to('Remove', resource_path(soil), :confirm => 'Are you sure?', :method => :delete)
+        - if collection.length > 1
+          %small.soil_actions
+            = link_to('Edit', edit_resource_path(soil))
+            |
+            = link_to('Remove', resource_path(soil), :confirm => 'Are you sure?', :method => :delete)
       - if soil.wrb98_name
         .wrb98
           %strong Classification

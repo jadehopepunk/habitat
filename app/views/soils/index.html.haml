@@ -1,7 +1,9 @@
 = top_available_heading "Soil"
 - if can? :manage, @site
   #soils_actions.well
-    = link_to "New #{resource_title}", {:action => :new}, :class => 'btn'
+    - if @soils.count == 1
+      = link_to "Edit", edit_resource_path(@soils.first), :class => 'btn'      
+    = link_to "Add Another Soil Type", {:action => :new}, :class => 'btn'
 .row
   .span10
     = render :partial => 'table'

@@ -8,9 +8,7 @@ Feature: Project site has soils
       And I am on the "Site Analysis" project step
   
   Scenario: New project has one soil which you can edit
-  Then show me the page
     Given I am on the "Soil" site analysis step
-    Then show me the page
     Then I should see only 1 soil which is called "Site Soil"
     When I edit the soil
     And I submit valid soil data including the name "Sandy Loam"
