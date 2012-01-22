@@ -1,0 +1,7 @@
+= table_for(collection) do |t|
+  = t.data do
+    = t.cell :name
+    = t.cell :description
+    - if can? :edit, @project
+      = t.cell(:edit, :heading => '', :cell_html => {:class => 'actions'}) {|resource| link_to('Edit', edit_site_patch_path(@site, resource)) }
+      = t.cell(:remove, :heading => '', :cell_html => {:class => 'actions'}) {|resource| link_to('Remove', site_patch_path(@site, resource), :confirm => 'Are you sure?', :method => :delete) }

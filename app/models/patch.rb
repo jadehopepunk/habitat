@@ -1,4 +1,4 @@
-class Area < ActiveRecord::Base
+class Patch < ActiveRecord::Base
   belongs_to :site
   has_many :soil_tests
   

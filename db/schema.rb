@@ -11,17 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121074722) do
-
-  create_table "areas", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "site_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "areas", ["site_id"], :name => "areas_site_id_fk"
+ActiveRecord::Schema.define(:version => 20120122022825) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "project_id"
@@ -181,6 +171,16 @@ ActiveRecord::Schema.define(:version => 20120121074722) do
     t.datetime "updated_at"
   end
 
+  create_table "patches", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "site_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "patches", ["site_id"], :name => "areas_site_id_fk"
+
   create_table "project_categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -260,7 +260,7 @@ ActiveRecord::Schema.define(:version => 20120121074722) do
 
   create_table "soil_tests", :force => true do |t|
     t.integer  "site_id"
-    t.integer  "area_id"
+    t.integer  "patch_id"
     t.date     "tested_on"
     t.string   "reference"
     t.datetime "created_at"
@@ -273,7 +273,7 @@ ActiveRecord::Schema.define(:version => 20120121074722) do
     t.string   "file_name"
   end
 
-  add_index "soil_tests", ["area_id"], :name => "soil_tests_area_id_fk"
+  add_index "soil_tests", ["patch_id"], :name => "soil_tests_area_id_fk"
   add_index "soil_tests", ["site_id"], :name => "soil_tests_site_id_fk"
 
   create_table "soils", :force => true do |t|
@@ -314,8 +314,6 @@ ActiveRecord::Schema.define(:version => 20120121074722) do
     t.datetime "updated_at"
   end
 
-  add_foreign_key "areas", "sites", :name => "areas_site_id_fk"
-
   add_foreign_key "attachments", "projects", :name => "attachments_project_id_fk"
 
   add_foreign_key "briefs", "projects", :name => "briefs_project_id_fk"
@@ -332,6 +330,8 @@ ActiveRecord::Schema.define(:version => 20120121074722) do
   add_foreign_key "goals_yields", "briefs", :name => "goals_yields_brief_id_fk"
   add_foreign_key "goals_yields", "uses", :name => "goals_yields_use_id_fk"
 
+  add_foreign_key "patches", "sites", :name => "areas_site_id_fk"
+
   add_foreign_key "project_collaborators", "projects", :name => "project_collaborators_project_id_fk"
   add_foreign_key "project_collaborators", "users", :name => "project_collaborators_user_id_fk"
 
@@ -346,7 +346,7 @@ ActiveRecord::Schema.define(:version => 20120121074722) do
   add_foreign_key "soil_test_results", "soil_test_result_units", :name => "soil_test_results_soil_test_result_unit_id_fk"
   add_foreign_key "soil_test_results", "soil_tests", :name => "soil_test_results_soil_test_id_fk"
 
-  add_foreign_key "soil_tests", "areas", :name => "soil_tests_area_id_fk"
+  add_foreign_key "soil_tests", "patches", :name => "soil_tests_patch_id_fk"
   add_foreign_key "soil_tests", "sites", :name => "soil_tests_site_id_fk"
 
   add_foreign_key "soils", "sites", :name => "soils_site_id_fk"

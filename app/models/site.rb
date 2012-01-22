@@ -1,6 +1,6 @@
 class Site < ActiveRecord::Base
   belongs_to :project
-  has_many :areas, :dependent => :destroy
+  has_many :patches, :dependent => :destroy
   has_many :soils, :dependent => :destroy
   has_many :soil_tests, :dependent => :destroy
   has_many :attachments, :as => :target

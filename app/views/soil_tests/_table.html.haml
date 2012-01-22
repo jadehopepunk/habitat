@@ -2,8 +2,8 @@
   = t.data do
     = t.cell(:tested_on) {|resource| resource.tested_on.to_s(:long)}
     = t.cell :reference
-    - if !@site.areas.empty?
-      = t.cell :area
+    - if !@site.patches.empty?
+      = t.cell :patch
     = t.cell(:notes) {|resource| truncate(resource.notes, :length => 150)}
     = t.cell(:view, :heading => '', :cell_html => {:class => 'actions'}) {|resource| link_to('View', resource_path(resource)) }
     - if can? :edit, @site

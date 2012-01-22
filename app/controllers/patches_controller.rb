@@ -1,4 +1,4 @@
-class AreasController < InheritedResources::Base
+class PatchesController < InheritedResources::Base
   layout 'site_analysis'
   belongs_to :site
 
