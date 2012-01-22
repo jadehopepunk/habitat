@@ -29,7 +29,7 @@ class Ability
       can :read, [Brief, Site, Attachment], public_project
       can :read, GOAL_CLASSES, {:brief => public_project}
       can :read, PROJECT_CATEGORIZATION
-      can :read, [Area, SoilTest], {:site => public_project}
+      can :read, [Patch, SoilTest], {:site => public_project}
       can :read, SoilTestResult, :soil_test => public_project
     end
     
@@ -46,7 +46,7 @@ class Ability
       can goals_action, [Brief, Attachment], user_for_project_component
       can goals_action, GOAL_CLASSES, {:brief => user_for_project_component}
       can site_action, [Site], user_for_project_component
-      can site_action, [Area, SoilTest], {:site => user_for_project_component}
+      can site_action, [Patch, SoilTest], {:site => user_for_project_component}
       can site_action, SoilTestResult, :soil_test => user_for_project_component
     end
     
