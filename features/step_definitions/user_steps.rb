@@ -22,7 +22,7 @@ end
 
 ### GIVEN ###
 Given /^I am not logged in$/ do
-  page.should have_no_content('Log-out')
+  page.should have_no_content('Log out')
 end
 
 Given /^I am logged in$/ do
@@ -35,7 +35,7 @@ end
 
 Given /^I exist as a user$/ do
   sign_up valid_user
-  click_link 'Log-out'
+  click_link 'Log out'
 end
 
 Given /^I do not exist as a user$/ do
@@ -45,7 +45,7 @@ end
 
 ### WHEN ###
 When /^I sign out$/ do
-  click_link 'Log-out'
+  click_link 'Log out'
 end
 
 When /^I sign up with valid user data$/ do
@@ -98,15 +98,15 @@ end
 
 ### THEN ###
 Then /^I should be signed in$/ do
-  page.should have_content "Log-out"
+  page.should have_content "Log out"
   page.should_not have_content "Sign up"
-  page.should_not have_content "Log-in"
+  page.should_not have_content "Log in"
 end
 
 Then /^I should be signed out$/ do
   page.should have_content "Sign up"
-  page.should have_content "Log-in"
-  page.should_not have_content "Log-out"
+  page.should have_content "Log in"
+  page.should_not have_content "Log out"
 end
 
 Then /^I should see a succesfull sign up message$/ do
