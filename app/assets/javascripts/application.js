@@ -10,7 +10,7 @@
 //= require jquery.livequery
 //= require cocoon
 //= require autocomplete-rails
-//= require twitter/bootstrap
+//= require bootstrap
 //= require gmaps4rails/googlemaps.js
 //= require combo/jquery.eventdelay.js
 //= require combo/jquery.combo.js

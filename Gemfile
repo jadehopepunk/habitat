@@ -10,6 +10,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier'
 end
+gem 'bootstrap-sass', '~> 2.0.4.2'
 
 gem 'jquery-rails'
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
@@ -19,7 +20,7 @@ gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem "cancan"
 gem 'haml'
 gem 'inherited_resources'
-gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+#gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'gmaps4rails'
 gem 'crummy'
 gem 'rack-cache', :require => 'rack/cache'
