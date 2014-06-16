@@ -6,8 +6,8 @@ gem 'json'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.2.1"
-  gem 'coffee-rails', "~> 3.2.1"
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier'
 end
 
@@ -30,10 +30,10 @@ gem 'rails3-jquery-autocomplete'
 gem "tabletastic"
 gem 'money'
 gem 'gravtastic'
-# gem 'forem', :git => "git://github.com/radar/forem.git"
-# gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist"
 gem 'geocoder'
 gem 'foreigner'
+# gem 'forem', :git => "git://github.com/radar/forem.git"
+# gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist"
 
 group :production do
   gem 'pg'

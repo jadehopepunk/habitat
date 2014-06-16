@@ -305,7 +305,7 @@ DEPENDENCIES
   rails3-jquery-autocomplete
   rspec-rails (~> 2.6)
   ruby_gntp
-  sass-rails (~> 3.2.1)
+  sass-rails (~> 3.2.3)
   simple_form!
   spork
   tabletastic
