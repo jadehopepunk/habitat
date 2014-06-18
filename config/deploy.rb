@@ -1,24 +1,23 @@
 require "bundler/capistrano"
 
-$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
-require "rvm/capistrano"                  # Load RVM's capistrano plugin.
-set :rvm_ruby_string, 'ruby-1.9.2-p290'        # Or whatever env you want it to run in.
-
 set :application, "habitat"
 set :scm, :git
 set :repository, "git@github.com:craigambrose/habitat.git"
-set :scm_username, "craigambrose"
-set :scm_password, "pentex"
-set :rails_env, "production"
-set :deploy_to, "/home/craig/sites/#{application}"
-set :user, 'craig'
 set :use_sudo, false
+set :bundle_flags, "--deployment --binstubs --shebang ruby-local-exec"
 
+task :staging do
+  set :user, "www"
+  set :domain, "craftworks.enspiral.info"
+  set :branch, "master"
+  set :rails_env, "staging"
+  set :deploy_to, "/home/#{user}/#{application}/"
+  set :bundle_without, [:development, :test]
 
-set :domain, "lucid.craigambrose.com"
-role :web, domain
-role :app, domain
-role :db,  domain, :primary => true
+  role :web, domain
+  role :app, domain
+  role :db, domain, :primary => true
+end
 
 namespace :deploy do
   task :restart do

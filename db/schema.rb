@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(:version => 20120122063920) do
     t.datetime "created_at"
   end
 
+  create_table "budget_goals", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "budget_category_id"
+    t.integer  "amount_cents"
+    t.integer  "timeframe_amount"
+    t.string   "timeframe_amount_unit"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
   create_table "communities", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -169,6 +179,19 @@ ActiveRecord::Schema.define(:version => 20120122063920) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "labour_input_goals", :force => true do |t|
+    t.integer  "job_id"
+    t.integer  "project_id"
+    t.float    "implementation_amount"
+    t.string   "implementation_amount_unit"
+    t.string   "implementation_amount_period"
+    t.float    "maintenance_amount"
+    t.string   "maintenance_amount_unit"
+    t.string   "maintenance_amount_period"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "patches", :force => true do |t|
@@ -312,6 +335,18 @@ ActiveRecord::Schema.define(:version => 20120122063920) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "yield_goals", :force => true do |t|
+    t.integer  "use_id"
+    t.integer  "project_id"
+    t.float    "amount"
+    t.string   "amount_unit"
+    t.string   "amount_period"
+    t.float    "lead_time_in_years"
+    t.text     "details"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   add_foreign_key "attachments", "projects", :name => "attachments_project_id_fk"

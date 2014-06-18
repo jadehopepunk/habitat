@@ -26,7 +26,7 @@ gem 'crummy'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly'
 gem 'navigasmic'
-gem 'mysql2'
+gem 'pg'
 gem 'rails3-jquery-autocomplete'
 gem "tabletastic"
 gem 'money'
@@ -35,10 +35,6 @@ gem 'geocoder'
 gem 'foreigner'
 # gem 'forem', :git => "git://github.com/radar/forem.git"
 # gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist"
-
-group :production do
-  gem 'pg'
-end
 
 group :test, :development do
   gem 'capistrano'
